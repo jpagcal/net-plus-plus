@@ -1,5 +1,4 @@
 .clangd
-CMakeLists.txt
 **/Makefile
 build/
 Testing/

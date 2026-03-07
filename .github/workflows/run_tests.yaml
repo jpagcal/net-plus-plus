@@ -1,0 +1,40 @@
+# yaml-language-server: $schema=https://json.schemastore.org/github-workflow.json
+name: run GTest suites
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  run-gTest-suites:
+    runs-on: macos-latest
+    defaults:
+      run:
+        shell: bash
+        working-directory: ${{ github.workspace }}
+    steps:
+      # -----------------------------------------------
+      # Checks out the latest version of the repository
+      # -----------------------------------------------
+      - name: checkout repository
+        uses: actions/checkout@v4
+
+      # -----------------------------------------------
+      # Creates build artifacts
+      # -----------------------------------------------
+      - name: configure CMake
+        run: |
+          echo "========================= Configure CMake ========================="
+          cmake -S . -B ./build
+          echo "========================= Create Build Artifacts ========================="
+          cmake --build build
+
+      # -----------------------------------------------
+      # RUns GTests
+      # -----------------------------------------------
+      - name: run gTest
+        run: |
+          echo "========================= Run Google Tests ========================="
+          cd build
+          ctest --verbose
