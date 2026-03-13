@@ -100,51 +100,58 @@ $(document).ready(function(){initNavTree('tcp_8hh_source.html',''); initResizabl
 <div class="contents">
 <a href="tcp_8hh.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="preprocessor">#pragma once</span></div>
 <div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span> </div>
-<div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span><span class="preprocessor">#include &lt;sys/socket.h&gt;</span></div>
-<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span><span class="preprocessor">#include &lt;string&gt;</span></div>
-<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span> </div>
-<div class="foldopen" id="foldopen00006" data-start="{" data-end="}">
-<div class="line"><a id="l00006" name="l00006"></a><span class="lineno"><a class="line" href="namespacetcp.html">    6</a></span><span class="keyword">namespace </span><a class="code hl_namespace" href="namespacetcp.html">tcp</a> {</div>
-<div class="foldopen" id="foldopen00010" data-start="{" data-end="};">
-<div class="line"><a id="l00010" name="l00010"></a><span class="lineno"><a class="line" href="classtcp_1_1Connection.html">   10</a></span>    <span class="keyword">class </span><a class="code hl_class" href="classtcp_1_1Connection.html">Connection</a> {</div>
-<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span>        <span class="keyword">public</span>:</div>
-<div class="line"><a id="l00015" name="l00015"></a><span class="lineno"><a class="line" href="classtcp_1_1Connection.html#a70145c99ef74faef6738f57ed503f824">   15</a></span>        <a class="code hl_function" href="classtcp_1_1Connection.html#a70145c99ef74faef6738f57ed503f824">Connection</a>(<span class="keywordtype">int</span> socketFD);</div>
-<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span> </div>
-<div class="line"><a id="l00017" name="l00017"></a><span class="lineno"><a class="line" href="classtcp_1_1Connection.html#a4a76e1cb4a89cc5b8b036510b6424478">   17</a></span>        <a class="code hl_function" href="classtcp_1_1Connection.html#a4a76e1cb4a89cc5b8b036510b6424478">~Connection</a>();</div>
-<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span> </div>
-<div class="line"><a id="l00022" name="l00022"></a><span class="lineno"><a class="line" href="classtcp_1_1Connection.html#ad2da2227505b9614e1c93e54a82ee3bc">   22</a></span>        <span class="keyword">static</span> <a class="code hl_class" href="classtcp_1_1Connection.html">Connection</a> <a class="code hl_function" href="classtcp_1_1Connection.html#ad2da2227505b9614e1c93e54a82ee3bc">resolve</a>(<span class="keyword">const</span> std::string host, <span class="keyword">const</span> std::string service, <span class="keyword">const</span> <span class="keywordtype">int</span> domain);</div>
-<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span> </div>
-<div class="line"><a id="l00024" name="l00024"></a><span class="lineno"><a class="line" href="classtcp_1_1Connection.html#a69ac134a6fef2a5a2f5812fc0fe96a8d">   24</a></span>        <span class="keywordtype">void</span> <a class="code hl_function" href="classtcp_1_1Connection.html#a69ac134a6fef2a5a2f5812fc0fe96a8d">sendAll</a>(std::string_view msg);</div>
-<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span> </div>
-<div class="line"><a id="l00026" name="l00026"></a><span class="lineno"><a class="line" href="classtcp_1_1Connection.html#a12da6642238c17c01ee78346646b9431">   26</a></span>        <span class="keywordtype">void</span> <a class="code hl_function" href="classtcp_1_1Connection.html#a12da6642238c17c01ee78346646b9431">recvAll</a>();</div>
-<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span> </div>
-<div class="line"><a id="l00028" name="l00028"></a><span class="lineno"><a class="line" href="classtcp_1_1Connection.html#affb5369e163f89431b8df19de194f6b8">   28</a></span>        <span class="keywordtype">int</span> <a class="code hl_function" href="classtcp_1_1Connection.html#affb5369e163f89431b8df19de194f6b8">getFileDescriptor</a>();</div>
-<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span> </div>
-<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span> </div>
-<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span> </div>
-<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span>        <span class="keyword">private</span>:</div>
-<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span>        <span class="keywordtype">int</span> socket_;</div>
-<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span>    };</div>
+<div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span><span class="preprocessor">#include &lt;functional&gt;</span></div>
+<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span><span class="preprocessor">#include &lt;memory&gt;</span></div>
+<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span><span class="preprocessor">#include &lt;string_view&gt;</span></div>
+<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span><span class="preprocessor">#include &lt;sys/socket.h&gt;</span></div>
+<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span> </div>
+<div class="foldopen" id="foldopen00008" data-start="{" data-end="}">
+<div class="line"><a id="l00008" name="l00008"></a><span class="lineno"><a class="line" href="namespacetcp.html">    8</a></span><span class="keyword">namespace </span><a class="code hl_namespace" href="namespacetcp.html">tcp</a> {</div>
+<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span> </div>
+<div class="foldopen" id="foldopen00016" data-start="{" data-end="};">
+<div class="line"><a id="l00016" name="l00016"></a><span class="lineno"><a class="line" href="classtcp_1_1Connection.html">   16</a></span><span class="keyword">class </span><a class="code hl_class" href="classtcp_1_1Connection.html">Connection</a> : <span class="keyword">public</span> std::enable_shared_from_this&lt;Connection&gt; {</div>
+<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span>    <span class="keyword">using </span>connection_ptr = std::shared_ptr&lt;Connection&gt;;</div>
+<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span>    <span class="keyword">static</span> <span class="keyword">constexpr</span> int32_t invalid_socket_fd{ -1 };</div>
+<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span><span class="keyword">public</span>:</div>
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span>    <a class="code hl_class" href="classtcp_1_1Connection.html">Connection</a>(<span class="keyword">const</span> <a class="code hl_class" href="classtcp_1_1Connection.html">Connection</a>&amp;) = <span class="keyword">delete</span>;</div>
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span>    <a class="code hl_class" href="classtcp_1_1Connection.html">Connection</a>&amp; <a class="code hl_function" href="classtcp_1_1Connection.html#a3aff1f6c7ee36d2a0d9c52a3210e87fa">operator=</a>(<span class="keyword">const</span> <a class="code hl_class" href="classtcp_1_1Connection.html">Connection</a>&amp;) = <span class="keyword">delete</span>;</div>
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span> </div>
+<div class="line"><a id="l00033" name="l00033"></a><span class="lineno"><a class="line" href="classtcp_1_1Connection.html#a5795f66e021e87bb4190442d93111422">   33</a></span>    <a class="code hl_function" href="classtcp_1_1Connection.html#a5795f66e021e87bb4190442d93111422">Connection</a>(<a class="code hl_class" href="classtcp_1_1Connection.html">Connection</a>&amp;&amp; other) <span class="keyword">noexcept</span>;</div>
+<div class="line"><a id="l00043" name="l00043"></a><span class="lineno"><a class="line" href="classtcp_1_1Connection.html#a3aff1f6c7ee36d2a0d9c52a3210e87fa">   43</a></span>    <a class="code hl_class" href="classtcp_1_1Connection.html">Connection</a> &amp;<a class="code hl_function" href="classtcp_1_1Connection.html#a3aff1f6c7ee36d2a0d9c52a3210e87fa">operator=</a>(<a class="code hl_class" href="classtcp_1_1Connection.html">Connection</a>&amp;&amp; other) <span class="keyword">noexcept</span>;</div>
+<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span> </div>
+<div class="line"><a id="l00051" name="l00051"></a><span class="lineno"><a class="line" href="classtcp_1_1Connection.html#a2fdd271f3c2c3491560244cd3e30b1fa">   51</a></span>    connection_ptr <a class="code hl_function" href="classtcp_1_1Connection.html#a2fdd271f3c2c3491560244cd3e30b1fa">create</a>(int32_t socket_fd);</div>
+<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span> </div>
+<div class="line"><a id="l00056" name="l00056"></a><span class="lineno"><a class="line" href="classtcp_1_1Connection.html#a058fab399bcbd7d008340b540533f49b">   56</a></span>    <span class="keywordtype">void</span> <a class="code hl_function" href="classtcp_1_1Connection.html#a058fab399bcbd7d008340b540533f49b">set_nonblocking</a>();</div>
+<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span> </div>
+<div class="line"><a id="l00063" name="l00063"></a><span class="lineno"><a class="line" href="classtcp_1_1Connection.html#af28d56c4049469095f65981be78cacd4">   63</a></span>    <span class="keywordtype">bool</span> <a class="code hl_function" href="classtcp_1_1Connection.html#af28d56c4049469095f65981be78cacd4">is_nonblocking</a>();</div>
+<div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span> </div>
+<div class="line"><a id="l00074" name="l00074"></a><span class="lineno"><a class="line" href="classtcp_1_1Connection.html#a64d6b6ef97e26823a134468ad31102ff">   74</a></span>    <span class="keywordtype">void</span> <a class="code hl_function" href="classtcp_1_1Connection.html#a64d6b6ef97e26823a134468ad31102ff">send_async</a>(std::string_view msg, std::function&lt;<span class="keywordtype">void</span>()&gt; callback);</div>
+<div class="line"><a id="l00075" name="l00075"></a><span class="lineno">   75</span> </div>
+<div class="line"><a id="l00085" name="l00085"></a><span class="lineno"><a class="line" href="classtcp_1_1Connection.html#a6552f9b7b0d23e9444eef0ed5e90e04b">   85</a></span>    <span class="keywordtype">void</span> <a class="code hl_function" href="classtcp_1_1Connection.html#a6552f9b7b0d23e9444eef0ed5e90e04b">recv_async</a>(std::vector&lt;std::byte&gt; buf, std::function&lt;<span class="keywordtype">void</span>()&gt; callback);</div>
+<div class="line"><a id="l00086" name="l00086"></a><span class="lineno">   86</span> </div>
+<div class="line"><a id="l00095" name="l00095"></a><span class="lineno"><a class="line" href="classtcp_1_1Connection.html#adee0182da2eee3319f309094e37fe542">   95</a></span>    <span class="keywordtype">void</span> <a class="code hl_function" href="classtcp_1_1Connection.html#adee0182da2eee3319f309094e37fe542">send_sync</a>(std::string_view msg);</div>
+<div class="line"><a id="l00096" name="l00096"></a><span class="lineno">   96</span> </div>
+<div class="line"><a id="l00105" name="l00105"></a><span class="lineno"><a class="line" href="classtcp_1_1Connection.html#aed6b6f06c8a962a484542bf4d31f16fb">  105</a></span>    <span class="keywordtype">void</span> <a class="code hl_function" href="classtcp_1_1Connection.html#aed6b6f06c8a962a484542bf4d31f16fb">recv_async</a>(std::vector&lt;std::byte&gt; buf);</div>
+<div class="line"><a id="l00106" name="l00106"></a><span class="lineno">  106</span><span class="keyword">private</span>:</div>
+<div class="line"><a id="l00108" name="l00108"></a><span class="lineno">  108</span>    <a class="code hl_class" href="classtcp_1_1Connection.html">Connection</a>(int32_t socket_fd) : socket_fd_{ socket_fd } {};</div>
+<div class="line"><a id="l00110" name="l00110"></a><span class="lineno">  110</span> </div>
+<div class="line"><a id="l00111" name="l00111"></a><span class="lineno">  111</span>    int32_t socket_fd_; </div>
+<div class="line"><a id="l00112" name="l00112"></a><span class="lineno">  112</span>};</div>
 </div>
-<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span> </div>
-<div class="foldopen" id="foldopen00036" data-start="{" data-end="};">
-<div class="line"><a id="l00036" name="l00036"></a><span class="lineno"><a class="line" href="classtcp_1_1Acceptor.html">   36</a></span>    <span class="keyword">class </span><a class="code hl_class" href="classtcp_1_1Acceptor.html">Acceptor</a> {</div>
-<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span>        <span class="keyword">public</span>:</div>
-<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span>        <span class="keyword">private</span>:</div>
-<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span>    };</div>
+<div class="line"><a id="l00113" name="l00113"></a><span class="lineno">  113</span> </div>
+<div class="line"><a id="l00114" name="l00114"></a><span class="lineno">  114</span>}</div>
 </div>
-<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span> </div>
-<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span>}</div>
-</div>
-<div class="ttc" id="aclasstcp_1_1Acceptor_html"><div class="ttname"><a href="classtcp_1_1Acceptor.html">tcp::Acceptor</a></div><div class="ttdef"><b>Definition</b> tcp.hh:36</div></div>
-<div class="ttc" id="aclasstcp_1_1Connection_html"><div class="ttname"><a href="classtcp_1_1Connection.html">tcp::Connection</a></div><div class="ttdoc">Represents a connected socket.</div><div class="ttdef"><b>Definition</b> tcp.hh:10</div></div>
-<div class="ttc" id="aclasstcp_1_1Connection_html_a12da6642238c17c01ee78346646b9431"><div class="ttname"><a href="classtcp_1_1Connection.html#a12da6642238c17c01ee78346646b9431">tcp::Connection::recvAll</a></div><div class="ttdeci">void recvAll()</div></div>
-<div class="ttc" id="aclasstcp_1_1Connection_html_a4a76e1cb4a89cc5b8b036510b6424478"><div class="ttname"><a href="classtcp_1_1Connection.html#a4a76e1cb4a89cc5b8b036510b6424478">tcp::Connection::~Connection</a></div><div class="ttdeci">~Connection()</div></div>
-<div class="ttc" id="aclasstcp_1_1Connection_html_a69ac134a6fef2a5a2f5812fc0fe96a8d"><div class="ttname"><a href="classtcp_1_1Connection.html#a69ac134a6fef2a5a2f5812fc0fe96a8d">tcp::Connection::sendAll</a></div><div class="ttdeci">void sendAll(std::string_view msg)</div></div>
-<div class="ttc" id="aclasstcp_1_1Connection_html_a70145c99ef74faef6738f57ed503f824"><div class="ttname"><a href="classtcp_1_1Connection.html#a70145c99ef74faef6738f57ed503f824">tcp::Connection::Connection</a></div><div class="ttdeci">Connection(int socketFD)</div></div>
-<div class="ttc" id="aclasstcp_1_1Connection_html_ad2da2227505b9614e1c93e54a82ee3bc"><div class="ttname"><a href="classtcp_1_1Connection.html#ad2da2227505b9614e1c93e54a82ee3bc">tcp::Connection::resolve</a></div><div class="ttdeci">static Connection resolve(const std::string host, const std::string service, const int domain)</div></div>
-<div class="ttc" id="aclasstcp_1_1Connection_html_affb5369e163f89431b8df19de194f6b8"><div class="ttname"><a href="classtcp_1_1Connection.html#affb5369e163f89431b8df19de194f6b8">tcp::Connection::getFileDescriptor</a></div><div class="ttdeci">int getFileDescriptor()</div></div>
-<div class="ttc" id="anamespacetcp_html"><div class="ttname"><a href="namespacetcp.html">tcp</a></div><div class="ttdef"><b>Definition</b> tcp.hh:6</div></div>
+<div class="ttc" id="aclasstcp_1_1Connection_html"><div class="ttname"><a href="classtcp_1_1Connection.html">tcp::Connection</a></div><div class="ttdoc">Represents a TCP connection.</div><div class="ttdef"><b>Definition</b> tcp.hh:16</div></div>
+<div class="ttc" id="aclasstcp_1_1Connection_html_a058fab399bcbd7d008340b540533f49b"><div class="ttname"><a href="classtcp_1_1Connection.html#a058fab399bcbd7d008340b540533f49b">tcp::Connection::set_nonblocking</a></div><div class="ttdeci">void set_nonblocking()</div><div class="ttdoc">Sets the underlying socket handle as nonblocking.</div></div>
+<div class="ttc" id="aclasstcp_1_1Connection_html_a2fdd271f3c2c3491560244cd3e30b1fa"><div class="ttname"><a href="classtcp_1_1Connection.html#a2fdd271f3c2c3491560244cd3e30b1fa">tcp::Connection::create</a></div><div class="ttdeci">connection_ptr create(int32_t socket_fd)</div><div class="ttdoc">Creates a shared ptr to a new Connection instance.</div></div>
+<div class="ttc" id="aclasstcp_1_1Connection_html_a3aff1f6c7ee36d2a0d9c52a3210e87fa"><div class="ttname"><a href="classtcp_1_1Connection.html#a3aff1f6c7ee36d2a0d9c52a3210e87fa">tcp::Connection::operator=</a></div><div class="ttdeci">Connection &amp; operator=(Connection &amp;&amp;other) noexcept</div><div class="ttdoc">The move constructor for the Connection class.</div></div>
+<div class="ttc" id="aclasstcp_1_1Connection_html_a5795f66e021e87bb4190442d93111422"><div class="ttname"><a href="classtcp_1_1Connection.html#a5795f66e021e87bb4190442d93111422">tcp::Connection::Connection</a></div><div class="ttdeci">Connection(Connection &amp;&amp;other) noexcept</div><div class="ttdoc">The move constructor for the Connection class.</div></div>
+<div class="ttc" id="aclasstcp_1_1Connection_html_a64d6b6ef97e26823a134468ad31102ff"><div class="ttname"><a href="classtcp_1_1Connection.html#a64d6b6ef97e26823a134468ad31102ff">tcp::Connection::send_async</a></div><div class="ttdeci">void send_async(std::string_view msg, std::function&lt; void()&gt; callback)</div><div class="ttdoc">Sends a message through the endpoint asynchronously.</div></div>
+<div class="ttc" id="aclasstcp_1_1Connection_html_a6552f9b7b0d23e9444eef0ed5e90e04b"><div class="ttname"><a href="classtcp_1_1Connection.html#a6552f9b7b0d23e9444eef0ed5e90e04b">tcp::Connection::recv_async</a></div><div class="ttdeci">void recv_async(std::vector&lt; std::byte &gt; buf, std::function&lt; void()&gt; callback)</div><div class="ttdoc">Receives a message from the endpoint asynchronously.</div></div>
+<div class="ttc" id="aclasstcp_1_1Connection_html_adee0182da2eee3319f309094e37fe542"><div class="ttname"><a href="classtcp_1_1Connection.html#adee0182da2eee3319f309094e37fe542">tcp::Connection::send_sync</a></div><div class="ttdeci">void send_sync(std::string_view msg)</div><div class="ttdoc">Sends a message through the endpoint synchronously.</div></div>
+<div class="ttc" id="aclasstcp_1_1Connection_html_aed6b6f06c8a962a484542bf4d31f16fb"><div class="ttname"><a href="classtcp_1_1Connection.html#aed6b6f06c8a962a484542bf4d31f16fb">tcp::Connection::recv_async</a></div><div class="ttdeci">void recv_async(std::vector&lt; std::byte &gt; buf)</div><div class="ttdoc">Receives a message from the endpoint synchronously.</div></div>
+<div class="ttc" id="aclasstcp_1_1Connection_html_af28d56c4049469095f65981be78cacd4"><div class="ttname"><a href="classtcp_1_1Connection.html#af28d56c4049469095f65981be78cacd4">tcp::Connection::is_nonblocking</a></div><div class="ttdeci">bool is_nonblocking()</div><div class="ttdoc">Checks if the underlying socket handle is nonblocking.</div></div>
+<div class="ttc" id="anamespacetcp_html"><div class="ttname"><a href="namespacetcp.html">tcp</a></div><div class="ttdef"><b>Definition</b> tcp.hh:8</div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->

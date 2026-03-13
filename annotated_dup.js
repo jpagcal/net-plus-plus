@@ -9,7 +9,6 @@ var annotated_dup =
       [ "AddressInfo", "classendpoint__info_1_1AddressInfo.html", "classendpoint__info_1_1AddressInfo" ]
     ] ],
     [ "tcp", "namespacetcp.html", [
-      [ "Acceptor", "classtcp_1_1Acceptor.html", null ],
       [ "Connection", "classtcp_1_1Connection.html", "classtcp_1_1Connection" ]
     ] ],
     [ "Address", "classendpoint__info_1_1Address.html", "classendpoint__info_1_1Address" ],

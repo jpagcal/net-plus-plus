@@ -92,111 +92,58 @@ $(document).ready(function(){initNavTree('classtcp_1_1Connection.html',''); init
 <div class="header">
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
-<a href="#pub-static-methods">Static Public Member Functions</a> &#124;
 <a href="classtcp_1_1Connection-members.html">List of all members</a>  </div>
   <div class="headertitle"><div class="title">tcp::Connection Class Reference</div></div>
 </div><!--header-->
 <div class="contents">
 
-<p>Represents a connected socket.  
+<p>Represents a TCP connection.  
  <a href="classtcp_1_1Connection.html#details">More...</a></p>
 
 <p><code>#include &lt;<a class="el" href="tcp_8hh_source.html">tcp.hh</a>&gt;</code></p>
+<div class="dynheader">
+Inheritance diagram for tcp::Connection:</div>
+<div class="dyncontent">
+ <div class="center">
+  <img src="classtcp_1_1Connection.png" alt=""/>
+ </div></div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a70145c99ef74faef6738f57ed503f824" id="r_a70145c99ef74faef6738f57ed503f824"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtcp_1_1Connection.html#a70145c99ef74faef6738f57ed503f824">Connection</a> (int socketFD)</td></tr>
-<tr class="separator:a70145c99ef74faef6738f57ed503f824"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a4a76e1cb4a89cc5b8b036510b6424478" id="r_a4a76e1cb4a89cc5b8b036510b6424478"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtcp_1_1Connection.html#a4a76e1cb4a89cc5b8b036510b6424478">~Connection</a> ()</td></tr>
-<tr class="separator:a4a76e1cb4a89cc5b8b036510b6424478"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a69ac134a6fef2a5a2f5812fc0fe96a8d" id="r_a69ac134a6fef2a5a2f5812fc0fe96a8d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtcp_1_1Connection.html#a69ac134a6fef2a5a2f5812fc0fe96a8d">sendAll</a> (std::string_view msg)</td></tr>
-<tr class="separator:a69ac134a6fef2a5a2f5812fc0fe96a8d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a12da6642238c17c01ee78346646b9431" id="r_a12da6642238c17c01ee78346646b9431"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtcp_1_1Connection.html#a12da6642238c17c01ee78346646b9431">recvAll</a> ()</td></tr>
-<tr class="separator:a12da6642238c17c01ee78346646b9431"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:affb5369e163f89431b8df19de194f6b8" id="r_affb5369e163f89431b8df19de194f6b8"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtcp_1_1Connection.html#affb5369e163f89431b8df19de194f6b8">getFileDescriptor</a> ()</td></tr>
-<tr class="separator:affb5369e163f89431b8df19de194f6b8"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-static-methods" name="pub-static-methods"></a>
-Static Public Member Functions</h2></td></tr>
-<tr class="memitem:ad2da2227505b9614e1c93e54a82ee3bc" id="r_ad2da2227505b9614e1c93e54a82ee3bc"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="classtcp_1_1Connection.html">Connection</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtcp_1_1Connection.html#ad2da2227505b9614e1c93e54a82ee3bc">resolve</a> (const std::string host, const std::string service, const int domain)</td></tr>
-<tr class="separator:ad2da2227505b9614e1c93e54a82ee3bc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5795f66e021e87bb4190442d93111422" id="r_a5795f66e021e87bb4190442d93111422"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtcp_1_1Connection.html#a5795f66e021e87bb4190442d93111422">Connection</a> (<a class="el" href="classtcp_1_1Connection.html">Connection</a> &amp;&amp;other) noexcept</td></tr>
+<tr class="memdesc:a5795f66e021e87bb4190442d93111422"><td class="mdescLeft">&#160;</td><td class="mdescRight">The move constructor for the <a class="el" href="classtcp_1_1Connection.html" title="Represents a TCP connection.">Connection</a> class.  <br /></td></tr>
+<tr class="separator:a5795f66e021e87bb4190442d93111422"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3aff1f6c7ee36d2a0d9c52a3210e87fa" id="r_a3aff1f6c7ee36d2a0d9c52a3210e87fa"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classtcp_1_1Connection.html">Connection</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtcp_1_1Connection.html#a3aff1f6c7ee36d2a0d9c52a3210e87fa">operator=</a> (<a class="el" href="classtcp_1_1Connection.html">Connection</a> &amp;&amp;other) noexcept</td></tr>
+<tr class="memdesc:a3aff1f6c7ee36d2a0d9c52a3210e87fa"><td class="mdescLeft">&#160;</td><td class="mdescRight">The move constructor for the <a class="el" href="classtcp_1_1Connection.html" title="Represents a TCP connection.">Connection</a> class.  <br /></td></tr>
+<tr class="separator:a3aff1f6c7ee36d2a0d9c52a3210e87fa"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2fdd271f3c2c3491560244cd3e30b1fa" id="r_a2fdd271f3c2c3491560244cd3e30b1fa"><td class="memItemLeft" align="right" valign="top">connection_ptr&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtcp_1_1Connection.html#a2fdd271f3c2c3491560244cd3e30b1fa">create</a> (int32_t socket_fd)</td></tr>
+<tr class="memdesc:a2fdd271f3c2c3491560244cd3e30b1fa"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates a shared ptr to a new <a class="el" href="classtcp_1_1Connection.html" title="Represents a TCP connection.">Connection</a> instance.  <br /></td></tr>
+<tr class="separator:a2fdd271f3c2c3491560244cd3e30b1fa"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a058fab399bcbd7d008340b540533f49b" id="r_a058fab399bcbd7d008340b540533f49b"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtcp_1_1Connection.html#a058fab399bcbd7d008340b540533f49b">set_nonblocking</a> ()</td></tr>
+<tr class="memdesc:a058fab399bcbd7d008340b540533f49b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the underlying socket handle as nonblocking.  <br /></td></tr>
+<tr class="separator:a058fab399bcbd7d008340b540533f49b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af28d56c4049469095f65981be78cacd4" id="r_af28d56c4049469095f65981be78cacd4"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtcp_1_1Connection.html#af28d56c4049469095f65981be78cacd4">is_nonblocking</a> ()</td></tr>
+<tr class="memdesc:af28d56c4049469095f65981be78cacd4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Checks if the underlying socket handle is nonblocking.  <br /></td></tr>
+<tr class="separator:af28d56c4049469095f65981be78cacd4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a64d6b6ef97e26823a134468ad31102ff" id="r_a64d6b6ef97e26823a134468ad31102ff"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtcp_1_1Connection.html#a64d6b6ef97e26823a134468ad31102ff">send_async</a> (std::string_view msg, std::function&lt; void()&gt; callback)</td></tr>
+<tr class="memdesc:a64d6b6ef97e26823a134468ad31102ff"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sends a message through the endpoint asynchronously.  <br /></td></tr>
+<tr class="separator:a64d6b6ef97e26823a134468ad31102ff"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6552f9b7b0d23e9444eef0ed5e90e04b" id="r_a6552f9b7b0d23e9444eef0ed5e90e04b"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtcp_1_1Connection.html#a6552f9b7b0d23e9444eef0ed5e90e04b">recv_async</a> (std::vector&lt; std::byte &gt; buf, std::function&lt; void()&gt; callback)</td></tr>
+<tr class="memdesc:a6552f9b7b0d23e9444eef0ed5e90e04b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Receives a message from the endpoint asynchronously.  <br /></td></tr>
+<tr class="separator:a6552f9b7b0d23e9444eef0ed5e90e04b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:adee0182da2eee3319f309094e37fe542" id="r_adee0182da2eee3319f309094e37fe542"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtcp_1_1Connection.html#adee0182da2eee3319f309094e37fe542">send_sync</a> (std::string_view msg)</td></tr>
+<tr class="memdesc:adee0182da2eee3319f309094e37fe542"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sends a message through the endpoint synchronously.  <br /></td></tr>
+<tr class="separator:adee0182da2eee3319f309094e37fe542"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aed6b6f06c8a962a484542bf4d31f16fb" id="r_aed6b6f06c8a962a484542bf4d31f16fb"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtcp_1_1Connection.html#aed6b6f06c8a962a484542bf4d31f16fb">recv_async</a> (std::vector&lt; std::byte &gt; buf)</td></tr>
+<tr class="memdesc:aed6b6f06c8a962a484542bf4d31f16fb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Receives a message from the endpoint synchronously.  <br /></td></tr>
+<tr class="separator:aed6b6f06c8a962a484542bf4d31f16fb"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>Represents a connected socket. </p>
+<div class="textblock"><p>Represents a TCP connection. </p>
+<p>Encapsulates a connected socket, allowing send and receive capabilities, as well as I/O multiplexing using libevent. </p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
-<a id="a70145c99ef74faef6738f57ed503f824" name="a70145c99ef74faef6738f57ed503f824"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a70145c99ef74faef6738f57ed503f824">&#9670;&#160;</a></span>Connection()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">tcp::Connection::Connection </td>
-          <td>(</td>
-          <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>socketFD</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<p>Creates a <a class="el" href="classtcp_1_1Connection.html" title="Represents a connected socket.">Connection</a> object from a connected raw socket </p>
-
-</div>
-</div>
-<a id="a4a76e1cb4a89cc5b8b036510b6424478" name="a4a76e1cb4a89cc5b8b036510b6424478"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a4a76e1cb4a89cc5b8b036510b6424478">&#9670;&#160;</a></span>~Connection()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">tcp::Connection::~Connection </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<h2 class="groupheader">Member Function Documentation</h2>
-<a id="affb5369e163f89431b8df19de194f6b8" name="affb5369e163f89431b8df19de194f6b8"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#affb5369e163f89431b8df19de194f6b8">&#9670;&#160;</a></span>getFileDescriptor()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">int tcp::Connection::getFileDescriptor </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="a12da6642238c17c01ee78346646b9431" name="a12da6642238c17c01ee78346646b9431"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a12da6642238c17c01ee78346646b9431">&#9670;&#160;</a></span>recvAll()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void tcp::Connection::recvAll </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="ad2da2227505b9614e1c93e54a82ee3bc" name="ad2da2227505b9614e1c93e54a82ee3bc"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ad2da2227505b9614e1c93e54a82ee3bc">&#9670;&#160;</a></span>resolve()</h2>
+<a id="a5795f66e021e87bb4190442d93111422" name="a5795f66e021e87bb4190442d93111422"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5795f66e021e87bb4190442d93111422">&#9670;&#160;</a></span>Connection()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -205,22 +152,158 @@ Static Public Member Functions</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">static <a class="el" href="classtcp_1_1Connection.html">Connection</a> tcp::Connection::resolve </td>
+          <td class="memname">tcp::Connection::Connection </td>
           <td>(</td>
-          <td class="paramtype">const std::string&#160;</td>
-          <td class="paramname"><em>host</em>, </td>
+          <td class="paramtype"><a class="el" href="classtcp_1_1Connection.html">Connection</a> &amp;&amp;&#160;</td>
+          <td class="paramname"><em>other</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>The move constructor for the <a class="el" href="classtcp_1_1Connection.html" title="Represents a TCP connection.">Connection</a> class. </p>
+<p>Moves the source socket handle to the current <a class="el" href="classtcp_1_1Connection.html" title="Represents a TCP connection.">Connection</a> instance, and invalidates the source instance's socket handle.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">other</td><td>An rvalue reference to the object to steal resources from </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<h2 class="groupheader">Member Function Documentation</h2>
+<a id="a2fdd271f3c2c3491560244cd3e30b1fa" name="a2fdd271f3c2c3491560244cd3e30b1fa"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2fdd271f3c2c3491560244cd3e30b1fa">&#9670;&#160;</a></span>create()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">connection_ptr tcp::Connection::create </td>
+          <td>(</td>
+          <td class="paramtype">int32_t&#160;</td>
+          <td class="paramname"><em>socket_fd</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Creates a shared ptr to a new <a class="el" href="classtcp_1_1Connection.html" title="Represents a TCP connection.">Connection</a> instance. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">socket_fd</td><td>The Connected socket file descriptor to pass into the private constructor </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>A shared pointer to the new <a class="el" href="classtcp_1_1Connection.html" title="Represents a TCP connection.">Connection</a> instance </dd></dl>
+
+</div>
+</div>
+<a id="af28d56c4049469095f65981be78cacd4" name="af28d56c4049469095f65981be78cacd4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af28d56c4049469095f65981be78cacd4">&#9670;&#160;</a></span>is_nonblocking()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool tcp::Connection::is_nonblocking </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Checks if the underlying socket handle is nonblocking. </p>
+<dl class="section return"><dt>Returns</dt><dd>A boolean indicating whether or not the socket is nonblocking </dd></dl>
+
+</div>
+</div>
+<a id="a3aff1f6c7ee36d2a0d9c52a3210e87fa" name="a3aff1f6c7ee36d2a0d9c52a3210e87fa"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3aff1f6c7ee36d2a0d9c52a3210e87fa">&#9670;&#160;</a></span>operator=()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classtcp_1_1Connection.html">Connection</a> &amp; tcp::Connection::operator= </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classtcp_1_1Connection.html">Connection</a> &amp;&amp;&#160;</td>
+          <td class="paramname"><em>other</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>The move constructor for the <a class="el" href="classtcp_1_1Connection.html" title="Represents a TCP connection.">Connection</a> class. </p>
+<p>Closes the current <a class="el" href="classtcp_1_1Connection.html" title="Represents a TCP connection.">Connection</a>'s socket handle if applicable, moves the source socket handle to the current connection instance , and invalidates the source instance's socket handle.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">other</td><td>An rvalue reference to the object to steal resources from </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="aed6b6f06c8a962a484542bf4d31f16fb" name="aed6b6f06c8a962a484542bf4d31f16fb"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aed6b6f06c8a962a484542bf4d31f16fb">&#9670;&#160;</a></span>recv_async() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void tcp::Connection::recv_async </td>
+          <td>(</td>
+          <td class="paramtype">std::vector&lt; std::byte &gt;&#160;</td>
+          <td class="paramname"><em>buf</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Receives a message from the endpoint synchronously. </p>
+<p>Only use when <a class="el" href="classtcp_1_1Connection.html#af28d56c4049469095f65981be78cacd4" title="Checks if the underlying socket handle is nonblocking.">is_nonblocking()</a> returns false. Synchronously receives all bytes into buf.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">The</td><td>buffer of bytes to receive data </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a6552f9b7b0d23e9444eef0ed5e90e04b" name="a6552f9b7b0d23e9444eef0ed5e90e04b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6552f9b7b0d23e9444eef0ed5e90e04b">&#9670;&#160;</a></span>recv_async() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void tcp::Connection::recv_async </td>
+          <td>(</td>
+          <td class="paramtype">std::vector&lt; std::byte &gt;&#160;</td>
+          <td class="paramname"><em>buf</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">const std::string&#160;</td>
-          <td class="paramname"><em>service</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const int&#160;</td>
-          <td class="paramname"><em>domain</em>&#160;</td>
+          <td class="paramtype">std::function&lt; void()&gt;&#160;</td>
+          <td class="paramname"><em>callback</em>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -228,24 +311,66 @@ Static Public Member Functions</h2></td></tr>
           <td></td><td></td>
         </tr>
       </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">static</span></span>  </td>
-  </tr>
-</table>
 </div><div class="memdoc">
-<p>Connects a socket, and then returns the resulting <a class="el" href="classtcp_1_1Connection.html" title="Represents a connected socket.">Connection</a> object </p>
+
+<p>Receives a message from the endpoint asynchronously. </p>
+<p>Only use when the socket is set to nonblocking. Asynchronously receives all bytes into buf and calls the callback function when the operation is completed</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">buf</td><td>The buffer of bytes to receive data </td></tr>
+    <tr><td class="paramname">callback</td><td>The function to call once the receive operation completes </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>
-<a id="a69ac134a6fef2a5a2f5812fc0fe96a8d" name="a69ac134a6fef2a5a2f5812fc0fe96a8d"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a69ac134a6fef2a5a2f5812fc0fe96a8d">&#9670;&#160;</a></span>sendAll()</h2>
+<a id="a64d6b6ef97e26823a134468ad31102ff" name="a64d6b6ef97e26823a134468ad31102ff"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a64d6b6ef97e26823a134468ad31102ff">&#9670;&#160;</a></span>send_async()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">void tcp::Connection::sendAll </td>
+          <td class="memname">void tcp::Connection::send_async </td>
+          <td>(</td>
+          <td class="paramtype">std::string_view&#160;</td>
+          <td class="paramname"><em>msg</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::function&lt; void()&gt;&#160;</td>
+          <td class="paramname"><em>callback</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Sends a message through the endpoint asynchronously. </p>
+<p>Only use when the socket is set to nonblocking. Asynchronously sends all bytes in msg and calls the callback function when the operation is completed</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">msg</td><td>The buffer of bytes to send </td></tr>
+    <tr><td class="paramname">callback</td><td>The function to call once the send operation completes </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="adee0182da2eee3319f309094e37fe542" name="adee0182da2eee3319f309094e37fe542"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#adee0182da2eee3319f309094e37fe542">&#9670;&#160;</a></span>send_sync()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void tcp::Connection::send_sync </td>
           <td>(</td>
           <td class="paramtype">std::string_view&#160;</td>
           <td class="paramname"><em>msg</em></td><td>)</td>
@@ -253,6 +378,34 @@ Static Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Sends a message through the endpoint synchronously. </p>
+<p>Only use when <a class="el" href="classtcp_1_1Connection.html#af28d56c4049469095f65981be78cacd4" title="Checks if the underlying socket handle is nonblocking.">is_nonblocking()</a> returns false. Synchronously sends all bytes in msg.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">the</td><td>buffer of bytes to send </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a058fab399bcbd7d008340b540533f49b" name="a058fab399bcbd7d008340b540533f49b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a058fab399bcbd7d008340b540533f49b">&#9670;&#160;</a></span>set_nonblocking()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void tcp::Connection::set_nonblocking </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Sets the underlying socket handle as nonblocking. </p>
 
 </div>
 </div>
