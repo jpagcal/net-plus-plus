@@ -6,7 +6,6 @@
 #include <sys/socket.h>
 
 namespace tcp {
-
 /**
  * @brief Represents a TCP connection
  *
@@ -14,9 +13,9 @@ namespace tcp {
  * I/O multiplexing using libevent.
  */
 class Connection : public std::enable_shared_from_this<Connection> {
-	using connection_ptr = std::shared_ptr<Connection>;
 	static constexpr int32_t invalid_socket_fd{ -1 };
 public:
+	using connection_ptr = std::shared_ptr<Connection>;
 	/// @cond HIDDEN_FROM_DOCS
 	Connection(const Connection&) = delete;
 	Connection& operator=(const Connection&) = delete;
@@ -48,7 +47,7 @@ public:
 		* @param socket_fd The Connected socket file descriptor to pass into the private constructor
 		* @returns A shared pointer to the new Connection instance
 	 */
-	connection_ptr create(int32_t socket_fd);
+	static connection_ptr create(int32_t socket_fd);
 
 	/**
 	 * @brief Sets the underlying socket handle as nonblocking

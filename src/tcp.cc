@@ -1,77 +1,52 @@
-#include "../include/networking.hpp"
 #include "../include/tcp.hh"
-#include <memory>
-#include <stdexcept>
 #include <sys/_types/_ssize_t.h>
+#include <sys/fcntl.h>
 #include <sys/types.h>
 #include <netdb.h>
-#include <system_error>
 #include <unistd.h>
 #include <cstddef>
-#include <vector>
+#include <fcntl.h>
 
 namespace tcp {
-Connection::Connection(int socketFD) : socket_(socketFD) {}
-
-Connection::~Connection() {
-	close(this->socket_);
+Connection::Connection(Connection &&other) noexcept : socket_fd_{ other.socket_fd_ } {
+	other.socket_fd_ = Connection::invalid_socket_fd;
 }
 
-Connection Connection::resolve(const std::string host, const std::string service, const int domain) {
-	addrinfo hints;
-	std::unique_ptr<addrinfo, >
-
-	// zero out hints
-	memset(&hints, 0, sizeof(addrinfo));
-
-	hints.ai_family = domain;
-	hints.ai_socktype = networking::socket_type::tcp;
-
-	if (!(getaddrinfo(host.c_str(), service.c_str(), &hints, &res))) {
-		freeaddrinfo(res);
-		throw std::system_error(errno, std::generic_category());
+Connection& Connection::operator=(Connection&& other) noexcept {
+	if (socket_fd_ != Connection::invalid_socket_fd) { // same as equality
+		close(socket_fd_);
+		socket_fd_ = other.socket_fd_;
+		other.socket_fd_ = Connection::invalid_socket_fd;
 	}
 
-	int socketFD{ socket(domain, networking::socket_type::tcp, 0) };
+	return *this;
+}
 
-	// connect the socket to the host
-	for (addrinfo *cur{ res }; res != nullptr; cur = cur->ai_next) {
-		if (!(connect(socketFD, cur->ai_addr, cur->ai_addrlen))) {
-			break;
-		}
+Connection::connection_ptr Connection::create(int32_t socket_fd) {
+	return Connection::connection_ptr{ new Connection(socket_fd) };
+}
 
-		// for case n - 1, if it hasnt connected at this point we may throw an exception
-		if (cur->ai_next == nullptr) {
-			freeaddrinfo(res);
-			throw std::runtime_error("Failed to connect to a host");
-		}
+
+void Connection::set_nonblocking() {
+	int32_t status = fcntl(socket_fd_, F_SETFL, O_NONBLOCK);
+
+	if (status == -1) {
+		//TODO: error handling here
 	}
-
-	freeaddrinfo(res);
-
-	return Connection(socketFD);
 }
 
-void Connection::sendAll(std::string_view msg) {
-	ssize_t total{};
-	ssize_t sent{};
-	ssize_t bytesLeft{ static_cast<ssize_t>(msg.size()) };
+bool Connection::is_nonblocking() {
+	int32_t flags = fcntl(socket_fd_, F_GETFL);
 
-	while (total < msg.size()) {
-		ssize_t sentThisIteration{ send(this->socket_, msg.data() + sent, bytesLeft, 0) };
-
-		if (sentThisIteration == -1) {
-
-		}
-
-		total += sentThisIteration;
-		bytesLeft -= sentThisIteration;
-	}
-
+	if (flags & O_NONBLOCK) return true;
+	return false;
 }
 
-void Connection::recvAll() {
+void Connection::send_async(std::string_view msg, std::function<void()> callback) {
 
+	callback();
 }
+
+
 
 } // namespace tcp
