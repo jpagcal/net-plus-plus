@@ -1,6 +1,7 @@
 #include "../include/tcp.hh"
 #include <sys/_types/_ssize_t.h>
 #include <sys/fcntl.h>
+#include <sys/syslimits.h>
 #include <sys/types.h>
 #include <netdb.h>
 #include <unistd.h>
@@ -43,8 +44,101 @@ bool Connection::is_nonblocking() {
 }
 
 void Connection::send_async(std::string_view msg, std::function<void()> callback) {
+}
 
-	callback();
+void recv_async(std::vector<std::byte> buf, std::function<void()> callback) {
+}
+
+void Connection::send_sync(std::string_view msg) {
+	Connection::length_header msg_size(
+		htonl(msg.length())
+	);
+
+	size_t bytes_sent{};
+
+	// send the fixed-length header
+	while (bytes_sent < Connection::header_size) {
+		ssize_t sent{
+			send(
+				socket_fd_,
+				reinterpret_cast<char *>(&msg_size) + bytes_sent,
+				Connection::header_size - bytes_sent,
+				0
+			)
+		};
+
+		if (bytes_sent == -1) {
+			// TODO: error handling here
+		}
+
+		bytes_sent += sent;
+	}
+
+	// send the body
+	bytes_sent = 0;
+	const char *raw_msg{ msg.data() };
+
+	while (bytes_sent < msg.length()) {
+		ssize_t sent {
+			send(
+				socket_fd_,
+				raw_msg + bytes_sent,
+				msg.length() - bytes_sent,
+				0
+			)
+		};
+
+		if (bytes_sent == -1) {
+			// TODO: error handling here
+		}
+
+		bytes_sent += sent;
+	}
+}
+
+void Connection::recv_sync(std::vector<std::byte> &buf) {
+	// read the fixed-length header
+	Connection::length_header header{};
+	size_t bytes_read{};
+
+	// read fixed-length header
+	while (bytes_read < Connection::header_size) {
+		ssize_t read{
+			recv(
+				socket_fd_,
+				reinterpret_cast<char *>(&header) + bytes_read,
+				Connection::header_size - bytes_read,
+				0
+			)
+		};
+
+		if (bytes_read == -1) {
+			// TODO: error handling here
+		}
+
+		bytes_read += read;
+	}
+
+	bytes_read = 0;
+	size_t msg_size{ static_cast<size_t>(ntohl(header)) };
+	buf.resize(msg_size);
+
+	while (bytes_read < msg_size) {
+		ssize_t read{
+			recv(
+				socket_fd_,
+				buf.data() + bytes_read,
+				msg_size - bytes_read,
+				0
+			)
+		};
+
+		if (bytes_read == -1) {
+			// TODO: error handling here
+		}
+
+		bytes_read += read;
+	}
 }
 
 

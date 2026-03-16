@@ -13,7 +13,16 @@ namespace tcp {
  * I/O multiplexing using libevent.
  */
 class Connection : public std::enable_shared_from_this<Connection> {
+	using length_header = int32_t;
 	static constexpr int32_t invalid_socket_fd{ -1 };
+	static constexpr size_t header_size{ sizeof(length_header )};
+	/**
+	 * @brief Strong enumeration for socket read state
+	 */
+	enum class ReadMode {
+		reading_header, /**< Socket is currently reading header */
+		reading_body /**< Socket is currently reading body */
+	};
 public:
 	using connection_ptr = std::shared_ptr<Connection>;
 	/// @cond HIDDEN_FROM_DOCS
@@ -101,13 +110,14 @@ public:
 		*
 		* @param The buffer of bytes to receive data
 	 */
-	void recv_async(std::vector<std::byte> buf);
+	void recv_sync(std::vector<std::byte> &buf);
 private:
 	/// @cond HIDDEN_FROM_DOCS
 	Connection(int32_t socket_fd) : socket_fd_{ socket_fd } {};
 	/// @endcond
 
 	int32_t socket_fd_; /**< A handle to the connected socket */
+	ReadMode read_mode_ = ReadMode::reading_header; /**< The current read mode for the socket */
 };
 
 }
