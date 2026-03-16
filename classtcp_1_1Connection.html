@@ -138,9 +138,9 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:adee0182da2eee3319f309094e37fe542" id="r_adee0182da2eee3319f309094e37fe542"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtcp_1_1Connection.html#adee0182da2eee3319f309094e37fe542">send_sync</a> (std::string_view msg)</td></tr>
 <tr class="memdesc:adee0182da2eee3319f309094e37fe542"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sends a message through the endpoint synchronously.  <br /></td></tr>
 <tr class="separator:adee0182da2eee3319f309094e37fe542"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aed6b6f06c8a962a484542bf4d31f16fb" id="r_aed6b6f06c8a962a484542bf4d31f16fb"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtcp_1_1Connection.html#aed6b6f06c8a962a484542bf4d31f16fb">recv_async</a> (std::vector&lt; std::byte &gt; buf)</td></tr>
-<tr class="memdesc:aed6b6f06c8a962a484542bf4d31f16fb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Receives a message from the endpoint synchronously.  <br /></td></tr>
-<tr class="separator:aed6b6f06c8a962a484542bf4d31f16fb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a73e7ce6aa439176ea61994bc05341c4d" id="r_a73e7ce6aa439176ea61994bc05341c4d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtcp_1_1Connection.html#a73e7ce6aa439176ea61994bc05341c4d">recv_sync</a> (std::vector&lt; std::byte &gt; &amp;buf)</td></tr>
+<tr class="memdesc:a73e7ce6aa439176ea61994bc05341c4d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Receives a message from the endpoint synchronously.  <br /></td></tr>
+<tr class="separator:a73e7ce6aa439176ea61994bc05341c4d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-static-methods" name="pub-static-methods"></a>
 Static Public Member Functions</h2></td></tr>
@@ -293,35 +293,8 @@ Static Public Member Functions</h2></td></tr>
 
 </div>
 </div>
-<a id="aed6b6f06c8a962a484542bf4d31f16fb" name="aed6b6f06c8a962a484542bf4d31f16fb"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aed6b6f06c8a962a484542bf4d31f16fb">&#9670;&#160;</a></span>recv_async() <span class="overload">[1/2]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void tcp::Connection::recv_async </td>
-          <td>(</td>
-          <td class="paramtype">std::vector&lt; std::byte &gt;&#160;</td>
-          <td class="paramname"><em>buf</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Receives a message from the endpoint synchronously. </p>
-<p>Only use when <a class="el" href="classtcp_1_1Connection.html#af28d56c4049469095f65981be78cacd4" title="Checks if the underlying socket handle is nonblocking.">is_nonblocking()</a> returns false. Synchronously receives all bytes into buf.</p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">The</td><td>buffer of bytes to receive data </td></tr>
-  </table>
-  </dd>
-</dl>
-
-</div>
-</div>
 <a id="a6552f9b7b0d23e9444eef0ed5e90e04b" name="a6552f9b7b0d23e9444eef0ed5e90e04b"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a6552f9b7b0d23e9444eef0ed5e90e04b">&#9670;&#160;</a></span>recv_async() <span class="overload">[2/2]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a6552f9b7b0d23e9444eef0ed5e90e04b">&#9670;&#160;</a></span>recv_async()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -352,6 +325,33 @@ Static Public Member Functions</h2></td></tr>
   <table class="params">
     <tr><td class="paramname">buf</td><td>The buffer of bytes to receive data </td></tr>
     <tr><td class="paramname">callback</td><td>The function to call once the receive operation completes </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a73e7ce6aa439176ea61994bc05341c4d" name="a73e7ce6aa439176ea61994bc05341c4d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a73e7ce6aa439176ea61994bc05341c4d">&#9670;&#160;</a></span>recv_sync()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void tcp::Connection::recv_sync </td>
+          <td>(</td>
+          <td class="paramtype">std::vector&lt; std::byte &gt; &amp;&#160;</td>
+          <td class="paramname"><em>buf</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Receives a message from the endpoint synchronously. </p>
+<p>Only use when <a class="el" href="classtcp_1_1Connection.html#af28d56c4049469095f65981be78cacd4" title="Checks if the underlying socket handle is nonblocking.">is_nonblocking()</a> returns false. Synchronously receives all bytes into buf.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">The</td><td>buffer of bytes to receive data </td></tr>
   </table>
   </dd>
 </dl>
