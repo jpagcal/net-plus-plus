@@ -1,7 +1,5 @@
 var searchData=
 [
-  ['ip_5fdomain_0',['ip_domain',['../classendpoint__info_1_1Address.html#aa87bdbd22ba6ce2d85154a617eec97df',1,'endpoint_info::Address']]],
-  ['is_5fnonblocking_1',['is_nonblocking',['../classtcp_1_1Connection.html#af28d56c4049469095f65981be78cacd4',1,'tcp::Connection']]],
-  ['is_5ftcp_2',['is_tcp',['../classendpoint__info_1_1AddressInfo.html#ab30896c5658ac8aa8f9d6a56b2fa2d5b',1,'endpoint_info::AddressInfo']]],
-  ['is_5fudp_3',['is_udp',['../classendpoint__info_1_1AddressInfo.html#a92d7b4bc0e26e5a7d61c63d95c0d4ad9',1,'endpoint_info::AddressInfo']]]
+  ['do_5faccept_0',['do_accept',['../classtcp_1_1Acceptor.html#aba199ab1fb085ef2a9957ff95f0cc104',1,'tcp::Acceptor']]],
+  ['domain_1',['domain',['../classendpoint__info_1_1AddressInfo.html#a4defc42104e77003671bf71dfb3fa0ca',1,'endpoint_info::AddressInfo']]]
 ];

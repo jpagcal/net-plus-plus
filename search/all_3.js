@@ -1,6 +1,5 @@
 var searchData=
 [
-  ['endpoint_5finfo_0',['endpoint_info',['../namespaceendpoint__info.html',1,'']]],
-  ['endpoint_5finfo_2ehpp_1',['endpoint_info.hpp',['../endpoint__info_8hpp.html',1,'']]],
-  ['endpoint_5ftype_2',['endpoint_type',['../structconn__resolver_1_1ResolverHints.html#ae90288e52fa319b10ce50cb186f721ac',1,'conn_resolver::ResolverHints']]]
+  ['do_5faccept_0',['do_accept',['../classtcp_1_1Acceptor.html#aba199ab1fb085ef2a9957ff95f0cc104',1,'tcp::Acceptor']]],
+  ['domain_1',['domain',['../classendpoint__info_1_1AddressInfo.html#a4defc42104e77003671bf71dfb3fa0ca',1,'endpoint_info::AddressInfo']]]
 ];

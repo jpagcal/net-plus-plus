@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['operator_3d_0',['operator=',['../classtcp_1_1Connection.html#a3aff1f6c7ee36d2a0d9c52a3210e87fa',1,'tcp::Connection']]]
+  ['listen_0',['listen',['../classtcp_1_1Acceptor.html#ac2d9e810f609182e278e1f8c49645e6d',1,'tcp::Acceptor']]]
 ];

@@ -1,5 +1,6 @@
 var networking_8hpp =
 [
+    [ "invalid_socket_fd", "networking_8hpp.html#af74441691f7e0bd47bb659961b625ac7", null ],
     [ "ipv4", "networking_8hpp.html#a1d6b6244c990b5ad414955b5872bcac4", null ],
     [ "ipv6", "networking_8hpp.html#ab05ee780c390a4b35b59c610591054bf", null ],
     [ "raw", "networking_8hpp.html#ab191802c689373cced4d868315fdbf0e", null ],

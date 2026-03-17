@@ -1,7 +1,7 @@
 var searchData=
 [
-  ['send_5fasync_0',['send_async',['../classtcp_1_1Connection.html#a64d6b6ef97e26823a134468ad31102ff',1,'tcp::Connection']]],
-  ['send_5fsync_1',['send_sync',['../classtcp_1_1Connection.html#adee0182da2eee3319f309094e37fe542',1,'tcp::Connection']]],
-  ['set_5fnonblocking_2',['set_nonblocking',['../classtcp_1_1Connection.html#a058fab399bcbd7d008340b540533f49b',1,'tcp::Connection']]],
-  ['socket_5ftype_3',['socket_type',['../classendpoint__info_1_1AddressInfo.html#a10045e9f54b5bb2a1e038ad2b0cfea1d',1,'endpoint_info::AddressInfo']]]
+  ['print_5faddress_0',['print_address',['../classendpoint__info_1_1Address.html#a8819271578c48a1134a4d867e033d07b',1,'endpoint_info::Address']]],
+  ['print_5faddress_5finfo_1',['print_address_info',['../classendpoint__info_1_1AddressInfo.html#ac4a942f984275ee30c019106858745cc',1,'endpoint_info::AddressInfo']]],
+  ['print_5fresults_2',['print_results',['../classconn__resolver_1_1Resolver.html#a4eeb7ca4ccfbdfcc15ed3e0aca5effc3',1,'conn_resolver::Resolver']]],
+  ['protocol_3',['protocol',['../classendpoint__info_1_1AddressInfo.html#a59a6cb3fc5398956dda0bffc0cec2042',1,'endpoint_info::AddressInfo']]]
 ];

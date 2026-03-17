@@ -1,7 +1,12 @@
 var searchData=
 [
-  ['print_5faddress_0',['print_address',['../classendpoint__info_1_1Address.html#a8819271578c48a1134a4d867e033d07b',1,'endpoint_info::Address']]],
-  ['print_5faddress_5finfo_1',['print_address_info',['../classendpoint__info_1_1AddressInfo.html#ac4a942f984275ee30c019106858745cc',1,'endpoint_info::AddressInfo']]],
-  ['print_5fresults_2',['print_results',['../classconn__resolver_1_1Resolver.html#a4eeb7ca4ccfbdfcc15ed3e0aca5effc3',1,'conn_resolver::Resolver']]],
-  ['protocol_3',['protocol',['../structconn__resolver_1_1ResolverHints.html#a9843ca9271ed24a34a230d3a9fc99af2',1,'conn_resolver::ResolverHints::protocol'],['../classendpoint__info_1_1AddressInfo.html#a59a6cb3fc5398956dda0bffc0cec2042',1,'endpoint_info::AddressInfo::protocol()']]]
+  ['networking_0',['networking',['../namespacenetworking.html',1,'']]],
+  ['networking_2ehpp_1',['networking.hpp',['../networking_8hpp.html',1,'']]],
+  ['networking_3a_3aconstants_2',['constants',['../namespacenetworking_1_1constants.html',1,'networking']]],
+  ['networking_3a_3aconstants_3a_3adomain_3',['domain',['../namespacenetworking_1_1constants_1_1domain.html',1,'networking::constants']]],
+  ['networking_3a_3aconstants_3a_3ainvalid_5fvalues_4',['invalid_values',['../namespacenetworking_1_1constants_1_1invalid__values.html',1,'networking::constants']]],
+  ['networking_3a_3aconstants_3a_3asocket_5ftype_5',['socket_type',['../namespacenetworking_1_1constants_1_1socket__type.html',1,'networking::constants']]],
+  ['networking_3a_3adomain_6',['domain',['../namespacenetworking_1_1constants_1_1domain.html',1,'networking']]],
+  ['networking_3a_3ainvalid_5fvalues_7',['invalid_values',['../namespacenetworking_1_1constants_1_1invalid__values.html',1,'networking']]],
+  ['networking_3a_3asocket_5ftype_8',['socket_type',['../namespacenetworking_1_1constants_1_1socket__type.html',1,'networking']]]
 ];

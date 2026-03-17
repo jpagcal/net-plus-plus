@@ -5,6 +5,9 @@ var namespacenetworking_1_1constants =
       [ "ipv6", "namespacenetworking_1_1constants_1_1domain.html#ab05ee780c390a4b35b59c610591054bf", null ],
       [ "unspecified_domain", "namespacenetworking_1_1constants_1_1domain.html#a715faccf8bc2dc341e315e6357eae43a", null ]
     ] ],
+    [ "invalid_values", "namespacenetworking_1_1constants_1_1invalid__values.html", [
+      [ "invalid_socket_fd", "namespacenetworking_1_1constants_1_1invalid__values.html#af74441691f7e0bd47bb659961b625ac7", null ]
+    ] ],
     [ "socket_type", "namespacenetworking_1_1constants_1_1socket__type.html", [
       [ "raw", "namespacenetworking_1_1constants_1_1socket__type.html#ab191802c689373cced4d868315fdbf0e", null ],
       [ "tcp", "namespacenetworking_1_1constants_1_1socket__type.html#ad7b80eafe4ec554cf67ae6d5e20e8350", null ],

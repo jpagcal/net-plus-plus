@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['endpoint_5finfo_0',['endpoint_info',['../namespaceendpoint__info.html',1,'']]]
+  ['conn_5fresolver_0',['conn_resolver',['../namespaceconn__resolver.html',1,'']]]
 ];
