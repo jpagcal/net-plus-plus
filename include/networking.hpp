@@ -5,6 +5,9 @@
 
 namespace networking {
 inline namespace constants {
+namespace invalid_values {
+	constexpr int32_t invalid_socket_fd{ -1 };
+}
 namespace domain {
 	constexpr int ipv4 = AF_INET;
 	constexpr int ipv6 = AF_INET6;

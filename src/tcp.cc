@@ -7,17 +7,18 @@
 #include <unistd.h>
 #include <cstddef>
 #include <fcntl.h>
+#include "../include/networking.hpp"
 
 namespace tcp {
 Connection::Connection(Connection &&other) noexcept : socket_fd_{ other.socket_fd_ } {
-	other.socket_fd_ = Connection::invalid_socket_fd;
+	other.socket_fd_ = networking::invalid_values::invalid_socket_fd;
 }
 
 Connection& Connection::operator=(Connection&& other) noexcept {
-	if (socket_fd_ != Connection::invalid_socket_fd) { // same as equality
+	if (socket_fd_ != networking::invalid_values::invalid_socket_fd) { // same as equality
 		close(socket_fd_);
 		socket_fd_ = other.socket_fd_;
-		other.socket_fd_ = Connection::invalid_socket_fd;
+		other.socket_fd_ = networking::invalid_values::invalid_socket_fd;
 	}
 
 	return *this;
@@ -141,6 +142,25 @@ void Connection::recv_sync(std::vector<std::byte> &buf) {
 	}
 }
 
+Acceptor::Acceptor() : listening_socket_fd_{ socket(networking::domain::unspecified_domain, networking::socket_type::tcp, 0) } {}
 
+Acceptor::Acceptor(Acceptor&& other) noexcept : listening_socket_fd_{ other.listening_socket_fd_ } {
+	other.listening_socket_fd_ = networking::invalid_values::invalid_socket_fd;
+}
+
+Acceptor &Acceptor::operator=(Acceptor &&other) noexcept {
+	if (listening_socket_fd_ != networking::invalid_values::invalid_socket_fd) {
+		close(listening_socket_fd_);
+	}
+
+	listening_socket_fd_ = other.listening_socket_fd_;
+	other.listening_socket_fd_ = networking::invalid_values::invalid_socket_fd;
+
+	return *this;
+}
+
+Acceptor::~Acceptor() {
+	close(listening_socket_fd_);
+}
 
 } // namespace tcp

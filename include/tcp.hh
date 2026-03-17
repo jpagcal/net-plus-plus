@@ -120,4 +120,24 @@ private:
 	ReadMode read_mode_ = ReadMode::reading_header; /**< The current read mode for the socket */
 };
 
+/**
+ * @brief Accepts connections and assigns a dedicated TCPConnection object
+ *
+ * Encapsulates a listening socket
+ */
+class Acceptor {
+public:
+	Acceptor();
+	~Acceptor();
+	Acceptor(const Acceptor&) = delete;
+	Acceptor(Acceptor&& other) noexcept;
+
+	Acceptor& operator=(const Acceptor&) = delete;
+	Acceptor& operator=(Acceptor&& other) noexcept;
+	void bind();
+	void listen() const;
+	void do_accept() const;
+private:
+	int32_t listening_socket_fd_;
+};
 }
