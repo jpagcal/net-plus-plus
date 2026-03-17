@@ -2,10 +2,26 @@
 
 net++ is a class-based C++ encapsulation over POSIX sockets providing a simple, readable interface, asynchronous support, and RAII management for persistent objects like connections.
 
-The project is still under construction. As of right now there is a mechanism to resolve addresses that a client wants to connect to:
+This project is still under development, but these features are planned/currently in the works:
+- Event-driven I/O handling (multiplexing) using libevent for blocking calls such as TCP sends and receives.
+- Support for UDP sockets
+- Abstractions for connection pooling
+
+
+## Quick Start
+
+### Connecting to a host
+Connecting to a host involves two simple steps. Client-sided applications use the `conn_resolver::Resolver` class to get a list of valid `AddressInfo` results. The `conn_resolver::Resolver::try_connect()` method attempts to connect to a result and returns a shared pointer to the first connection.
 
 ```cpp
 conn_resolver::Resolver res{ "www.google.com", "8080" };
+std::shared_ptr<tcp::Connection> conn = res.try_connect();
+
+conn.send_sync(...);
+conn.recv_sync(...);
+
 ```
 
 You can view the full documentation [here.](http://jpagcal.github.io/net-plus-plus)
+
+## 
