@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['flags_0',['flags',['../structconn__resolver_1_1ResolverHints.html#ae2db764d6f73528934632fc44b1e4a7c',1,'conn_resolver::ResolverHints']]]
+  ['endpoint_5ftype_0',['endpoint_type',['../structconn__resolver_1_1ResolverHints.html#ae90288e52fa319b10ce50cb186f721ac',1,'conn_resolver::ResolverHints']]]
 ];
