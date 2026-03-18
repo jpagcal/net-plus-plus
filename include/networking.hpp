@@ -1,5 +1,6 @@
 #pragma once
 
+#include <netdb.h>
 #include <sys/socket.h>
 #include <cstddef>
 
@@ -7,7 +8,12 @@ namespace networking {
 inline namespace constants {
 namespace invalid_values {
 	constexpr int32_t invalid_socket_fd{ -1 };
+}// namespace invalid_values
+
+namespace flags {
+	constexpr int binding_socket = AI_PASSIVE;
 }
+
 namespace domain {
 	constexpr int ipv4 = AF_INET;
 	constexpr int ipv6 = AF_INET6;

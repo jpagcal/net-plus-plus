@@ -1,6 +1,7 @@
 #include "../include/tcp.hh"
 #include <sys/_types/_ssize_t.h>
 #include <sys/fcntl.h>
+#include <sys/socket.h>
 #include <sys/syslimits.h>
 #include <sys/types.h>
 #include <netdb.h>
@@ -8,6 +9,7 @@
 #include <cstddef>
 #include <fcntl.h>
 #include "../include/networking.hpp"
+#include "../include/resolver.hpp"
 
 namespace tcp {
 Connection::Connection(Connection &&other) noexcept : socket_fd_{ other.socket_fd_ } {
@@ -142,10 +144,17 @@ void Connection::recv_sync(std::vector<std::byte> &buf) {
 	}
 }
 
-Acceptor::Acceptor() : listening_socket_fd_{ socket(networking::domain::unspecified_domain, networking::socket_type::tcp, 0) } {}
+Acceptor::Acceptor(std::string port) :
+	listening_socket_fd_{
+		socket(networking::domain::unspecified_domain, networking::socket_type::tcp, 0)
+	},
+	port_{ port } {}
 
-Acceptor::Acceptor(Acceptor&& other) noexcept : listening_socket_fd_{ other.listening_socket_fd_ } {
-	other.listening_socket_fd_ = networking::invalid_values::invalid_socket_fd;
+Acceptor::Acceptor(Acceptor&& other) noexcept :
+	listening_socket_fd_{ other.listening_socket_fd_ },
+	port_{ other.port_ } {
+		other.listening_socket_fd_ = networking::invalid_values::invalid_socket_fd;
+		other.port_ = nullptr;
 }
 
 Acceptor &Acceptor::operator=(Acceptor &&other) noexcept {
@@ -154,13 +163,40 @@ Acceptor &Acceptor::operator=(Acceptor &&other) noexcept {
 	}
 
 	listening_socket_fd_ = other.listening_socket_fd_;
+	port_ = other.port_;
 	other.listening_socket_fd_ = networking::invalid_values::invalid_socket_fd;
+	other.port_ = nullptr;
 
 	return *this;
 }
 
 Acceptor::~Acceptor() {
 	close(listening_socket_fd_);
+}
+
+void Acceptor::bind() const {
+	conn_resolver::ResolverHints hints{};
+
+	hints.endpoint_type = networking::socket_type::tcp;
+	hints.ip_domain = networking::domain::unspecified_domain;
+	hints.flags = networking::flags::binding_socket;
+	addrinfo c_hints{ conn_resolver::craft_resolver_hints(hints) }, *res;
+
+	if ((getaddrinfo(nullptr, port_.data(), &c_hints, &res)) == -1) {
+		// TOOD: error handling here
+	}
+
+	if (::bind(listening_socket_fd_, c_hints.ai_addr, c_hints.ai_addrlen) == -1) {
+		// TODO: error handling here
+	}
+
+	freeaddrinfo(res);
+}
+
+void Acceptor::listen() const {
+	if (::listen(listening_socket_fd_, SOMAXCONN) == 0) {
+		//TODO: error handling here
+	}
 }
 
 } // namespace tcp

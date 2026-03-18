@@ -14,7 +14,6 @@ namespace tcp {
  */
 class Connection : public std::enable_shared_from_this<Connection> {
 	using length_header = int32_t;
-	static constexpr int32_t invalid_socket_fd{ -1 };
 	static constexpr size_t header_size{ sizeof(length_header )};
 	/**
 	 * @brief Strong enumeration for socket read state
@@ -127,17 +126,18 @@ private:
  */
 class Acceptor {
 public:
-	Acceptor();
+	Acceptor(std::string port);
 	~Acceptor();
 	Acceptor(const Acceptor&) = delete;
 	Acceptor(Acceptor&& other) noexcept;
 
 	Acceptor& operator=(const Acceptor&) = delete;
 	Acceptor& operator=(Acceptor&& other) noexcept;
-	void bind();
+	void bind() const;
 	void listen() const;
 	void do_accept() const;
 private:
 	int32_t listening_socket_fd_;
+	std::string port_;
 };
 }
