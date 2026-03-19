@@ -15,13 +15,6 @@ namespace tcp {
 class Connection : public std::enable_shared_from_this<Connection> {
 	using length_header = int32_t;
 	static constexpr size_t header_size{ sizeof(length_header )};
-	/**
-	 * @brief Strong enumeration for socket read state
-	 */
-	enum class ReadMode {
-		reading_header, /**< Socket is currently reading header */
-		reading_body /**< Socket is currently reading body */
-	};
 public:
 	using connection_ptr = std::shared_ptr<Connection>;
 	/// @cond HIDDEN_FROM_DOCS
@@ -116,7 +109,6 @@ private:
 	/// @endcond
 
 	int32_t socket_fd_; /**< A handle to the connected socket */
-	ReadMode read_mode_ = ReadMode::reading_header; /**< The current read mode for the socket */
 };
 
 /**
@@ -126,16 +118,61 @@ private:
  */
 class Acceptor {
 public:
+	/**
+	 * @brief Constructor for the Acceptor object.
+		*
+		* Creates a TCP connection with the capability to listen and accept connections on the given port.
+		*
+		* @param port The port in string format
+	 */
 	Acceptor(std::string port);
+
+	/**
+	 * @brief Destructor of the Acceptor object
+		*
+		* Closes the underlying socket handle.
+	 */
 	~Acceptor();
+
+	/// @cond HIDDEN_FROM_DOCS
 	Acceptor(const Acceptor&) = delete;
+	Acceptor& operator=(const Acceptor&) = delete;
+	/// @endcond
+
+	/**
+	 * @brief Copy constructor for the Acceptor object
+		*
+		* Moves the underlying socket handle and port from the source object and invalidates the source object
+	 */
 	Acceptor(Acceptor&& other) noexcept;
 
-	Acceptor& operator=(const Acceptor&) = delete;
+	/**
+	 * @brief Copy operator for the Acceptor object
+		*
+		* Closes any open sockets, moves the socket handle and port from the source object, and invalidates the source object
+	 */
 	Acceptor& operator=(Acceptor&& other) noexcept;
+
+	/**
+	 * @brief Binds the socket handle to the host machine's address
+		*
+		* Handles getaddrinfo() in passive mode and makes a call to the POSIX bind. See "$ man 2 bind"
+	 */
 	void bind() const;
+
+	/**
+	 * @brief Starts listening on the socket for incoming connections
+	 */
 	void listen() const;
-	void do_accept() const;
+
+	/**
+	 * @brief Accepts incoming connections synchronously.
+		*
+		* Makes a call to the POSIX accept and creates a shared pointer to a tcp::Connection object with the resulting file descriptor
+		*
+		* @returns A shared pointer to a tcp::Connection object whose socket handle is the file descriptor obtained from POSIX accept
+	 */
+	Connection::connection_ptr accept() const;
 private:
 	int32_t listening_socket_fd_;
 	std::string port_;
