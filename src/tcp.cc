@@ -1,10 +1,12 @@
 #include "../include/tcp.hh"
+#include <cerrno>
 #include <sys/_types/_ssize_t.h>
 #include <sys/fcntl.h>
 #include <sys/socket.h>
 #include <sys/syslimits.h>
 #include <sys/types.h>
 #include <netdb.h>
+#include <system_error>
 #include <unistd.h>
 #include <cstddef>
 #include <fcntl.h>
@@ -195,8 +197,20 @@ void Acceptor::bind() const {
 
 void Acceptor::listen() const {
 	if (::listen(listening_socket_fd_, SOMAXCONN) == 0) {
-		//TODO: error handling here
+		throw std::system_error(errno, std::generic_category(), "listen() failed");
 	}
+}
+
+Connection::connection_ptr Acceptor::accept() const {
+	int32_t connection_socket;
+
+	if ((connection_socket = ::accept(listening_socket_fd_, nullptr, nullptr)) == -1) {
+		throw std::system_error(errno, std::generic_category(), "accept() failed");
+	}
+
+	Connection::connection_ptr conn{ Connection::create(connection_socket) };
+
+	return conn;
 }
 
 } // namespace tcp
