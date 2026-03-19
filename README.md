@@ -26,15 +26,14 @@ conn.recv_sync(...);
 Setting up a server is simple. First, create a `tcp::Acceptor` instance with a port to listen on. As usual, you can call `tcp::Acceptor::bind()` to resolve the underlying socket to the host machine, `tcp::Acceptor::listen()` to listen for incoming connections, and `tcp::Acceptor::accept()` to create dedicated sockets for incoming connections. 
 
 ```cpp
-	tcp::Acceptor acceptor{ "8080" }
-	
-	acceptor.bind();
-	acceptor.listen();
-	Connection::connection_ptr conn{ acceptor.accept() };
-	
-	conn.send_sync(...);
-	conn.recv_sync(...);
-	
+tcp::Acceptor acceptor{ "8080" }
+
+acceptor.bind();
+acceptor.listen();
+Connection::connection_ptr conn{ acceptor.accept() };
+
+conn.send_sync(...);
+conn.recv_sync(...);
 ```
 
 You can view the full documentation [here.](http://jpagcal.github.io/net-plus-plus)
