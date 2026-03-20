@@ -23,7 +23,7 @@ conn.recv_sync(...);
 ```
 
 ### Accepting incoming connections
-Setting up a server is simple. First, create a `tcp::Acceptor` instance with a port to listen on. As usual, you can call `tcp::Acceptor::bind()` to resolve the underlying socket to the host machine, `tcp::Acceptor::listen()` to listen for incoming connections, and `tcp::Acceptor::accept()` to create dedicated sockets for incoming connections. 
+Setting up a listening connection is similar to the process with the POSIX API. First, create a `tcp::Acceptor` instance with a port to listen on. As usual, you can call `tcp::Acceptor::bind()` to resolve the underlying socket to the host machine, `tcp::Acceptor::listen()` to listen for incoming connections, and `tcp::Acceptor::accept()` to create dedicated sockets for incoming connections. 
 
 ```cpp
 tcp::Acceptor acceptor{ "8080" }
