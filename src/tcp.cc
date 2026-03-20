@@ -6,12 +6,12 @@
 #include <sys/syslimits.h>
 #include <sys/types.h>
 #include <netdb.h>
-#include <system_error>
 #include <unistd.h>
 #include <cstddef>
 #include <fcntl.h>
 #include "../include/networking.hpp"
 #include "../include/resolver.hpp"
+#include "../include/error.hpp"
 
 namespace tcp {
 Connection::Connection(Connection &&other) noexcept : socket_fd_{ other.socket_fd_ } {
@@ -72,8 +72,8 @@ void Connection::send_sync(std::string_view msg) {
 			)
 		};
 
-		if (bytes_sent == -1) {
-			// TODO: error handling here
+		if (sent == -1) {
+			netpp_error::throw_system_error("System level send() failed while sending header");
 		}
 
 		bytes_sent += sent;
@@ -93,8 +93,8 @@ void Connection::send_sync(std::string_view msg) {
 			)
 		};
 
-		if (bytes_sent == -1) {
-			// TODO: error handling here
+		if (sent == -1) {
+			netpp_error::throw_system_error("System level send() failed while sending body");
 		}
 
 		bytes_sent += sent;
@@ -117,8 +117,8 @@ void Connection::recv_sync(std::vector<std::byte> &buf) {
 			)
 		};
 
-		if (bytes_read == -1) {
-			// TODO: error handling here
+		if (read == -1) {
+			netpp_error::throw_system_error("System level recv() failed while reading body");
 		}
 
 		bytes_read += read;
@@ -138,8 +138,8 @@ void Connection::recv_sync(std::vector<std::byte> &buf) {
 			)
 		};
 
-		if (bytes_read == -1) {
-			// TODO: error handling here
+		if (read == -1) {
+			netpp_error::throw_system_error("System level recv() failed while reading body");
 		}
 
 		bytes_read += read;
@@ -184,12 +184,14 @@ void Acceptor::bind() const {
 	hints.flags = networking::flags::binding_socket;
 	addrinfo c_hints{ conn_resolver::craft_resolver_hints(hints) }, *res;
 
-	if ((getaddrinfo(nullptr, port_.data(), &c_hints, &res)) == -1) {
-		// TOOD: error handling here
+	int32_t gai_status{ getaddrinfo(nullptr, port_.data(), &c_hints, &res) };
+
+	if (gai_status != 0) {
+		netpp_error::throw_gai_error(gai_status);
 	}
 
 	if (::bind(listening_socket_fd_, c_hints.ai_addr, c_hints.ai_addrlen) == -1) {
-		// TODO: error handling here
+		netpp_error::throw_system_error("bind() failed");
 	}
 
 	freeaddrinfo(res);
@@ -197,7 +199,7 @@ void Acceptor::bind() const {
 
 void Acceptor::listen() const {
 	if (::listen(listening_socket_fd_, SOMAXCONN) == 0) {
-		throw std::system_error(errno, std::generic_category(), "listen() failed");
+		netpp_error::throw_system_error("listen() failed");
 	}
 }
 
@@ -205,7 +207,7 @@ Connection::connection_ptr Acceptor::accept() const {
 	int32_t connection_socket;
 
 	if ((connection_socket = ::accept(listening_socket_fd_, nullptr, nullptr)) == -1) {
-		throw std::system_error(errno, std::generic_category(), "accept() failed");
+		netpp_error::throw_system_error("accept() failed");
 	}
 
 	Connection::connection_ptr conn{ Connection::create(connection_socket) };

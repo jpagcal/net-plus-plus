@@ -10,7 +10,7 @@ namespace netpp_error {
 	}
 
 	void log_error(std::system_error &e) {
-		std::cout << e.code() << "--------" << e.what() << '\n';
+		std::cerr << e.code() << "--------" << e.what() << '\n';
 	}
 
 	namespace {
