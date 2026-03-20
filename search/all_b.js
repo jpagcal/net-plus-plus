@@ -1,10 +1,7 @@
 var searchData=
 [
-  ['raw_0',['raw',['../namespacenetworking_1_1constants_1_1socket__type.html#ab191802c689373cced4d868315fdbf0e',1,'networking::constants::socket_type']]],
-  ['recv_5fasync_1',['recv_async',['../classtcp_1_1Connection.html#a6552f9b7b0d23e9444eef0ed5e90e04b',1,'tcp::Connection']]],
-  ['recv_5fsync_2',['recv_sync',['../classtcp_1_1Connection.html#a73e7ce6aa439176ea61994bc05341c4d',1,'tcp::Connection']]],
-  ['resolver_3',['resolver',['../classconn__resolver_1_1Resolver.html',1,'conn_resolver::Resolver'],['../classconn__resolver_1_1Resolver.html#a542e0f3cf0eeba59494329806cf81073',1,'conn_resolver::Resolver::Resolver()']]],
-  ['resolver_2ehpp_4',['resolver.hpp',['../resolver_8hpp.html',1,'']]],
-  ['resolverhints_5',['ResolverHints',['../structconn__resolver_1_1ResolverHints.html',1,'conn_resolver']]],
-  ['results_6',['results',['../classconn__resolver_1_1Resolver.html#ae01b93fb698e2d516115b9e3ef605ef7',1,'conn_resolver::Resolver']]]
+  ['print_5faddress_0',['print_address',['../classendpoint__info_1_1Address.html#a8819271578c48a1134a4d867e033d07b',1,'endpoint_info::Address']]],
+  ['print_5faddress_5finfo_1',['print_address_info',['../classendpoint__info_1_1AddressInfo.html#ac4a942f984275ee30c019106858745cc',1,'endpoint_info::AddressInfo']]],
+  ['print_5fresults_2',['print_results',['../classconn__resolver_1_1Resolver.html#a4eeb7ca4ccfbdfcc15ed3e0aca5effc3',1,'conn_resolver::Resolver']]],
+  ['protocol_3',['protocol',['../structconn__resolver_1_1ResolverHints.html#a9843ca9271ed24a34a230d3a9fc99af2',1,'conn_resolver::ResolverHints::protocol'],['../classendpoint__info_1_1AddressInfo.html#a59a6cb3fc5398956dda0bffc0cec2042',1,'endpoint_info::AddressInfo::protocol()']]]
 ];

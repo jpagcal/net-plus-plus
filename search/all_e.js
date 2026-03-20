@@ -1,6 +1,8 @@
 var searchData=
 [
-  ['udp_0',['udp',['../namespacenetworking_1_1constants_1_1socket__type.html#ad13db33fc341e0bcfb3ca36973c46599',1,'networking::constants::socket_type']]],
-  ['udp_5fnodes_1',['udp_nodes',['../classconn__resolver_1_1Resolver.html#ab913504afbae949bc27c91e3759635fa',1,'conn_resolver::Resolver']]],
-  ['unspecified_5fdomain_2',['unspecified_domain',['../namespacenetworking_1_1constants_1_1domain.html#a715faccf8bc2dc341e315e6357eae43a',1,'networking::constants::domain']]]
+  ['send_5fasync_0',['send_async',['../classtcp_1_1Connection.html#a64d6b6ef97e26823a134468ad31102ff',1,'tcp::Connection']]],
+  ['send_5fsync_1',['send_sync',['../classtcp_1_1Connection.html#adee0182da2eee3319f309094e37fe542',1,'tcp::Connection']]],
+  ['set_5fnonblocking_2',['set_nonblocking',['../classtcp_1_1Connection.html#a058fab399bcbd7d008340b540533f49b',1,'tcp::Connection']]],
+  ['socket_5ftype_3',['socket_type',['../classendpoint__info_1_1AddressInfo.html#a10045e9f54b5bb2a1e038ad2b0cfea1d',1,'endpoint_info::AddressInfo']]],
+  ['start_4',['Quick Start',['../index.html#autotoc_md1',1,'']]]
 ];
