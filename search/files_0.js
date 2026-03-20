@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['endpoint_5finfo_2ehpp_0',['endpoint_info.hpp',['../endpoint__info_8hpp.html',1,'']]]
+  ['endpoint_5finfo_2ehpp_0',['endpoint_info.hpp',['../endpoint__info_8hpp.html',1,'']]],
+  ['error_2ehpp_1',['error.hpp',['../error_8hpp.html',1,'']]]
 ];
