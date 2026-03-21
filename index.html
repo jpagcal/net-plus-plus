@@ -127,7 +127,7 @@ Accepting incoming connections</h2>
 <h1><a class="anchor" id="autotoc_md4"></a>
 Error Handling</h1>
 <p>Errors are surfaced as <code>std::system_error</code> whenever low-level POSIX calls set the value of <code>errno</code>.</p>
-<p>Not all errors are exceptional (See <a href="http://blog.think-async.com/2010/04/system-error-support-in-c0x-part-1.html">Kohlhoff, 2010</a>) &ndash; a good example would be calling <code>connect()</code> to attempt connections to a host iteratively through a list of query results. It is up to the library user to correctly intercept errors using <code>try-catch</code> blocks as follows:</p>
+<p>Not all errors are exceptional (See <a href="http://blog.think-async.com/2010/04/system-error-support-in-c0x-part-1.html">Kohlhoff, 2010</a>) &ndash; a good example would be calling <code>connect()</code> to attempt connections to a host iteratively through a list of query results. For this type of error, the library will log the error to stderr using <code>log_error(std::system_error &amp;e)</code> defined in <code><a class="el" href="error_8hpp.html">error.hpp</a></code> for diagnostics. In the case a low level system call fails for every result in the query results, it is up to the library user to intercept it as follows:</p>
 <div class="fragment"><div class="line">...</div>
 <div class="line">try {</div>
 <div class="line">    conn.send_sync(...);</div>
@@ -135,8 +135,7 @@ Error Handling</h1>
 <div class="line">    <span class="comment">// exception handling code here</span></div>
 <div class="line">}</div>
 <div class="line">...</div>
-</div><!-- fragment --><p>For convenience, <code>log_error(std::system_error &amp;e)</code> is defined in <code><a class="el" href="error_8hpp.html">error.hpp</a></code>. This is a utility built for logging errors to stderr. </p>
-</div></div><!-- PageDoc -->
+</div><!-- fragment --> </div></div><!-- PageDoc -->
 </div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
