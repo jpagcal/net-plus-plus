@@ -65,7 +65,7 @@ public:
 	 *
 	 * @returns a TCP connection to the target host
 	 */
-	tcp::Connection try_connect_tcp();
+	tcp::Connection::connection_ptr try_connect_tcp();
 
 	/**
 	* @brief Attempts to connect to the target host using protocol UDP

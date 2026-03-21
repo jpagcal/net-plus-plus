@@ -2,6 +2,7 @@
 #include <cstring>
 #include <netdb.h>
 #include "../include/resolver.hpp"
+#include "../include/error.hpp"
 
 namespace conn_resolver {
 addrinfo craft_resolver_hints(ResolverHints &hints) {
@@ -76,5 +77,21 @@ Resolver::QueryResults Resolver::tcp_nodes() const {
 	}
 
 	return tcp_nodes;
+}
+
+tcp::Connection::connection_ptr Resolver::try_connect_tcp() {
+	auto cur{ tcp_nodes().begin() };
+	int socket_fd{ networking::invalid_values::invalid_socket_fd };
+
+	while (cur != tcp_nodes().end() && socket_fd == networking::invalid_values::invalid_socket_fd) {
+		socket_fd = cur->connect();
+	}
+
+	// if this is the case, connect has failed for all nodes
+	if (socket_fd == networking::invalid_values::invalid_socket_fd) {
+		// TODO: need to define a new error category here with status codes for end-of-list
+	}
+
+	return tcp::Connection::create(socket_fd);
 }
 }

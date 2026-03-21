@@ -46,8 +46,9 @@ public:
 	bool is_tcp() const;
 	int socket_type() const;
 	int protocol() const;
+	int create_socket() const;
+	int connect() const;
 
-	//TODO: add a try_connect function here
 
 private:
 	const Address address_;

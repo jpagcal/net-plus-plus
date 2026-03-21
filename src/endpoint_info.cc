@@ -1,5 +1,6 @@
 #include "../include/endpoint_info.hpp"
 #include "../include/networking.hpp"
+#include "../include/error.hpp"
 #include <cstdint>
 #include <netinet/in.h>
 #include <sys/_endian.h>
@@ -179,4 +180,33 @@ inline namespace endpoint_info {
 
 		return c_addrinfo;
 	}
+
+	int AddressInfo::create_socket() const {
+		int socket_fd;
+		if ((socket_fd = socket(ip_domain_, socket_type_, protocol_)) == networking::invalid_values::invalid_socket_fd) {
+			netpp_error::throw_system_error("System-level socket() call failed");
+		}
+
+		return socket_fd;
+	}
+
+	int AddressInfo::connect() const {
+		int socket_fd{ -1 };
+		try {
+			int conn_status;
+			addrinfo c_addrinfo{ this->c_addrinfo() };
+			socket_fd = create_socket();
+
+			if ((conn_status = ::connect(socket_fd, c_addrinfo.ai_addr, c_addrinfo.ai_addrlen)) == -1) {
+				netpp_error::throw_system_error("System-level connect() call failed");
+			}
+		} catch (std::system_error &e) {
+			// we expect reasonably that it will throw for some connect calls, so we just log the error to stderr
+			netpp_error::log_error(e);
+		}
+
+		return socket_fd;
+	}
+
+
 } // namespace endpoint_info

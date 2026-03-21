@@ -41,7 +41,7 @@ You can view the full documentation [here.](http://jpagcal.github.io/net-plus-pl
 ## Error Handling
 Errors are surfaced as `std::system_error` whenever low-level POSIX calls set the value of `errno`.
 
-Not all errors are exceptional (See [Kohlhoff, 2010](http://blog.think-async.com/2010/04/system-error-support-in-c0x-part-1.html)) -- a good example would be calling `connect()` to attempt connections to a host iteratively through a list of query results. It is up to the library user to correctly intercept errors using `try-catch` blocks as follows:
+Not all errors are exceptional (See [Kohlhoff, 2010](http://blog.think-async.com/2010/04/system-error-support-in-c0x-part-1.html)) -- a good example would be calling `connect()` to attempt connections to a host iteratively through a list of query results. For this type of error, the library will log the error to stderr using `log_error(std::system_error &e)` defined in `error.hpp` for diagnostics. In the case a low level system call fails for every result in the query results, it is up to the library user to intercept it as follows: 
 
 ```cpp
 ...
@@ -52,5 +52,3 @@ try {
 }
 ...
 ```
-
-For convenience, `log_error(std::system_error &e)` is defined in `error.hpp`. This is a utility built for logging errors to stderr.
