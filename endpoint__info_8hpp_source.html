@@ -142,7 +142,7 @@ $(document).ready(function(){initNavTree('endpoint__info_8hpp_source.html',''); 
 <div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span>        ip_domain_{raw_node-&gt;ai_family},</div>
 <div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span>        socket_type_{ raw_node-&gt;ai_socktype },</div>
 <div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span>        protocol_{ raw_node-&gt;ai_protocol },</div>
-<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span>        canonical_name_{ raw_node-&gt;ai_canonname } {};</div>
+<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span>        canonical_name_{ raw_node-&gt;ai_canonname == nullptr ? <span class="stringliteral">&quot;No name&quot;</span> : raw_node-&gt;ai_canonname} {};</div>
 </div>
 <div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span> </div>
 <div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span> </div>
