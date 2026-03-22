@@ -1,7 +1,6 @@
 #include <iostream>
 #include <netdb.h>
 #include <string>
-#include <system_error>
 #include "../include/error.hpp"
 
 namespace netpp_error {
@@ -10,7 +9,7 @@ namespace netpp_error {
 	}
 
 	void log_error(std::system_error &e) {
-		std::cerr << e.code() << "--------" << e.what() << '\n';
+		std::cerr << e.code() << " -------- " << e.what() << '\n';
 	}
 
 	namespace {
@@ -28,4 +27,4 @@ namespace netpp_error {
 	void throw_gai_error(int &ev, std::string what_arg) {
 		throw std::system_error(ev, gai_error, std::move(what_arg));
 	}
-}
+} // namespace netpp_error

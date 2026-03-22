@@ -172,7 +172,7 @@ inline namespace endpoint_info {
 		c_addrinfo.ai_family = this->ip_domain_;
 		c_addrinfo.ai_socktype = this->socket_type_;
 		c_addrinfo.ai_protocol = this->protocol_;
-		c_addrinfo.ai_addrlen = sizeof(sockaddr_storage);
+		c_addrinfo.ai_addrlen = sizeof(sockaddr);
 		c_addrinfo.ai_canonname = const_cast<char *>(this->canonical_name_.c_str());
 
 		const sockaddr *const c_addr{ (this->address_).c_addr() };

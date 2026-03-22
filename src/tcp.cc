@@ -187,7 +187,7 @@ void Acceptor::bind() const {
 	int32_t gai_status{ getaddrinfo(nullptr, port_.data(), &c_hints, &res) };
 
 	if (gai_status != 0) {
-		netpp_error::throw_gai_error(gai_status);
+		netpp_error::throw_gai_error(gai_status, "getaddrinfo() failed");
 	}
 
 	if (::bind(listening_socket_fd_, c_hints.ai_addr, c_hints.ai_addrlen) == -1) {

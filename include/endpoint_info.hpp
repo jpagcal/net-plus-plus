@@ -35,7 +35,7 @@ public:
 		ip_domain_{raw_node->ai_family},
 		socket_type_{ raw_node->ai_socktype },
 		protocol_{ raw_node->ai_protocol },
-		canonical_name_{ raw_node->ai_canonname } {};
+		canonical_name_{ raw_node->ai_canonname == nullptr ? "No name" : raw_node->ai_canonname} {};
 
 
 	void print_address_info() const;

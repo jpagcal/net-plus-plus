@@ -1,3 +1,5 @@
+#pragma once
+
 #include <system_error>
 
 namespace netpp_error {
@@ -35,5 +37,5 @@ namespace netpp_error {
 		* @param ev The resulting error code from a getaddrinfo() call
 		* @param what_arg The explanation of the error
 	 */
-	void throw_gai_error(int ev);
+	void throw_gai_error(int &ev, std::string what_arg);
 } // namespace netpp_error
