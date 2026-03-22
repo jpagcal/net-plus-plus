@@ -105,37 +105,41 @@ Quick Start</h1>
 Connecting to a host</h2>
 <p>Connecting to a host involves two simple steps. Client-sided applications use the <code><a class="el" href="classconn__resolver_1_1Resolver.html" title="The Resolver class.">conn_resolver::Resolver</a></code> class to get a list of valid <code>AddressInfo</code> results. The <code>conn_resolver::Resolver::try_connect()</code> method attempts to connect to a result and returns a shared pointer to the first connection.</p>
 <div class="fragment"><div class="line"><a class="code hl_class" href="classconn__resolver_1_1Resolver.html">conn_resolver::Resolver</a> res{ <span class="stringliteral">&quot;www.google.com&quot;</span>, <span class="stringliteral">&quot;8080&quot;</span> };</div>
-<div class="line">std::shared_ptr&lt;tcp::Connection&gt; conn = res.try_connect();</div>
+<div class="line"><a class="code hl_typedef" href="classtcp_1_1Connection.html#acf0742f632b67b68bcb408203fad7cf3">tcp::Connection::connection_ptr</a> conn = res.try_connect();</div>
 <div class="line"> </div>
-<div class="line">conn.send_sync(...);</div>
-<div class="line">conn.recv_sync(...);</div>
+<div class="line">conn-&gt;send_sync(...);</div>
+<div class="line">conn-&gt;recv_sync(...);</div>
 <div class="ttc" id="aclassconn__resolver_1_1Resolver_html"><div class="ttname"><a href="classconn__resolver_1_1Resolver.html">conn_resolver::Resolver</a></div><div class="ttdoc">The Resolver class.</div><div class="ttdef"><b>Definition</b> resolver.hpp:35</div></div>
+<div class="ttc" id="aclasstcp_1_1Connection_html_acf0742f632b67b68bcb408203fad7cf3"><div class="ttname"><a href="classtcp_1_1Connection.html#acf0742f632b67b68bcb408203fad7cf3">tcp::Connection::connection_ptr</a></div><div class="ttdeci">std::shared_ptr&lt; Connection &gt; connection_ptr</div><div class="ttdef"><b>Definition</b> tcp.hpp:19</div></div>
 </div><!-- fragment --><h2><a class="anchor" id="autotoc_md3"></a>
 Accepting incoming connections</h2>
-<p>Setting up a listening connection is similar to the process with the POSIX API. First, create a <code><a class="el" href="classtcp_1_1Acceptor.html" title="Accepts connections and assigns a dedicated TCPConnection object.">tcp::Acceptor</a></code> instance with a port to listen on. As usual, you can call <code><a class="el" href="classtcp_1_1Acceptor.html#aa5120225596bcbd6d279672a4932d2fb" title="Binds the socket handle to the host machine&#39;s address.">tcp::Acceptor::bind()</a></code> to resolve the underlying socket to the host machine, <code><a class="el" href="classtcp_1_1Acceptor.html#ac2d9e810f609182e278e1f8c49645e6d" title="Starts listening on the socket for incoming connections.">tcp::Acceptor::listen()</a></code> to listen for incoming connections, and <code><a class="el" href="classtcp_1_1Acceptor.html#a2fd6be480bd71160d3df39a435de3011" title="Accepts incoming connections synchronously.">tcp::Acceptor::accept()</a></code> to create dedicated sockets for incoming connections.</p>
-<div class="fragment"><div class="line"><a class="code hl_class" href="classtcp_1_1Acceptor.html">tcp::Acceptor</a> acceptor{ <span class="stringliteral">&quot;8080&quot;</span> }</div>
+<p>Setting up a listening connection is similar to the process with the POSIX API. First, create a <code><a class="el" href="classtcp_1_1Acceptor.html" title="Accepts connections and assigns a dedicated TCPConnection object.">tcp::Acceptor</a></code> instance with a port to listen on and the address domain the underlying socket will use to listen on. As usual, you can call <code><a class="el" href="classtcp_1_1Acceptor.html#aa5120225596bcbd6d279672a4932d2fb" title="Binds the socket handle to the host machine&#39;s address.">tcp::Acceptor::bind()</a></code> to resolve the underlying socket to the host machine, <code><a class="el" href="classtcp_1_1Acceptor.html#ac2d9e810f609182e278e1f8c49645e6d" title="Starts listening on the socket for incoming connections.">tcp::Acceptor::listen()</a></code> to listen for incoming connections, and <code><a class="el" href="classtcp_1_1Acceptor.html#a2fd6be480bd71160d3df39a435de3011" title="Accepts incoming connections synchronously.">tcp::Acceptor::accept()</a></code> to create dedicated sockets for incoming connections.</p>
+<div class="fragment"><div class="line"><a class="code hl_class" href="classtcp_1_1Acceptor.html">tcp::Acceptor</a> acceptor{ <span class="stringliteral">&quot;8080&quot;</span>, networking::domain::ipv4 }</div>
 <div class="line"> </div>
-<div class="line">acceptor.<a class="code hl_function" href="classtcp_1_1Acceptor.html#aa5120225596bcbd6d279672a4932d2fb">bind</a>();</div>
+<div class="line">acceptor.bind();</div>
 <div class="line">acceptor.listen();</div>
 <div class="line">Connection::connection_ptr conn{ acceptor.accept() };</div>
 <div class="line"> </div>
-<div class="line">conn.send_sync(...);</div>
-<div class="line">conn.recv_sync(...);</div>
-<div class="ttc" id="aclasstcp_1_1Acceptor_html"><div class="ttname"><a href="classtcp_1_1Acceptor.html">tcp::Acceptor</a></div><div class="ttdoc">Accepts connections and assigns a dedicated TCPConnection object.</div><div class="ttdef"><b>Definition</b> tcp.hh:119</div></div>
-<div class="ttc" id="aclasstcp_1_1Acceptor_html_aa5120225596bcbd6d279672a4932d2fb"><div class="ttname"><a href="classtcp_1_1Acceptor.html#aa5120225596bcbd6d279672a4932d2fb">tcp::Acceptor::bind</a></div><div class="ttdeci">void bind() const</div><div class="ttdoc">Binds the socket handle to the host machine's address.</div></div>
+<div class="line">...</div>
+<div class="line">conn-&gt;send_sync(...);</div>
+<div class="line">conn-&gt;recv_sync(...);</div>
+<div class="line">...</div>
+<div class="ttc" id="aclasstcp_1_1Acceptor_html"><div class="ttname"><a href="classtcp_1_1Acceptor.html">tcp::Acceptor</a></div><div class="ttdoc">Accepts connections and assigns a dedicated TCPConnection object.</div><div class="ttdef"><b>Definition</b> tcp.hpp:119</div></div>
 </div><!-- fragment --><p>You can view the full documentation <a href="http://jpagcal.github.io/net-plus-plus">here.</a></p>
 <h1><a class="anchor" id="autotoc_md4"></a>
 Error Handling</h1>
 <p>Errors are surfaced as <code>std::system_error</code> whenever low-level POSIX calls set the value of <code>errno</code>.</p>
-<p>Not all errors are exceptional (See <a href="http://blog.think-async.com/2010/04/system-error-support-in-c0x-part-1.html">Kohlhoff, 2010</a>) &ndash; a good example would be calling <code>connect()</code> to attempt connections to a host iteratively through a list of query results. For this type of error, the library will log the error to stderr using <code>log_error(std::system_error &amp;e)</code> defined in <code><a class="el" href="error_8hpp.html">error.hpp</a></code> for diagnostics. In the case a low level system call fails for every result in the query results, it is up to the library user to intercept it as follows:</p>
+<p>Not all errors are exceptional (See <a href="http://blog.think-async.com/2010/04/system-error-support-in-c0x-part-1.html">Kohlhoff, 2010</a>) &ndash; a good example would be calling <code>connect()</code> to attempt connections to a host iteratively through a list of query results. Hence, system calls that are executed within an iterative sequence, which also have some reasonable expectation of failure, like <code>bind()</code> or <code>connect()</code> are exempt from throwing if they fail. If all system calls fail for all results, then a <code>std::system_error</code> is emitted.</p>
+<p>It is the responsibility of the library user to handle exceptions as follows:</p>
 <div class="fragment"><div class="line">...</div>
 <div class="line">try {</div>
-<div class="line">    conn.send_sync(...);</div>
+<div class="line">    <span class="comment">// throwing code</span></div>
 <div class="line">} <span class="keywordflow">catch</span> (<span class="keyword">const</span> std::system_error&amp; e) {</div>
 <div class="line">    <span class="comment">// exception handling code here</span></div>
 <div class="line">}</div>
 <div class="line">...</div>
-</div><!-- fragment --> </div></div><!-- PageDoc -->
+</div><!-- fragment --><p>For convenience, the <code>log_error(std::system_error &amp;e)</code> function, which logs descriptions of errors to stderr, is made available in <code><a class="el" href="error_8hpp.html">error.hpp</a></code> </p>
+</div></div><!-- PageDoc -->
 </div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->

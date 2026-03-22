@@ -100,13 +100,13 @@ $(document).ready(function(){initNavTree('classtcp_1_1Acceptor.html',''); initRe
 <p>Accepts connections and assigns a dedicated TCPConnection object.  
  <a href="classtcp_1_1Acceptor.html#details">More...</a></p>
 
-<p><code>#include &lt;<a class="el" href="tcp_8hh_source.html">tcp.hh</a>&gt;</code></p>
+<p><code>#include &lt;<a class="el" href="tcp_8hpp_source.html">tcp.hpp</a>&gt;</code></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a3d0261132c99ce1d8f30abb341191b63" id="r_a3d0261132c99ce1d8f30abb341191b63"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtcp_1_1Acceptor.html#a3d0261132c99ce1d8f30abb341191b63">Acceptor</a> (std::string port)</td></tr>
-<tr class="memdesc:a3d0261132c99ce1d8f30abb341191b63"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructor for the <a class="el" href="classtcp_1_1Acceptor.html" title="Accepts connections and assigns a dedicated TCPConnection object.">Acceptor</a> object.  <br /></td></tr>
-<tr class="separator:a3d0261132c99ce1d8f30abb341191b63"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5c5578de06630be8a8c348a0e6e45efc" id="r_a5c5578de06630be8a8c348a0e6e45efc"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtcp_1_1Acceptor.html#a5c5578de06630be8a8c348a0e6e45efc">Acceptor</a> (std::string port, int32_t domain)</td></tr>
+<tr class="memdesc:a5c5578de06630be8a8c348a0e6e45efc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructor for the <a class="el" href="classtcp_1_1Acceptor.html" title="Accepts connections and assigns a dedicated TCPConnection object.">Acceptor</a> object.  <br /></td></tr>
+<tr class="separator:a5c5578de06630be8a8c348a0e6e45efc"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:acd8ebfbe8a0e3dfd02c5ce35156d756e" id="r_acd8ebfbe8a0e3dfd02c5ce35156d756e"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtcp_1_1Acceptor.html#acd8ebfbe8a0e3dfd02c5ce35156d756e">~Acceptor</a> ()</td></tr>
 <tr class="memdesc:acd8ebfbe8a0e3dfd02c5ce35156d756e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Destructor of the <a class="el" href="classtcp_1_1Acceptor.html" title="Accepts connections and assigns a dedicated TCPConnection object.">Acceptor</a> object.  <br /></td></tr>
 <tr class="separator:acd8ebfbe8a0e3dfd02c5ce35156d756e"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -130,8 +130,8 @@ Public Member Functions</h2></td></tr>
 <div class="textblock"><p>Accepts connections and assigns a dedicated TCPConnection object. </p>
 <p>Encapsulates a listening socket </p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
-<a id="a3d0261132c99ce1d8f30abb341191b63" name="a3d0261132c99ce1d8f30abb341191b63"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a3d0261132c99ce1d8f30abb341191b63">&#9670;&#160;</a></span>Acceptor() <span class="overload">[1/2]</span></h2>
+<a id="a5c5578de06630be8a8c348a0e6e45efc" name="a5c5578de06630be8a8c348a0e6e45efc"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5c5578de06630be8a8c348a0e6e45efc">&#9670;&#160;</a></span>Acceptor() <span class="overload">[1/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -140,8 +140,18 @@ Public Member Functions</h2></td></tr>
           <td class="memname">tcp::Acceptor::Acceptor </td>
           <td>(</td>
           <td class="paramtype">std::string&#160;</td>
-          <td class="paramname"><em>port</em></td><td>)</td>
+          <td class="paramname"><em>port</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
           <td></td>
+          <td class="paramtype">int32_t&#160;</td>
+          <td class="paramname"><em>domain</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -297,7 +307,7 @@ Public Member Functions</h2></td></tr>
 </div>
 </div>
 <hr/>The documentation for this class was generated from the following file:<ul>
-<li>include/<a class="el" href="tcp_8hh_source.html">tcp.hh</a></li>
+<li>include/<a class="el" href="tcp_8hpp_source.html">tcp.hpp</a></li>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->

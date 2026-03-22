@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.9.8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>Net++: include/tcp.hh Source File</title>
+<title>Net++: include/tcp.hpp Source File</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -69,7 +69,7 @@ $(document).ready(function() { init_codefold(0); });
 </div>
 <script type="text/javascript">
 /* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
-$(document).ready(function(){initNavTree('tcp_8hh_source.html',''); initResizable(); });
+$(document).ready(function(){initNavTree('tcp_8hpp_source.html',''); initResizable(); });
 /* @license-end */
 </script>
 <div id="doc-content">
@@ -95,10 +95,10 @@ $(document).ready(function(){initNavTree('tcp_8hh_source.html',''); initResizabl
 </div>
 
 <div class="header">
-  <div class="headertitle"><div class="title">tcp.hh</div></div>
+  <div class="headertitle"><div class="title">tcp.hpp</div></div>
 </div><!--header-->
 <div class="contents">
-<a href="tcp_8hh.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="preprocessor">#pragma once</span></div>
+<a href="tcp_8hpp.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="preprocessor">#pragma once</span></div>
 <div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span> </div>
 <div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span><span class="preprocessor">#include &lt;functional&gt;</span></div>
 <div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span><span class="preprocessor">#include &lt;memory&gt;</span></div>
@@ -142,7 +142,7 @@ $(document).ready(function(){initNavTree('tcp_8hh_source.html',''); initResizabl
 <div class="foldopen" id="foldopen00119" data-start="{" data-end="};">
 <div class="line"><a id="l00119" name="l00119"></a><span class="lineno"><a class="line" href="classtcp_1_1Acceptor.html">  119</a></span><span class="keyword">class </span><a class="code hl_class" href="classtcp_1_1Acceptor.html">Acceptor</a> {</div>
 <div class="line"><a id="l00120" name="l00120"></a><span class="lineno">  120</span><span class="keyword">public</span>:</div>
-<div class="line"><a id="l00128" name="l00128"></a><span class="lineno"><a class="line" href="classtcp_1_1Acceptor.html#a3d0261132c99ce1d8f30abb341191b63">  128</a></span>    <a class="code hl_function" href="classtcp_1_1Acceptor.html#a3d0261132c99ce1d8f30abb341191b63">Acceptor</a>(std::string port);</div>
+<div class="line"><a id="l00128" name="l00128"></a><span class="lineno"><a class="line" href="classtcp_1_1Acceptor.html#a5c5578de06630be8a8c348a0e6e45efc">  128</a></span>    <a class="code hl_function" href="classtcp_1_1Acceptor.html#a5c5578de06630be8a8c348a0e6e45efc">Acceptor</a>(std::string port, int32_t domain);</div>
 <div class="line"><a id="l00129" name="l00129"></a><span class="lineno">  129</span> </div>
 <div class="line"><a id="l00135" name="l00135"></a><span class="lineno"><a class="line" href="classtcp_1_1Acceptor.html#acd8ebfbe8a0e3dfd02c5ce35156d756e">  135</a></span>    <a class="code hl_function" href="classtcp_1_1Acceptor.html#acd8ebfbe8a0e3dfd02c5ce35156d756e">~Acceptor</a>();</div>
 <div class="line"><a id="l00136" name="l00136"></a><span class="lineno">  136</span> </div>
@@ -165,15 +165,15 @@ $(document).ready(function(){initNavTree('tcp_8hh_source.html',''); initResizabl
 </div>
 <div class="line"><a id="l00180" name="l00180"></a><span class="lineno">  180</span>}</div>
 </div>
-<div class="ttc" id="aclasstcp_1_1Acceptor_html"><div class="ttname"><a href="classtcp_1_1Acceptor.html">tcp::Acceptor</a></div><div class="ttdoc">Accepts connections and assigns a dedicated TCPConnection object.</div><div class="ttdef"><b>Definition</b> tcp.hh:119</div></div>
+<div class="ttc" id="aclasstcp_1_1Acceptor_html"><div class="ttname"><a href="classtcp_1_1Acceptor.html">tcp::Acceptor</a></div><div class="ttdoc">Accepts connections and assigns a dedicated TCPConnection object.</div><div class="ttdef"><b>Definition</b> tcp.hpp:119</div></div>
 <div class="ttc" id="aclasstcp_1_1Acceptor_html_a2fd6be480bd71160d3df39a435de3011"><div class="ttname"><a href="classtcp_1_1Acceptor.html#a2fd6be480bd71160d3df39a435de3011">tcp::Acceptor::accept</a></div><div class="ttdeci">Connection::connection_ptr accept() const</div><div class="ttdoc">Accepts incoming connections synchronously.</div></div>
-<div class="ttc" id="aclasstcp_1_1Acceptor_html_a3d0261132c99ce1d8f30abb341191b63"><div class="ttname"><a href="classtcp_1_1Acceptor.html#a3d0261132c99ce1d8f30abb341191b63">tcp::Acceptor::Acceptor</a></div><div class="ttdeci">Acceptor(std::string port)</div><div class="ttdoc">Constructor for the Acceptor object.</div></div>
+<div class="ttc" id="aclasstcp_1_1Acceptor_html_a5c5578de06630be8a8c348a0e6e45efc"><div class="ttname"><a href="classtcp_1_1Acceptor.html#a5c5578de06630be8a8c348a0e6e45efc">tcp::Acceptor::Acceptor</a></div><div class="ttdeci">Acceptor(std::string port, int32_t domain)</div><div class="ttdoc">Constructor for the Acceptor object.</div></div>
 <div class="ttc" id="aclasstcp_1_1Acceptor_html_a746f27caeaa9d6fc4860d8854047d12c"><div class="ttname"><a href="classtcp_1_1Acceptor.html#a746f27caeaa9d6fc4860d8854047d12c">tcp::Acceptor::Acceptor</a></div><div class="ttdeci">Acceptor(Acceptor &amp;&amp;other) noexcept</div><div class="ttdoc">Copy constructor for the Acceptor object.</div></div>
 <div class="ttc" id="aclasstcp_1_1Acceptor_html_a89603202d1796efa3dd5c02f0971eccc"><div class="ttname"><a href="classtcp_1_1Acceptor.html#a89603202d1796efa3dd5c02f0971eccc">tcp::Acceptor::operator=</a></div><div class="ttdeci">Acceptor &amp; operator=(Acceptor &amp;&amp;other) noexcept</div><div class="ttdoc">Copy operator for the Acceptor object.</div></div>
 <div class="ttc" id="aclasstcp_1_1Acceptor_html_aa5120225596bcbd6d279672a4932d2fb"><div class="ttname"><a href="classtcp_1_1Acceptor.html#aa5120225596bcbd6d279672a4932d2fb">tcp::Acceptor::bind</a></div><div class="ttdeci">void bind() const</div><div class="ttdoc">Binds the socket handle to the host machine's address.</div></div>
 <div class="ttc" id="aclasstcp_1_1Acceptor_html_ac2d9e810f609182e278e1f8c49645e6d"><div class="ttname"><a href="classtcp_1_1Acceptor.html#ac2d9e810f609182e278e1f8c49645e6d">tcp::Acceptor::listen</a></div><div class="ttdeci">void listen() const</div><div class="ttdoc">Starts listening on the socket for incoming connections.</div></div>
 <div class="ttc" id="aclasstcp_1_1Acceptor_html_acd8ebfbe8a0e3dfd02c5ce35156d756e"><div class="ttname"><a href="classtcp_1_1Acceptor.html#acd8ebfbe8a0e3dfd02c5ce35156d756e">tcp::Acceptor::~Acceptor</a></div><div class="ttdeci">~Acceptor()</div><div class="ttdoc">Destructor of the Acceptor object.</div></div>
-<div class="ttc" id="aclasstcp_1_1Connection_html"><div class="ttname"><a href="classtcp_1_1Connection.html">tcp::Connection</a></div><div class="ttdoc">Represents a TCP connection.</div><div class="ttdef"><b>Definition</b> tcp.hh:15</div></div>
+<div class="ttc" id="aclasstcp_1_1Connection_html"><div class="ttname"><a href="classtcp_1_1Connection.html">tcp::Connection</a></div><div class="ttdoc">Represents a TCP connection.</div><div class="ttdef"><b>Definition</b> tcp.hpp:15</div></div>
 <div class="ttc" id="aclasstcp_1_1Connection_html_a058fab399bcbd7d008340b540533f49b"><div class="ttname"><a href="classtcp_1_1Connection.html#a058fab399bcbd7d008340b540533f49b">tcp::Connection::set_nonblocking</a></div><div class="ttdeci">void set_nonblocking()</div><div class="ttdoc">Sets the underlying socket handle as nonblocking.</div></div>
 <div class="ttc" id="aclasstcp_1_1Connection_html_a1a5deafdbbf9a9bb2bfe5e064c92981c"><div class="ttname"><a href="classtcp_1_1Connection.html#a1a5deafdbbf9a9bb2bfe5e064c92981c">tcp::Connection::create</a></div><div class="ttdeci">static connection_ptr create(int32_t socket_fd)</div><div class="ttdoc">Creates a shared ptr to a new Connection instance.</div></div>
 <div class="ttc" id="aclasstcp_1_1Connection_html_a3aff1f6c7ee36d2a0d9c52a3210e87fa"><div class="ttname"><a href="classtcp_1_1Connection.html#a3aff1f6c7ee36d2a0d9c52a3210e87fa">tcp::Connection::operator=</a></div><div class="ttdeci">Connection &amp; operator=(Connection &amp;&amp;other) noexcept</div><div class="ttdoc">The move constructor for the Connection class.</div></div>
@@ -181,16 +181,16 @@ $(document).ready(function(){initNavTree('tcp_8hh_source.html',''); initResizabl
 <div class="ttc" id="aclasstcp_1_1Connection_html_a64d6b6ef97e26823a134468ad31102ff"><div class="ttname"><a href="classtcp_1_1Connection.html#a64d6b6ef97e26823a134468ad31102ff">tcp::Connection::send_async</a></div><div class="ttdeci">void send_async(std::string_view msg, std::function&lt; void()&gt; callback)</div><div class="ttdoc">Sends a message through the endpoint asynchronously.</div></div>
 <div class="ttc" id="aclasstcp_1_1Connection_html_a6552f9b7b0d23e9444eef0ed5e90e04b"><div class="ttname"><a href="classtcp_1_1Connection.html#a6552f9b7b0d23e9444eef0ed5e90e04b">tcp::Connection::recv_async</a></div><div class="ttdeci">void recv_async(std::vector&lt; std::byte &gt; buf, std::function&lt; void()&gt; callback)</div><div class="ttdoc">Receives a message from the endpoint asynchronously.</div></div>
 <div class="ttc" id="aclasstcp_1_1Connection_html_a73e7ce6aa439176ea61994bc05341c4d"><div class="ttname"><a href="classtcp_1_1Connection.html#a73e7ce6aa439176ea61994bc05341c4d">tcp::Connection::recv_sync</a></div><div class="ttdeci">void recv_sync(std::vector&lt; std::byte &gt; &amp;buf)</div><div class="ttdoc">Receives a message from the endpoint synchronously.</div></div>
-<div class="ttc" id="aclasstcp_1_1Connection_html_acf0742f632b67b68bcb408203fad7cf3"><div class="ttname"><a href="classtcp_1_1Connection.html#acf0742f632b67b68bcb408203fad7cf3">tcp::Connection::connection_ptr</a></div><div class="ttdeci">std::shared_ptr&lt; Connection &gt; connection_ptr</div><div class="ttdef"><b>Definition</b> tcp.hh:19</div></div>
+<div class="ttc" id="aclasstcp_1_1Connection_html_acf0742f632b67b68bcb408203fad7cf3"><div class="ttname"><a href="classtcp_1_1Connection.html#acf0742f632b67b68bcb408203fad7cf3">tcp::Connection::connection_ptr</a></div><div class="ttdeci">std::shared_ptr&lt; Connection &gt; connection_ptr</div><div class="ttdef"><b>Definition</b> tcp.hpp:19</div></div>
 <div class="ttc" id="aclasstcp_1_1Connection_html_adee0182da2eee3319f309094e37fe542"><div class="ttname"><a href="classtcp_1_1Connection.html#adee0182da2eee3319f309094e37fe542">tcp::Connection::send_sync</a></div><div class="ttdeci">void send_sync(std::string_view msg)</div><div class="ttdoc">Sends a message through the endpoint synchronously.</div></div>
 <div class="ttc" id="aclasstcp_1_1Connection_html_af28d56c4049469095f65981be78cacd4"><div class="ttname"><a href="classtcp_1_1Connection.html#af28d56c4049469095f65981be78cacd4">tcp::Connection::is_nonblocking</a></div><div class="ttdeci">bool is_nonblocking()</div><div class="ttdoc">Checks if the underlying socket handle is nonblocking.</div></div>
-<div class="ttc" id="anamespacetcp_html"><div class="ttname"><a href="namespacetcp.html">tcp</a></div><div class="ttdef"><b>Definition</b> tcp.hh:8</div></div>
+<div class="ttc" id="anamespacetcp_html"><div class="ttname"><a href="namespacetcp.html">tcp</a></div><div class="ttdef"><b>Definition</b> tcp.hpp:8</div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="dir_d44c64559bbebec7f509842c48db8b23.html">include</a></li><li class="navelem"><a class="el" href="tcp_8hh.html">tcp.hh</a></li>
+    <li class="navelem"><a class="el" href="dir_d44c64559bbebec7f509842c48db8b23.html">include</a></li><li class="navelem"><a class="el" href="tcp_8hpp.html">tcp.hpp</a></li>
     <li class="footer">Generated by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
   </ul>
 </div>
