@@ -1,4 +1,4 @@
-#include "../include/tcp.hh"
+#include "../include/tcp.hpp"
 #include <cerrno>
 #include <sys/_types/_ssize_t.h>
 #include <sys/fcntl.h>
@@ -146,11 +146,15 @@ void Connection::recv_sync(std::vector<std::byte> &buf) {
 	}
 }
 
-Acceptor::Acceptor(std::string port) :
+Acceptor::Acceptor(std::string port, int32_t domain) :
 	listening_socket_fd_{
-		socket(networking::domain::unspecified_domain, networking::socket_type::tcp, 0)
+		socket(domain, networking::socket_type::tcp, 0)
 	},
-	port_{ port } {}
+	port_{ port } {
+		if (listening_socket_fd_ == -1) {
+			netpp_error::throw_system_error("System-level socket() call failed in constructor");
+		}
+	}
 
 Acceptor::Acceptor(Acceptor&& other) noexcept :
 	listening_socket_fd_{ other.listening_socket_fd_ },
@@ -190,15 +194,28 @@ void Acceptor::bind() const {
 		netpp_error::throw_gai_error(gai_status, "getaddrinfo() failed");
 	}
 
-	if (::bind(listening_socket_fd_, c_hints.ai_addr, c_hints.ai_addrlen) == -1) {
-		netpp_error::throw_system_error("bind() failed");
+	auto cur{ res };
+	int32_t bind_status{ -1 };
+
+	while (bind_status == -1 and cur != nullptr) {
+		bind_status = ::bind(listening_socket_fd_, cur->ai_addr, cur->ai_addrlen);
+		cur = cur->ai_next;
+	}
+
+	if (bind_status == -1) {
+		// out of range
+		netpp_error::throw_failed_on_all_results_error(
+			netpp_error::FailedAllResults::BindFailed,
+			"System-level bind() failed for all results in the address list"
+		);
+		return;
 	}
 
 	freeaddrinfo(res);
 }
 
 void Acceptor::listen() const {
-	if (::listen(listening_socket_fd_, SOMAXCONN) == 0) {
+	if (::listen(listening_socket_fd_, SOMAXCONN) == -1) {
 		netpp_error::throw_system_error("listen() failed");
 	}
 }

@@ -125,7 +125,7 @@ public:
 		*
 		* @param port The port in string format
 	 */
-	Acceptor(std::string port);
+	Acceptor(std::string port, int32_t domain);
 
 	/**
 	 * @brief Destructor of the Acceptor object
