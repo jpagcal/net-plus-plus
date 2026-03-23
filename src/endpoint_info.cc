@@ -183,7 +183,7 @@ inline namespace endpoint_info {
 
 	int AddressInfo::create_socket() const {
 		int socket_fd;
-		if ((socket_fd = socket(ip_domain_, socket_type_, protocol_)) == networking::invalid_values::invalid_socket_fd) {
+		if ((socket_fd = ::socket(ip_domain_, socket_type_, protocol_)) == networking::invalid_values::invalid_socket_fd) {
 			netpp_error::throw_system_error("System-level socket() call failed");
 		}
 

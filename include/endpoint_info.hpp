@@ -54,7 +54,7 @@ private:
 	const Address address_;
 	const int32_t ip_domain_;
 	const int32_t socket_type_;
-	const int32_t protocol_;
+	const int32_t protocol_{};
 	const std::string canonical_name_;
 };
 

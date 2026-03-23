@@ -36,7 +36,7 @@ Resolver::Resolver(std::string hostname, std::string service) {
 
 	conn_resolver::Resolver::QueryResults results{};
 
-	for (addrinfo *cur{ res }; cur->ai_next != nullptr; cur = cur->ai_next) {
+	for (addrinfo *cur{ res }; cur != nullptr; cur = cur->ai_next) {
 		query_results_.emplace_back(AddressInfo(cur));
 	}
 
@@ -84,10 +84,12 @@ tcp::Connection::connection_ptr Resolver::try_connect_tcp() {
 		throw std::runtime_error("There are no TCP results for the given hostname and service");
 	}
 
-	auto cur{ tcp_nodes().begin() };
+	auto nodes = tcp_nodes();
+
+	auto cur{ nodes.begin() };
 	int socket_fd{ networking::invalid_values::invalid_socket_fd };
 
-	while (cur != tcp_nodes().end() && socket_fd == networking::invalid_values::invalid_socket_fd) {
+	while (cur != nodes.end() && socket_fd == networking::invalid_values::invalid_socket_fd) {
 		socket_fd = cur->connect();
 		cur++;
 	}
