@@ -154,6 +154,11 @@ Acceptor::Acceptor(std::string port, int32_t domain) :
 		if (listening_socket_fd_ == -1) {
 			netpp_error::throw_system_error("System-level socket() call failed in constructor");
 		}
+
+		int value{1};
+		if ((setsockopt(listening_socket_fd_, SOL_SOCKET, SO_REUSEADDR, &value, sizeof(value))) == -1) {
+			netpp_error::throw_system_error("System-level setsockopt() failed in constructor");
+		}
 	}
 
 Acceptor::Acceptor(Acceptor&& other) noexcept :
