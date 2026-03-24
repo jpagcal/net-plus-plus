@@ -101,7 +101,7 @@ void Connection::send_sync(std::string_view msg) {
 	}
 }
 
-void Connection::recv_sync(std::vector<std::byte> &buf) {
+void Connection::recv_sync(std::string &buf) {
 	// read the fixed-length header
 	Connection::length_header header{};
 	size_t bytes_read{};

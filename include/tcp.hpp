@@ -90,7 +90,7 @@ public:
 		* Only use when is_nonblocking() returns false. Synchronously
 		* sends all bytes in msg.
 		*
-		* @param the buffer of bytes to send
+		* @param msg the buffer of bytes to send
 	 */
 	void send_sync(std::string_view msg);
 
@@ -100,9 +100,9 @@ public:
 		* Only use when is_nonblocking() returns false. Synchronously receives
 		* all bytes into buf.
 		*
-		* @param The buffer of bytes to receive data
+		* @param buf The buffer of bytes to receive data
 	 */
-	void recv_sync(std::vector<std::byte> &buf);
+	void recv_sync(std::string &buf);
 private:
 	/// @cond HIDDEN_FROM_DOCS
 	Connection(int32_t socket_fd) : socket_fd_{ socket_fd } {};
