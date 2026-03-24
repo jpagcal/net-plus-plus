@@ -30,6 +30,7 @@ var NAVTREE =
       [ "Accepting incoming connections", "index.html#autotoc_md3", null ]
     ] ],
     [ "Error Handling", "index.html#autotoc_md4", null ],
+    [ "A synchronous single-threaded TCP echo client and server implementation", "index.html#autotoc_md5", null ],
     [ "Namespaces", "namespaces.html", [
       [ "Namespace List", "namespaces.html", "namespaces_dup" ],
       [ "Namespace Members", "namespacemembers.html", [
