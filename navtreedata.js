@@ -31,6 +31,7 @@ var NAVTREE =
     ] ],
     [ "Error Handling", "index.html#autotoc_md4", null ],
     [ "A synchronous single-threaded TCP echo client and server implementation", "index.html#autotoc_md5", null ],
+    [ "Asynchronous Events", "index.html#autotoc_md6", null ],
     [ "Namespaces", "namespaces.html", [
       [ "Namespace List", "namespaces.html", "namespaces_dup" ],
       [ "Namespace Members", "namespacemembers.html", [

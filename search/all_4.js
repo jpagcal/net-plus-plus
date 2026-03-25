@@ -5,5 +5,6 @@ var searchData=
   ['endpoint_5finfo_2ehpp_2',['endpoint_info.hpp',['../endpoint__info_8hpp.html',1,'']]],
   ['endpoint_5ftype_3',['endpoint_type',['../structconn__resolver_1_1ResolverHints.html#ae90288e52fa319b10ce50cb186f721ac',1,'conn_resolver::ResolverHints']]],
   ['error_20handling_4',['Error Handling',['../index.html#autotoc_md4',1,'']]],
-  ['error_2ehpp_5',['error.hpp',['../error_8hpp.html',1,'']]]
+  ['error_2ehpp_5',['error.hpp',['../error_8hpp.html',1,'']]],
+  ['events_6',['Asynchronous Events',['../index.html#autotoc_md6',1,'']]]
 ];
