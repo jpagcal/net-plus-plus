@@ -112,7 +112,7 @@ try {
 	netpp_error::log_error(e);
 }
 }
+```
 
 ## Asynchronous Events
-net++ uses [libevent](http:\/\/libevent.org) to execute callbacks on registered file descriptors - specifically with socket reads, writes, and accepting connections. The `IOContext` class defined in `io_context.hpp` manages the lifecycle and dispatch of the event loop.
-```
+net++ uses [libevent](http://libevent.org) to execute callbacks on registered file descriptors - specifically with socket reads, writes, and accepting connections. The `IOContext` class defined in `io_context.hpp` manages the lifecycle and dispatch of the event loop.
