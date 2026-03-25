@@ -99,7 +99,12 @@ $(document).ready(function(){initNavTree('index.html',''); initResizable(); });
 <li>[x] Resolver class to abstract getaddr usage, as well as mechanisms to create TCP connections from query results</li>
 <li>[x] TCP connection class, with synchronous sends and receives</li>
 <li>[x] TCP acceptor class</li>
-<li>[ ] Event-driven I/O handling (multiplexing) using libevent for blocking calls such as TCP sends and receives.</li>
+<li>[ ] Event-driven I/O handling (multiplexing) using libevent for blocking calls such as TCP sends and receives.<ul>
+<li>[x] IOContext class</li>
+<li>[ ] Define bufferevents for the Connection class</li>
+<li>[ ] Integrate libevent with Acceptor</li>
+</ul>
+</li>
 <li>[ ] Support for UDP sockets</li>
 <li>[ ] Abstractions for connection pooling</li>
 </ul>
@@ -184,6 +189,9 @@ A synchronous single-threaded TCP echo client and server implementation</h1>
 <div class="line">    <a class="code hl_function" href="namespacenetpp__error.html#a6748450097e3df8fece0c0f2371f2b98">netpp_error::log_error</a>(e);</div>
 <div class="line">}</div>
 <div class="line">}</div>
+<div class="line"> </div>
+<div class="line"><span class="preprocessor">## Asynchronous Events</span></div>
+<div class="line">net++ uses [libevent](http:\/\/libevent.org) to execute callbacks on registered file descriptors - specifically with socket reads, writes, and accepting connections. The `IOContext` <span class="keyword">class</span> defined in `io_context.hpp` manages the lifecycle and dispatch of the event loop.</div>
 <div class="ttc" id="anamespacenetpp__error_html_a6748450097e3df8fece0c0f2371f2b98"><div class="ttname"><a href="namespacenetpp__error.html#a6748450097e3df8fece0c0f2371f2b98">netpp_error::log_error</a></div><div class="ttdeci">void log_error(std::system_error &amp;e)</div><div class="ttdoc">Prints the error to stdout.</div></div>
 </div><!-- fragment --> </div></div><!-- PageDoc -->
 </div><!-- contents -->
