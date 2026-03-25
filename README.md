@@ -8,6 +8,9 @@ net++ is a class-based C++ encapsulation over POSIX sockets providing a simple, 
 - [x] TCP connection class, with synchronous sends and receives
 - [x] TCP acceptor class
 - [ ] Event-driven I/O handling (multiplexing) using libevent for blocking calls such as TCP sends and receives.
+	- [x] IOContext class
+	- [ ] Define bufferevents for the Connection class
+	- [ ] Integrate libevent with Acceptor
 - [ ] Support for UDP sockets
 - [ ] Abstractions for connection pooling
 
@@ -109,4 +112,7 @@ try {
 	netpp_error::log_error(e);
 }
 }
+
+## Asynchronous Events
+net++ uses [libevent](http:\/\/libevent.org) to execute callbacks on registered file descriptors - specifically with socket reads, writes, and accepting connections. The `IOContext` class defined in `io_context.hpp` manages the lifecycle and dispatch of the event loop.
 ```
