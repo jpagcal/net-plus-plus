@@ -4,6 +4,8 @@
 #include <memory>
 #include <string_view>
 #include <sys/socket.h>
+#include "../include/io_context.hpp"
+#include <event2/bufferevent.h>
 
 namespace tcp {
 /**
@@ -25,7 +27,7 @@ public:
 	/**
 	 * @brief The move constructor for the Connection class
 	 *
-	 * Moves the source socket handle to the current Connection instance, and
+	 * Moves the source socket handle, io context, and event to the current Connection instance, and
 	 * invalidates the source instance's socket handle.
 	 *
 	 * @param other An rvalue reference to the object to steal resources from
@@ -35,7 +37,7 @@ public:
 	 * @brief The move constructor for the Connection class
 	 *
 	 * Closes the current Connection's socket handle if applicable, moves the source
-	 * socket handle to the current connection instance , and invalidates the source
+	 * socket handle, io context, and event to the current connection instance , and invalidates the source
      * instance's socket handle.
 	 *
 	 * @param other An rvalue reference to the object to steal resources from
@@ -105,10 +107,15 @@ public:
 	void recv_sync(std::string &buf);
 private:
 	/// @cond HIDDEN_FROM_DOCS
-	Connection(int32_t socket_fd) : socket_fd_{ socket_fd } {};
+	Connection(int32_t socket_fd) :
+    	socket_fd_{ socket_fd },
+     	io_context_{}, // TODO: should take in the io_context as an argument
+      	event_{} {}
 	/// @endcond
 
 	int32_t socket_fd_; /**< A handle to the connected socket */
+	std::shared_ptr<async::IOContext> io_context_;
+	std::unique_ptr<bufferevent> event_;
 };
 
 /**

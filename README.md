@@ -73,33 +73,33 @@ For convenience, the `log_error(std::system_error &e)` function, which logs desc
 int main() {
 	std::string port{ "8080" };
 	
-try {
-	tcp::Acceptor acceptor{"8080", networking::domain::ipv4};
-	
-	acceptor.bind();
-	acceptor.listen();
-	std::cout << "Server listening on port " << port << '\n';
-	
-	tcp::Connection::connection_ptr conn{ acceptor.accept() };
-	
-	while (true) {
-		std::string buf;
-		conn->recv_sync(buf);
-		conn->send_sync(buf);
+	try {
+		tcp::Acceptor acceptor{"8080", networking::domain::ipv4};
+		
+		acceptor.bind();
+		acceptor.listen();
+		std::cout << "Server listening on port " << port << '\n';
+		
+		tcp::Connection::connection_ptr conn{ acceptor.accept() };
+		
+		while (true) {
+			std::string buf;
+			conn->recv_sync(buf);
+			conn->send_sync(buf);
+		}
+	} catch (std::system_error &e) {
+		netpp::log_error(e);
 	}
-} catch (std::system_error &e) {
-	netpp::log_error(e);
-}
 }
 ```
 
 **TCP Echo Client**
 ```cpp
 int main(){
-try {
-	conn_resolver::Resolver res{ "127.0.0.1", "8080" };
-	tcp::Connection::connection_ptr conn{ res.try_connect_tcp() };
-	
+	try {
+		conn_resolver::Resolver res{ "127.0.0.1", "8080" };
+		tcp::Connection::connection_ptr conn{ res.try_connect_tcp() };
+		
 	while (true) {
 		std::string received{};
 		std::string message{};
@@ -108,11 +108,25 @@ try {
 		conn->recv_sync(received);
 		std::cout << "Received \"" << received << "\" from connection"<< std::endl;
 	}
-} catch (std::system_error &e) {
-	netpp_error::log_error(e);
-}
+	} catch (std::system_error &e) {
+		netpp_error::log_error(e);
+	}
 }
 ```
 
 ## Asynchronous Events
-net++ uses [libevent](http://libevent.org) to execute callbacks on registered file descriptors - specifically with socket reads, writes, and accepting connections. The `IOContext` class defined in `io_context.hpp` manages the lifecycle and dispatch of the event loop.
+net++ uses [libevent](http://libevent.org) to execute callbacks on registered file descriptors - specifically with socket reads, writes, and accepting connections. The `IOContext` class defined in `io_context.hpp` manages the lifecycle and dispatch of the event loop. 
+
+Events are automatically registered with the IOContext upon setting their handling objects as non-blocking. For example, if an instance of `tcp::Connection`, `conn` calls `conn.set_nonblocking()`, a buffer event monitoring the socket's internal buffers is registered with `IOContext`. An `IOContext` object is calling by calling the default constructor:
+
+```cpp
+async::IOContext async_context{};
+
+...
+// ...non-block object creation...
+...
+
+async_context.run();
+```
+
+The underlying event base that serves as the foundation for `IOContext` is not threadsafe by default, therefore `IOContext` is not threadsafe. Having multiple threads polling for IO implies setting up an `IOContext` per thread.

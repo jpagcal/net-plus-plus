@@ -14,8 +14,12 @@
 #include "../include/error.hpp"
 
 namespace tcp {
-Connection::Connection(Connection &&other) noexcept : socket_fd_{ other.socket_fd_ } {
-	other.socket_fd_ = networking::invalid_values::invalid_socket_fd;
+Connection::Connection(Connection &&other) noexcept :
+	socket_fd_{ other.socket_fd_ },
+	io_context_{ std::move(other.io_context_) },
+	event_{ std::move(other.event_) }
+{
+		other.socket_fd_ = networking::invalid_values::invalid_socket_fd;
 }
 
 Connection& Connection::operator=(Connection&& other) noexcept {
@@ -24,6 +28,12 @@ Connection& Connection::operator=(Connection&& other) noexcept {
 		socket_fd_ = other.socket_fd_;
 		other.socket_fd_ = networking::invalid_values::invalid_socket_fd;
 	}
+
+
+	socket_fd_ = other.socket_fd_;
+	io_context_ = std::move(other.io_context_);
+	event_ = std::move(other.event_);
+	other.socket_fd_ = networking::invalid_values::invalid_socket_fd;
 
 	return *this;
 }
@@ -39,6 +49,8 @@ void Connection::set_nonblocking() {
 	if (status == -1) {
 		//TODO: error handling here
 	}
+
+	// TODO: create the bufferevent
 }
 
 bool Connection::is_nonblocking() {
