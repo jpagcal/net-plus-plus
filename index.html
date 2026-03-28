@@ -120,7 +120,7 @@ Connecting to a host</h2>
 <div class="line">conn-&gt;recv_sync(...);</div>
 <div class="ttc" id="aclassconn__resolver_1_1Resolver_html"><div class="ttname"><a href="classconn__resolver_1_1Resolver.html">conn_resolver::Resolver</a></div><div class="ttdoc">The Resolver class.</div><div class="ttdef"><b>Definition</b> resolver.hpp:35</div></div>
 <div class="ttc" id="aclassconn__resolver_1_1Resolver_html_a51a093c40e6a9d79222d079063d7f76b"><div class="ttname"><a href="classconn__resolver_1_1Resolver.html#a51a093c40e6a9d79222d079063d7f76b">conn_resolver::Resolver::try_connect_tcp</a></div><div class="ttdeci">tcp::Connection::connection_ptr try_connect_tcp()</div><div class="ttdoc">Attempts to connect to the target host using protocol TCP.</div></div>
-<div class="ttc" id="aclasstcp_1_1Connection_html_acf0742f632b67b68bcb408203fad7cf3"><div class="ttname"><a href="classtcp_1_1Connection.html#acf0742f632b67b68bcb408203fad7cf3">tcp::Connection::connection_ptr</a></div><div class="ttdeci">std::shared_ptr&lt; Connection &gt; connection_ptr</div><div class="ttdef"><b>Definition</b> tcp.hpp:19</div></div>
+<div class="ttc" id="aclasstcp_1_1Connection_html_acf0742f632b67b68bcb408203fad7cf3"><div class="ttname"><a href="classtcp_1_1Connection.html#acf0742f632b67b68bcb408203fad7cf3">tcp::Connection::connection_ptr</a></div><div class="ttdeci">std::shared_ptr&lt; Connection &gt; connection_ptr</div><div class="ttdef"><b>Definition</b> tcp.hpp:21</div></div>
 </div><!-- fragment --><h2><a class="anchor" id="autotoc_md3"></a>
 Accepting incoming connections</h2>
 <p>Setting up a listening connection is similar to the process with the POSIX API. First, create a <code><a class="el" href="classtcp_1_1Acceptor.html" title="Accepts connections and assigns a dedicated TCPConnection object.">tcp::Acceptor</a></code> instance with a port to listen on and the address domain the underlying socket will use to listen on. As usual, you can call <code><a class="el" href="classtcp_1_1Acceptor.html#aa5120225596bcbd6d279672a4932d2fb" title="Binds the socket handle to the host machine&#39;s address.">tcp::Acceptor::bind()</a></code> to resolve the underlying socket to the host machine, <code><a class="el" href="classtcp_1_1Acceptor.html#ac2d9e810f609182e278e1f8c49645e6d" title="Starts listening on the socket for incoming connections.">tcp::Acceptor::listen()</a></code> to listen for incoming connections, and <code><a class="el" href="classtcp_1_1Acceptor.html#a2fd6be480bd71160d3df39a435de3011" title="Accepts incoming connections synchronously.">tcp::Acceptor::accept()</a></code> to create dedicated sockets for incoming connections.</p>
@@ -134,7 +134,7 @@ Accepting incoming connections</h2>
 <div class="line">conn-&gt;send_sync(...);</div>
 <div class="line">conn-&gt;recv_sync(...);</div>
 <div class="line">...</div>
-<div class="ttc" id="aclasstcp_1_1Acceptor_html"><div class="ttname"><a href="classtcp_1_1Acceptor.html">tcp::Acceptor</a></div><div class="ttdoc">Accepts connections and assigns a dedicated TCPConnection object.</div><div class="ttdef"><b>Definition</b> tcp.hpp:119</div></div>
+<div class="ttc" id="aclasstcp_1_1Acceptor_html"><div class="ttname"><a href="classtcp_1_1Acceptor.html">tcp::Acceptor</a></div><div class="ttdoc">Accepts connections and assigns a dedicated TCPConnection object.</div><div class="ttdef"><b>Definition</b> tcp.hpp:126</div></div>
 </div><!-- fragment --><p>You can view the full documentation <a href="http://jpagcal.github.io/net-plus-plus">here.</a></p>
 <h1><a class="anchor" id="autotoc_md4"></a>
 Error Handling</h1>
@@ -154,29 +154,29 @@ A synchronous single-threaded TCP echo client and server implementation</h1>
 <p><b>TCP Echo Server</b> </p><div class="fragment"><div class="line"><span class="keywordtype">int</span> main() {</div>
 <div class="line">    std::string port{ <span class="stringliteral">&quot;8080&quot;</span> };</div>
 <div class="line">    </div>
-<div class="line"><span class="keywordflow">try</span> {</div>
-<div class="line">    <a class="code hl_class" href="classtcp_1_1Acceptor.html">tcp::Acceptor</a> acceptor{<span class="stringliteral">&quot;8080&quot;</span>, networking::domain::ipv4};</div>
-<div class="line">    </div>
-<div class="line">    acceptor.bind();</div>
-<div class="line">    acceptor.listen();</div>
-<div class="line">    std::cout &lt;&lt; <span class="stringliteral">&quot;Server listening on port &quot;</span> &lt;&lt; port &lt;&lt; <span class="charliteral">&#39;\n&#39;</span>;</div>
-<div class="line">    </div>
-<div class="line">    <a class="code hl_typedef" href="classtcp_1_1Connection.html#acf0742f632b67b68bcb408203fad7cf3">tcp::Connection::connection_ptr</a> conn{ acceptor.accept() };</div>
-<div class="line">    </div>
-<div class="line">    <span class="keywordflow">while</span> (<span class="keyword">true</span>) {</div>
-<div class="line">        std::string buf;</div>
-<div class="line">        conn-&gt;recv_sync(buf);</div>
-<div class="line">        conn-&gt;send_sync(buf);</div>
+<div class="line">    <span class="keywordflow">try</span> {</div>
+<div class="line">        <a class="code hl_class" href="classtcp_1_1Acceptor.html">tcp::Acceptor</a> acceptor{<span class="stringliteral">&quot;8080&quot;</span>, networking::domain::ipv4};</div>
+<div class="line">        </div>
+<div class="line">        acceptor.bind();</div>
+<div class="line">        acceptor.listen();</div>
+<div class="line">        std::cout &lt;&lt; <span class="stringliteral">&quot;Server listening on port &quot;</span> &lt;&lt; port &lt;&lt; <span class="charliteral">&#39;\n&#39;</span>;</div>
+<div class="line">        </div>
+<div class="line">        <a class="code hl_typedef" href="classtcp_1_1Connection.html#acf0742f632b67b68bcb408203fad7cf3">tcp::Connection::connection_ptr</a> conn{ acceptor.accept() };</div>
+<div class="line">        </div>
+<div class="line">        <span class="keywordflow">while</span> (<span class="keyword">true</span>) {</div>
+<div class="line">            std::string buf;</div>
+<div class="line">            conn-&gt;recv_sync(buf);</div>
+<div class="line">            conn-&gt;send_sync(buf);</div>
+<div class="line">        }</div>
+<div class="line">    } <span class="keywordflow">catch</span> (std::system_error &amp;e) {</div>
+<div class="line">        netpp::log_error(e);</div>
 <div class="line">    }</div>
-<div class="line">} <span class="keywordflow">catch</span> (std::system_error &amp;e) {</div>
-<div class="line">    netpp::log_error(e);</div>
-<div class="line">}</div>
 <div class="line">}</div>
 </div><!-- fragment --><p><b>TCP Echo Client</b> </p><div class="fragment"><div class="line"><span class="keywordtype">int</span> main(){</div>
-<div class="line"><span class="keywordflow">try</span> {</div>
-<div class="line">    <a class="code hl_class" href="classconn__resolver_1_1Resolver.html">conn_resolver::Resolver</a> res{ <span class="stringliteral">&quot;127.0.0.1&quot;</span>, <span class="stringliteral">&quot;8080&quot;</span> };</div>
-<div class="line">    <a class="code hl_typedef" href="classtcp_1_1Connection.html#acf0742f632b67b68bcb408203fad7cf3">tcp::Connection::connection_ptr</a> conn{ res.<a class="code hl_function" href="classconn__resolver_1_1Resolver.html#a51a093c40e6a9d79222d079063d7f76b">try_connect_tcp</a>() };</div>
-<div class="line">    </div>
+<div class="line">    <span class="keywordflow">try</span> {</div>
+<div class="line">        <a class="code hl_class" href="classconn__resolver_1_1Resolver.html">conn_resolver::Resolver</a> res{ <span class="stringliteral">&quot;127.0.0.1&quot;</span>, <span class="stringliteral">&quot;8080&quot;</span> };</div>
+<div class="line">        <a class="code hl_typedef" href="classtcp_1_1Connection.html#acf0742f632b67b68bcb408203fad7cf3">tcp::Connection::connection_ptr</a> conn{ res.<a class="code hl_function" href="classconn__resolver_1_1Resolver.html#a51a093c40e6a9d79222d079063d7f76b">try_connect_tcp</a>() };</div>
+<div class="line">        </div>
 <div class="line">    <span class="keywordflow">while</span> (<span class="keyword">true</span>) {</div>
 <div class="line">        std::string received{};</div>
 <div class="line">        std::string message{};</div>
@@ -185,14 +185,25 @@ A synchronous single-threaded TCP echo client and server implementation</h1>
 <div class="line">        conn-&gt;recv_sync(received);</div>
 <div class="line">        std::cout &lt;&lt; <span class="stringliteral">&quot;Received \&quot;&quot;</span> &lt;&lt; received &lt;&lt; <span class="stringliteral">&quot;\&quot; from connection&quot;</span>&lt;&lt; std::endl;</div>
 <div class="line">    }</div>
-<div class="line">} <span class="keywordflow">catch</span> (std::system_error &amp;e) {</div>
-<div class="line">    <a class="code hl_function" href="namespacenetpp__error.html#a6748450097e3df8fece0c0f2371f2b98">netpp_error::log_error</a>(e);</div>
-<div class="line">}</div>
+<div class="line">    } <span class="keywordflow">catch</span> (std::system_error &amp;e) {</div>
+<div class="line">        <a class="code hl_function" href="namespacenetpp__error.html#a6748450097e3df8fece0c0f2371f2b98">netpp_error::log_error</a>(e);</div>
+<div class="line">    }</div>
 <div class="line">}</div>
 <div class="ttc" id="anamespacenetpp__error_html_a6748450097e3df8fece0c0f2371f2b98"><div class="ttname"><a href="namespacenetpp__error.html#a6748450097e3df8fece0c0f2371f2b98">netpp_error::log_error</a></div><div class="ttdeci">void log_error(std::system_error &amp;e)</div><div class="ttdoc">Prints the error to stdout.</div></div>
 </div><!-- fragment --><h1><a class="anchor" id="autotoc_md6"></a>
 Asynchronous Events</h1>
-<p>net++ uses <a href="http://libevent.org">libevent</a> to execute callbacks on registered file descriptors - specifically with socket reads, writes, and accepting connections. The <code>IOContext</code> class defined in <code><a class="el" href="io__context_8hpp.html">io_context.hpp</a></code> manages the lifecycle and dispatch of the event loop. </p>
+<p>net++ uses <a href="http://libevent.org">libevent</a> to execute callbacks on registered file descriptors - specifically with socket reads, writes, and accepting connections. The <code>IOContext</code> class defined in <code><a class="el" href="io__context_8hpp.html">io_context.hpp</a></code> manages the lifecycle and dispatch of the event loop.</p>
+<p>Events are automatically registered with the IOContext upon setting their handling objects as non-blocking. For example, if an instance of <code><a class="el" href="classtcp_1_1Connection.html" title="Represents a TCP connection.">tcp::Connection</a></code>, <code>conn</code> calls <code>conn.set_nonblocking()</code>, a buffer event monitoring the socket's internal buffers is registered with <code>IOContext</code>. An <code>IOContext</code> object is calling by calling the default constructor:</p>
+<div class="fragment"><div class="line"><a class="code hl_class" href="classasync_1_1IOContext.html">async::IOContext</a> async_context{};</div>
+<div class="line"> </div>
+<div class="line">...</div>
+<div class="line"><span class="comment">// ...non-block object creation...</span></div>
+<div class="line">...</div>
+<div class="line"> </div>
+<div class="line">async_context.<a class="code hl_function" href="classasync_1_1IOContext.html#ae4955221c13851b81b0c37746a7138f8">run</a>();</div>
+<div class="ttc" id="aclassasync_1_1IOContext_html"><div class="ttname"><a href="classasync_1_1IOContext.html">async::IOContext</a></div><div class="ttdoc">Handles the event loop.</div><div class="ttdef"><b>Definition</b> io_context.hpp:10</div></div>
+<div class="ttc" id="aclassasync_1_1IOContext_html_ae4955221c13851b81b0c37746a7138f8"><div class="ttname"><a href="classasync_1_1IOContext.html#ae4955221c13851b81b0c37746a7138f8">async::IOContext::run</a></div><div class="ttdeci">void run() const</div><div class="ttdoc">Runs the event loop.</div></div>
+</div><!-- fragment --><p>The underlying event base that serves as the foundation for <code>IOContext</code> is not threadsafe by default, therefore <code>IOContext</code> is not threadsafe. Having multiple threads polling for IO implies setting up an <code>IOContext</code> per thread. </p>
 </div></div><!-- PageDoc -->
 </div><!-- contents -->
 </div><!-- doc-content -->

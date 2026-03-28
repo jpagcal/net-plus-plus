@@ -192,7 +192,7 @@ Static Public Member Functions</h2></td></tr>
 </div><div class="memdoc">
 
 <p>The move constructor for the <a class="el" href="classtcp_1_1Connection.html" title="Represents a TCP connection.">Connection</a> class. </p>
-<p>Moves the source socket handle to the current <a class="el" href="classtcp_1_1Connection.html" title="Represents a TCP connection.">Connection</a> instance, and invalidates the source instance's socket handle.</p>
+<p>Moves the source socket handle, io context, and event to the current <a class="el" href="classtcp_1_1Connection.html" title="Represents a TCP connection.">Connection</a> instance, and invalidates the source instance's socket handle.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">other</td><td>An rvalue reference to the object to steal resources from </td></tr>
@@ -283,7 +283,7 @@ Static Public Member Functions</h2></td></tr>
 </div><div class="memdoc">
 
 <p>The move constructor for the <a class="el" href="classtcp_1_1Connection.html" title="Represents a TCP connection.">Connection</a> class. </p>
-<p>Closes the current <a class="el" href="classtcp_1_1Connection.html" title="Represents a TCP connection.">Connection</a>'s socket handle if applicable, moves the source socket handle to the current connection instance , and invalidates the source instance's socket handle.</p>
+<p>Closes the current <a class="el" href="classtcp_1_1Connection.html" title="Represents a TCP connection.">Connection</a>'s socket handle if applicable, moves the source socket handle, io context, and event to the current connection instance , and invalidates the source instance's socket handle.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">other</td><td>An rvalue reference to the object to steal resources from </td></tr>
