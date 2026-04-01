@@ -101,6 +101,6 @@ tcp::Connection::connection_ptr Resolver::try_connect_tcp() {
 	}
 
 	std::cout << "Connected\n";
-	return tcp::Connection::create(socket_fd);
+	return tcp::Connection::create(socket_fd, nullptr);
 }
 }

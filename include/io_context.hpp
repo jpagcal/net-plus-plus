@@ -1,3 +1,5 @@
+#pragma once
+
 #include <event2/event.h>
 #include <memory>
 
@@ -7,8 +9,9 @@ namespace async {
  *
  * Uses libevent under the hood to dispatch callbacks upon event
  */
-class IOContext {
+class IOContext : public std::enable_shared_from_this<IOContext>{
 	public:
+	using io_context_ptr = std::shared_ptr<async::IOContext>;
 	/**
 	 * @brief IOContext constructor
 		*
@@ -43,9 +46,11 @@ class IOContext {
 	IOContext& operator=(IOContext &&other) noexcept;
 
 	/**
-	 * @brief IOContext destructor
+	 * @brief Creates an instance of IOContext wrapped in shared_ptr
+		*
+		* @returns The shared_ptr to the new IOContext instance
 	 */
-	~IOContext();
+	io_context_ptr create();
 
 	/**
 	 * @brief Gives a pointer to the event base struct for libevent calls
@@ -60,6 +65,6 @@ class IOContext {
 	void run() const;
 
 	private:
-		std::unique_ptr<event_base> base_; /**< An owning pointer to the event base handle */
+		std::unique_ptr<event_base, decltype(&event_base_free)> base_; /**< An owning pointer to the event base handle */
 };
 } // namespace event

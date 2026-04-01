@@ -5,3 +5,5 @@ Testing/
 .DS_Store
 docs/
 misc/
+CMakeFiles
+CmakeCache.txt

@@ -48,9 +48,10 @@ public:
 	 * @brief Creates a shared ptr to a new Connection instance
 		*
 		* @param socket_fd The Connected socket file descriptor to pass into the private constructor
+		* @param io_context An optional IOContext object
 		* @returns A shared pointer to the new Connection instance
 	 */
-	static connection_ptr create(int32_t socket_fd);
+	static connection_ptr create(int32_t socket_fd, async::IOContext::io_context_ptr io_context);
 
 	/**
 	 * @brief Sets the underlying socket handle as nonblocking
@@ -107,15 +108,15 @@ public:
 	void recv_sync(std::string &buf);
 private:
 	/// @cond HIDDEN_FROM_DOCS
-	Connection(int32_t socket_fd) :
+	Connection(int32_t socket_fd, async::IOContext::io_context_ptr io_context) :
     	socket_fd_{ socket_fd },
-     	io_context_{}, // TODO: should take in the io_context as an argument
-      	event_{} {}
+     	io_context_{ io_context }, // TODO: should take in the io_context as an argument
+      	event_(nullptr, bufferevent_free) {}
 	/// @endcond
 
 	int32_t socket_fd_; /**< A handle to the connected socket */
-	std::shared_ptr<async::IOContext> io_context_;
-	std::unique_ptr<bufferevent> event_;
+	std::shared_ptr<async::IOContext> io_context_; /**< The event loop */
+	std::unique_ptr<bufferevent, decltype(&bufferevent_free)> event_;
 };
 
 /**
@@ -181,7 +182,7 @@ public:
 	 */
 	Connection::connection_ptr accept() const;
 private:
-	int32_t listening_socket_fd_;
-	std::string port_;
+	int32_t listening_socket_fd_; /**< The underlying listening socket */
+	std::string port_; /**< Port to listen on */
 };
 }

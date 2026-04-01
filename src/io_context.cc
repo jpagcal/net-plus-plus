@@ -2,7 +2,7 @@
 
 namespace async {
 IOContext::IOContext() : base_{
-	std::unique_ptr<event_base>{event_base_new()}
+	std::unique_ptr<event_base, decltype(&event_base_free)>{event_base_new(), event_base_free}
 } {}
 
 IOContext::IOContext(IOContext &&other) noexcept :
@@ -20,8 +20,8 @@ IOContext &IOContext::operator=(IOContext&& other) noexcept {
 	return *this;
 }
 
-IOContext::~IOContext() {
-	event_base_free(base_.get());
+IOContext::io_context_ptr create() {
+	return IOContext::io_context_ptr{ new IOContext() };
 }
 
 event_base *IOContext::c_base() const {

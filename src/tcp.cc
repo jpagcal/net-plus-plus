@@ -38,8 +38,8 @@ Connection& Connection::operator=(Connection&& other) noexcept {
 	return *this;
 }
 
-Connection::connection_ptr Connection::create(int32_t socket_fd) {
-	return Connection::connection_ptr{ new Connection(socket_fd) };
+Connection::connection_ptr Connection::create(int32_t socket_fd, async::IOContext::io_context_ptr io_context = nullptr) {
+	return Connection::connection_ptr{ new Connection(socket_fd, io_context) };
 }
 
 
