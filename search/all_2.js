@@ -12,6 +12,6 @@ var searchData=
   ['connection_5fptr_9',['connection_ptr',['../classtcp_1_1Connection.html#acf0742f632b67b68bcb408203fad7cf3',1,'tcp::Connection']]],
   ['connections_10',['Accepting incoming connections',['../index.html#autotoc_md3',1,'']]],
   ['craft_5fresolver_5fhints_11',['craft_resolver_hints',['../namespaceconn__resolver.html#acfefc9a84456307ccf03615279660d47',1,'conn_resolver']]],
-  ['create_12',['create',['../classtcp_1_1Connection.html#a1a5deafdbbf9a9bb2bfe5e064c92981c',1,'tcp::Connection']]],
+  ['create_12',['create',['../classasync_1_1IOContext.html#a330f785f2ba94d3ab41cb713db0e274c',1,'async::IOContext::create()'],['../classtcp_1_1Connection.html#aaeaa7f0b700580347f2b8acbaec54b61',1,'tcp::Connection::create()']]],
   ['create_5fsocket_13',['create_socket',['../classendpoint__info_1_1AddressInfo.html#a640e29f6ba03cc99d6cf94f1ab14e601',1,'endpoint_info::AddressInfo']]]
 ];

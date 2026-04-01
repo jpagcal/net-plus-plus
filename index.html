@@ -134,7 +134,7 @@ Accepting incoming connections</h2>
 <div class="line">conn-&gt;send_sync(...);</div>
 <div class="line">conn-&gt;recv_sync(...);</div>
 <div class="line">...</div>
-<div class="ttc" id="aclasstcp_1_1Acceptor_html"><div class="ttname"><a href="classtcp_1_1Acceptor.html">tcp::Acceptor</a></div><div class="ttdoc">Accepts connections and assigns a dedicated TCPConnection object.</div><div class="ttdef"><b>Definition</b> tcp.hpp:126</div></div>
+<div class="ttc" id="aclasstcp_1_1Acceptor_html"><div class="ttname"><a href="classtcp_1_1Acceptor.html">tcp::Acceptor</a></div><div class="ttdoc">Accepts connections and assigns a dedicated TCPConnection object.</div><div class="ttdef"><b>Definition</b> tcp.hpp:127</div></div>
 </div><!-- fragment --><p>You can view the full documentation <a href="http://jpagcal.github.io/net-plus-plus">here.</a></p>
 <h1><a class="anchor" id="autotoc_md4"></a>
 Error Handling</h1>
@@ -201,7 +201,7 @@ Asynchronous Events</h1>
 <div class="line">...</div>
 <div class="line"> </div>
 <div class="line">async_context.<a class="code hl_function" href="classasync_1_1IOContext.html#ae4955221c13851b81b0c37746a7138f8">run</a>();</div>
-<div class="ttc" id="aclassasync_1_1IOContext_html"><div class="ttname"><a href="classasync_1_1IOContext.html">async::IOContext</a></div><div class="ttdoc">Handles the event loop.</div><div class="ttdef"><b>Definition</b> io_context.hpp:10</div></div>
+<div class="ttc" id="aclassasync_1_1IOContext_html"><div class="ttname"><a href="classasync_1_1IOContext.html">async::IOContext</a></div><div class="ttdoc">Handles the event loop.</div><div class="ttdef"><b>Definition</b> io_context.hpp:12</div></div>
 <div class="ttc" id="aclassasync_1_1IOContext_html_ae4955221c13851b81b0c37746a7138f8"><div class="ttname"><a href="classasync_1_1IOContext.html#ae4955221c13851b81b0c37746a7138f8">async::IOContext::run</a></div><div class="ttdeci">void run() const</div><div class="ttdoc">Runs the event loop.</div></div>
 </div><!-- fragment --><p>The underlying event base that serves as the foundation for <code>IOContext</code> is not threadsafe by default, therefore <code>IOContext</code> is not threadsafe. Having multiple threads polling for IO implies setting up an <code>IOContext</code> per thread. </p>
 </div></div><!-- PageDoc -->

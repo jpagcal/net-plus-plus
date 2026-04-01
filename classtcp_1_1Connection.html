@@ -144,9 +144,9 @@ Public Member Functions</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-static-methods" name="pub-static-methods"></a>
 Static Public Member Functions</h2></td></tr>
-<tr class="memitem:a1a5deafdbbf9a9bb2bfe5e064c92981c" id="r_a1a5deafdbbf9a9bb2bfe5e064c92981c"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="classtcp_1_1Connection.html#acf0742f632b67b68bcb408203fad7cf3">connection_ptr</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtcp_1_1Connection.html#a1a5deafdbbf9a9bb2bfe5e064c92981c">create</a> (int32_t socket_fd)</td></tr>
-<tr class="memdesc:a1a5deafdbbf9a9bb2bfe5e064c92981c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates a shared ptr to a new <a class="el" href="classtcp_1_1Connection.html" title="Represents a TCP connection.">Connection</a> instance.  <br /></td></tr>
-<tr class="separator:a1a5deafdbbf9a9bb2bfe5e064c92981c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aaeaa7f0b700580347f2b8acbaec54b61" id="r_aaeaa7f0b700580347f2b8acbaec54b61"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="classtcp_1_1Connection.html#acf0742f632b67b68bcb408203fad7cf3">connection_ptr</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtcp_1_1Connection.html#aaeaa7f0b700580347f2b8acbaec54b61">create</a> (int32_t socket_fd, <a class="el" href="classasync_1_1IOContext.html#a575adb31752f0f7a75cefea762ae88c1">async::IOContext::io_context_ptr</a> io_context)</td></tr>
+<tr class="memdesc:aaeaa7f0b700580347f2b8acbaec54b61"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates a shared ptr to a new <a class="el" href="classtcp_1_1Connection.html" title="Represents a TCP connection.">Connection</a> instance.  <br /></td></tr>
+<tr class="separator:aaeaa7f0b700580347f2b8acbaec54b61"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Represents a TCP connection. </p>
@@ -203,8 +203,8 @@ Static Public Member Functions</h2></td></tr>
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
-<a id="a1a5deafdbbf9a9bb2bfe5e064c92981c" name="a1a5deafdbbf9a9bb2bfe5e064c92981c"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a1a5deafdbbf9a9bb2bfe5e064c92981c">&#9670;&#160;</a></span>create()</h2>
+<a id="aaeaa7f0b700580347f2b8acbaec54b61" name="aaeaa7f0b700580347f2b8acbaec54b61"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aaeaa7f0b700580347f2b8acbaec54b61">&#9670;&#160;</a></span>create()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -216,8 +216,18 @@ Static Public Member Functions</h2></td></tr>
           <td class="memname">static <a class="el" href="classtcp_1_1Connection.html#acf0742f632b67b68bcb408203fad7cf3">connection_ptr</a> tcp::Connection::create </td>
           <td>(</td>
           <td class="paramtype">int32_t&#160;</td>
-          <td class="paramname"><em>socket_fd</em></td><td>)</td>
+          <td class="paramname"><em>socket_fd</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
           <td></td>
+          <td class="paramtype"><a class="el" href="classasync_1_1IOContext.html#a575adb31752f0f7a75cefea762ae88c1">async::IOContext::io_context_ptr</a>&#160;</td>
+          <td class="paramname"><em>io_context</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
         </tr>
       </table>
   </td>
@@ -231,6 +241,7 @@ Static Public Member Functions</h2></td></tr>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">socket_fd</td><td>The Connected socket file descriptor to pass into the private constructor </td></tr>
+    <tr><td class="paramname">io_context</td><td>An optional IOContext object </td></tr>
   </table>
   </dd>
 </dl>
