@@ -48,7 +48,7 @@ TEST_F(AddressInfoTest, outputted_c_addrinfo_matches) {
 	EXPECT_EQ(node_addrinfo.ai_flags, 0);
 	EXPECT_EQ(node_addrinfo.ai_socktype, c_addrinfo.ai_socktype);
 	EXPECT_STREQ(node_addrinfo.ai_canonname, c_addrinfo.ai_canonname);
-	EXPECT_EQ(sizeof(sockaddr_storage), node_addrinfo.ai_addrlen);
+	EXPECT_EQ(sizeof(sockaddr), node_addrinfo.ai_addrlen);
 
 	int i = memcmp(&c_addrinfo, &node_addrinfo, sizeof(sockaddr));
 	EXPECT_EQ(i, 0);
