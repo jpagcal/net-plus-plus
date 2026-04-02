@@ -4,11 +4,12 @@
 
 namespace netpp_error {
 	/**
-	 * @brief Enumeration representing the different error codes handled by FailedAllResultsErrorCategory
+	 * @brief Enumeration representing the different error codes handled by LibraryErrorCategory
 	 */
-	enum FailedAllResults {
+	enum LibraryError {
 		BindFailed,
-		ConnectFailed
+		ConnectFailed,
+		MissingAsyncContext
 	};
 	/**
 	 * @brief Throws an exception with std::generic category()
@@ -38,14 +39,16 @@ namespace netpp_error {
 		};
 
 		/**
-		 * @brief Separate error category for failed system-calls for all results of a query list
+		 * @brief Separate error category for library errors not related to
+			* low-level system calls or getaddrinfo()
 		 */
-		class FailedAllResultsCategory : public std::error_category {
+		class LibraryErrorCategory : public std::error_category {
 			/// @cond HIDDEN_FROM_DOGS
 			const char *name() const noexcept override;
 			std::string message(int ev) const override;
 			/// @endcond
 		};
+
 	}
 
 	/**
@@ -57,10 +60,10 @@ namespace netpp_error {
 	void throw_gai_error(int &ev, std::string what_arg);
 
 	/**
-	 * @brief Throws an exception with failed_results_error category
+	 * @brief Throws an exception with library_error category
 		*
-		* @param code The given error results from an iterative system-call
+		* @param code The error code pertaining to the library error
 		* @param what_arg The explanation of the error
 	 */
-	void throw_failed_on_all_results_error(FailedAllResults code, std::string what_arg);
+	void throw_library_error(LibraryError code, std::string what_arg);
 } // namespace netpp_error

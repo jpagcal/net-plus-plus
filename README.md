@@ -50,7 +50,9 @@ You can view the full documentation [here.](http://jpagcal.github.io/net-plus-pl
 ## Error Handling
 Errors are surfaced as `std::system_error` whenever low-level POSIX calls set the value of `errno`.
 
-Not all errors are exceptional (See [Kohlhoff, 2010](http://blog.think-async.com/2010/04/system-error-support-in-c0x-part-1.html)) -- a good example would be calling `connect()` to attempt connections to a host iteratively through a list of query results. Hence, system calls that are executed within an iterative sequence, which also have some reasonable expectation of failure, like `bind()` or `connect()` are exempt from throwing if they fail. If all system calls fail for all results, then a `std::system_error` is emitted.
+Not all errors are exceptional (See [Kohlhoff, 2010](http://blog.think-async.com/2010/04/system-error-support-in-c0x-part-1.html)) -- a good example would be calling `connect()` to attempt connections to a host iteratively through a list of query results. Hence, system calls that are executed within an iterative sequence, which also have some reasonable expectation of failure, like `bind()` or `connect()` are exempt from throwing if they fail.
+
+Error categories like `LibraryErrorCategory` and `GAIErrorCategory` are declared in `error.hpp` for error spaces separate from `errno`. They cover library errors such as results exhaustion - like when all iterative system calls fail for a set of Query Results - or errors emitted by `getaddrinfo`.
 
 It is the responsibility of the library user to handle exceptions as follows:
 

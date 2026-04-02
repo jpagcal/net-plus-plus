@@ -21,22 +21,24 @@ namespace netpp_error {
 			return gai_strerror(ev);
 		}
 
-		const char *FailedAllResultsCategory::name() const noexcept {
+		const char *LibraryErrorCategory::name() const noexcept {
 			return "FailedAllResultsCategory";
 		}
 
-		std::string FailedAllResultsCategory::message(int ev) const {
+		std::string LibraryErrorCategory::message(int ev) const {
 			switch (ev) {
-				case FailedAllResults::BindFailed:
+				case LibraryError::BindFailed:
 					return "Check your network configurations";
-				case FailedAllResults::ConnectFailed:
+				case LibraryError::ConnectFailed:
 					return "Check hostname, service, and query results";
+				case LibraryError::MissingAsyncContext:
+					return "Specify an io_context";
 				default:
 					return "";
 			}
 		}
 
-		const FailedAllResultsCategory failed_results_error{};
+		const LibraryErrorCategory library_error{};
 		const GAIErrorCategory gai_error{};
 	}
 
@@ -44,7 +46,7 @@ namespace netpp_error {
 		throw std::system_error(ev, gai_error, std::move(what_arg));
 	}
 
-	void throw_failed_on_all_results_error(FailedAllResults code, std::string what_arg) {
-		throw std::system_error(code, failed_results_error, std::move(what_arg));
+	void throw_results_exhaustion_error(LibraryError code, std::string what_arg) {
+		throw std::system_error(code, library_error, std::move(what_arg));
 	}
 } // namespace netpp_error
