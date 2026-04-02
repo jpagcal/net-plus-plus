@@ -6,7 +6,7 @@ var searchData=
   ['client_20and_20server_20implementation_3',['A synchronous single-threaded TCP echo client and server implementation',['../index.html#autotoc_md5',1,'']]],
   ['conn_5fresolver_4',['conn_resolver',['../namespaceconn__resolver.html',1,'']]],
   ['connect_5',['connect',['../classendpoint__info_1_1AddressInfo.html#a61ca0e66821e220c83399d688f23c3d5',1,'endpoint_info::AddressInfo']]],
-  ['connectfailed_6',['ConnectFailed',['../namespacenetpp__error.html#ae5babb2548ee7101a2717c27ef65cedcaf872b886433d645018abdb392e93e24b',1,'netpp_error']]],
+  ['connectfailed_6',['ConnectFailed',['../namespacenetpp__error.html#a4aacb137ac183ee447bfabc7b3df8303af872b886433d645018abdb392e93e24b',1,'netpp_error']]],
   ['connecting_20to_20a_20host_7',['Connecting to a host',['../index.html#autotoc_md2',1,'']]],
   ['connection_8',['connection',['../classtcp_1_1Connection.html',1,'tcp::Connection'],['../classtcp_1_1Connection.html#a5795f66e021e87bb4190442d93111422',1,'tcp::Connection::Connection(Connection &amp;&amp;other) noexcept']]],
   ['connection_5fptr_9',['connection_ptr',['../classtcp_1_1Connection.html#acf0742f632b67b68bcb408203fad7cf3',1,'tcp::Connection']]],

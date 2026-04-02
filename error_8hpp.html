@@ -108,11 +108,12 @@ Namespaces</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="enum-members" name="enum-members"></a>
 Enumerations</h2></td></tr>
-<tr class="memitem:ae5babb2548ee7101a2717c27ef65cedc" id="r_ae5babb2548ee7101a2717c27ef65cedc"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacenetpp__error.html#ae5babb2548ee7101a2717c27ef65cedc">netpp_error::FailedAllResults</a> { <a class="el" href="namespacenetpp__error.html#ae5babb2548ee7101a2717c27ef65cedca799aba4cf47179b92e058f80b4f24678">netpp_error::BindFailed</a>
-, <a class="el" href="namespacenetpp__error.html#ae5babb2548ee7101a2717c27ef65cedcaf872b886433d645018abdb392e93e24b">netpp_error::ConnectFailed</a>
+<tr class="memitem:a4aacb137ac183ee447bfabc7b3df8303" id="r_a4aacb137ac183ee447bfabc7b3df8303"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacenetpp__error.html#a4aacb137ac183ee447bfabc7b3df8303">netpp_error::LibraryError</a> { <a class="el" href="namespacenetpp__error.html#a4aacb137ac183ee447bfabc7b3df8303a799aba4cf47179b92e058f80b4f24678">netpp_error::BindFailed</a>
+, <a class="el" href="namespacenetpp__error.html#a4aacb137ac183ee447bfabc7b3df8303af872b886433d645018abdb392e93e24b">netpp_error::ConnectFailed</a>
+, <a class="el" href="namespacenetpp__error.html#a4aacb137ac183ee447bfabc7b3df8303a722aeeb0bd348c0c3d790f8d1b3c0100">netpp_error::MissingAsyncContext</a>
  }</td></tr>
-<tr class="memdesc:ae5babb2548ee7101a2717c27ef65cedc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Enumeration representing the different error codes handled by FailedAllResultsErrorCategory.  <a href="namespacenetpp__error.html#ae5babb2548ee7101a2717c27ef65cedc">More...</a><br /></td></tr>
-<tr class="separator:ae5babb2548ee7101a2717c27ef65cedc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memdesc:a4aacb137ac183ee447bfabc7b3df8303"><td class="mdescLeft">&#160;</td><td class="mdescRight">Enumeration representing the different error codes handled by LibraryErrorCategory.  <a href="namespacenetpp__error.html#a4aacb137ac183ee447bfabc7b3df8303">More...</a><br /></td></tr>
+<tr class="separator:a4aacb137ac183ee447bfabc7b3df8303"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
 Functions</h2></td></tr>
@@ -125,9 +126,9 @@ Functions</h2></td></tr>
 <tr class="memitem:a071af28ca3e4c2b80e3b8a57356a5eed" id="r_a071af28ca3e4c2b80e3b8a57356a5eed"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacenetpp__error.html#a071af28ca3e4c2b80e3b8a57356a5eed">netpp_error::throw_gai_error</a> (int &amp;ev, std::string what_arg)</td></tr>
 <tr class="memdesc:a071af28ca3e4c2b80e3b8a57356a5eed"><td class="mdescLeft">&#160;</td><td class="mdescRight">Throws an exception with gai_error category.  <br /></td></tr>
 <tr class="separator:a071af28ca3e4c2b80e3b8a57356a5eed"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a177c3d2b79dc256eed32b09a490279d2" id="r_a177c3d2b79dc256eed32b09a490279d2"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacenetpp__error.html#a177c3d2b79dc256eed32b09a490279d2">netpp_error::throw_failed_on_all_results_error</a> (<a class="el" href="namespacenetpp__error.html#ae5babb2548ee7101a2717c27ef65cedc">FailedAllResults</a> code, std::string what_arg)</td></tr>
-<tr class="memdesc:a177c3d2b79dc256eed32b09a490279d2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Throws an exception with failed_results_error category.  <br /></td></tr>
-<tr class="separator:a177c3d2b79dc256eed32b09a490279d2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4dbe936138086334cb95901cccbfc6b7" id="r_a4dbe936138086334cb95901cccbfc6b7"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacenetpp__error.html#a4dbe936138086334cb95901cccbfc6b7">netpp_error::throw_library_error</a> (<a class="el" href="namespacenetpp__error.html#a4aacb137ac183ee447bfabc7b3df8303">LibraryError</a> code, std::string what_arg)</td></tr>
+<tr class="memdesc:a4dbe936138086334cb95901cccbfc6b7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Throws an exception with library_error category.  <br /></td></tr>
+<tr class="separator:a4dbe936138086334cb95901cccbfc6b7"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 </div><!-- contents -->
 </div><!-- doc-content -->

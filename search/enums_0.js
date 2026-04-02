@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['failedallresults_0',['FailedAllResults',['../namespacenetpp__error.html#ae5babb2548ee7101a2717c27ef65cedc',1,'netpp_error']]]
+  ['libraryerror_0',['LibraryError',['../namespacenetpp__error.html#a4aacb137ac183ee447bfabc7b3df8303',1,'netpp_error']]]
 ];
