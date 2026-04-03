@@ -44,13 +44,27 @@ Connection::connection_ptr Connection::create(int32_t socket_fd, async::IOContex
 
 
 void Connection::set_nonblocking() {
+	if (!io_context_) {
+		netpp_error::throw_library_error(
+			netpp_error::LibraryError::MissingAsyncContext,
+		 	"Missing IO Context"
+		);
+	}
+
 	int32_t status = fcntl(socket_fd_, F_SETFL, O_NONBLOCK);
 
 	if (status == -1) {
-		//TODO: error handling here
+		netpp_error::throw_system_error("System-level fcntl() failed");
 	}
 
-	// TODO: create the bufferevent
+	event_ = Connection::event_ptr(
+		bufferevent_socket_new(
+			io_context_->c_base(),
+			socket_fd_,
+			0
+		),
+		bufferevent_free
+	);
 }
 
 bool Connection::is_nonblocking() {
@@ -221,8 +235,8 @@ void Acceptor::bind() const {
 
 	if (bind_status == -1) {
 		// out of range
-		netpp_error::throw_failed_on_all_results_error(
-			netpp_error::FailedAllResults::BindFailed,
+		netpp_error::throw_library_error(
+			netpp_error::LibraryError::BindFailed,
 			"System-level bind() failed for all results in the address list"
 		);
 		return;

@@ -19,6 +19,7 @@ class Connection : public std::enable_shared_from_this<Connection> {
 	static constexpr size_t header_size{ sizeof(length_header )};
 public:
 	using connection_ptr = std::shared_ptr<Connection>;
+	using event_ptr = std::unique_ptr<bufferevent, decltype(&bufferevent_free)>;
 	/// @cond HIDDEN_FROM_DOCS
 	Connection(const Connection&) = delete;
 	Connection& operator=(const Connection&) = delete;
@@ -55,6 +56,7 @@ public:
 
 	/**
 	 * @brief Sets the underlying socket handle as nonblocking
+		* and creates a bufferevent for the socket
 	 */
 	void set_nonblocking();
 
@@ -108,7 +110,7 @@ public:
 	void recv_sync(std::string &buf);
 private:
 	/// @cond HIDDEN_FROM_DOCS
-	Connection(int32_t socket_fd, async::IOContext::io_context_ptr io_context) :
+	Connection(int32_t socket_fd, async::IOContext::io_context_ptr io_context = nullptr) :
     	socket_fd_{ socket_fd },
      	io_context_{ io_context }, // TODO: should take in the io_context as an argument
       	event_(nullptr, bufferevent_free) {}
@@ -116,7 +118,7 @@ private:
 
 	int32_t socket_fd_; /**< A handle to the connected socket */
 	std::shared_ptr<async::IOContext> io_context_; /**< The event loop */
-	std::unique_ptr<bufferevent, decltype(&bufferevent_free)> event_;
+	event_ptr event_; /**<The buffer event */
 };
 
 /**
