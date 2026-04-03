@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['io_5fcontext_5fptr_0',['io_context_ptr',['../classasync_1_1IOContext.html#a575adb31752f0f7a75cefea762ae88c1',1,'async::IOContext']]]
+  ['event_5fptr_0',['event_ptr',['../classtcp_1_1Connection.html#a59be52f1736b16847688b762ad44ba43',1,'tcp::Connection']]]
 ];

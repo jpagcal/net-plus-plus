@@ -114,6 +114,8 @@ Inheritance diagram for tcp::Connection:</div>
 Public Types</h2></td></tr>
 <tr class="memitem:acf0742f632b67b68bcb408203fad7cf3" id="r_acf0742f632b67b68bcb408203fad7cf3"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtcp_1_1Connection.html#acf0742f632b67b68bcb408203fad7cf3">connection_ptr</a> = std::shared_ptr&lt; <a class="el" href="classtcp_1_1Connection.html">Connection</a> &gt;</td></tr>
 <tr class="separator:acf0742f632b67b68bcb408203fad7cf3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a59be52f1736b16847688b762ad44ba43" id="r_a59be52f1736b16847688b762ad44ba43"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtcp_1_1Connection.html#a59be52f1736b16847688b762ad44ba43">event_ptr</a> = std::unique_ptr&lt; bufferevent, decltype(&amp;bufferevent_free)&gt;</td></tr>
+<tr class="separator:a59be52f1736b16847688b762ad44ba43"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
@@ -124,7 +126,7 @@ Public Member Functions</h2></td></tr>
 <tr class="memdesc:a3aff1f6c7ee36d2a0d9c52a3210e87fa"><td class="mdescLeft">&#160;</td><td class="mdescRight">The move constructor for the <a class="el" href="classtcp_1_1Connection.html" title="Represents a TCP connection.">Connection</a> class.  <br /></td></tr>
 <tr class="separator:a3aff1f6c7ee36d2a0d9c52a3210e87fa"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a058fab399bcbd7d008340b540533f49b" id="r_a058fab399bcbd7d008340b540533f49b"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtcp_1_1Connection.html#a058fab399bcbd7d008340b540533f49b">set_nonblocking</a> ()</td></tr>
-<tr class="memdesc:a058fab399bcbd7d008340b540533f49b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the underlying socket handle as nonblocking.  <br /></td></tr>
+<tr class="memdesc:a058fab399bcbd7d008340b540533f49b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the underlying socket handle as nonblocking and creates a bufferevent for the socket.  <br /></td></tr>
 <tr class="separator:a058fab399bcbd7d008340b540533f49b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af28d56c4049469095f65981be78cacd4" id="r_af28d56c4049469095f65981be78cacd4"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtcp_1_1Connection.html#af28d56c4049469095f65981be78cacd4">is_nonblocking</a> ()</td></tr>
 <tr class="memdesc:af28d56c4049469095f65981be78cacd4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Checks if the underlying socket handle is nonblocking.  <br /></td></tr>
@@ -160,6 +162,20 @@ Static Public Member Functions</h2></td></tr>
       <table class="memname">
         <tr>
           <td class="memname">using <a class="el" href="classtcp_1_1Connection.html#acf0742f632b67b68bcb408203fad7cf3">tcp::Connection::connection_ptr</a> =  std::shared_ptr&lt;<a class="el" href="classtcp_1_1Connection.html">Connection</a>&gt;</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a59be52f1736b16847688b762ad44ba43" name="a59be52f1736b16847688b762ad44ba43"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a59be52f1736b16847688b762ad44ba43">&#9670;&#160;</a></span>event_ptr</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">using <a class="el" href="classtcp_1_1Connection.html#a59be52f1736b16847688b762ad44ba43">tcp::Connection::event_ptr</a> =  std::unique_ptr&lt;bufferevent, decltype(&amp;bufferevent_free)&gt;</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -449,7 +465,7 @@ Static Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Sets the underlying socket handle as nonblocking. </p>
+<p>Sets the underlying socket handle as nonblocking and creates a bufferevent for the socket. </p>
 
 </div>
 </div>
