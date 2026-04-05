@@ -34,6 +34,7 @@ public:
 	 * @param other An rvalue reference to the object to steal resources from
 	 */
 	Connection(Connection&& other) noexcept;
+
 	/**
 	 * @brief The move constructor for the Connection class
 	 *
@@ -112,7 +113,7 @@ private:
 	/// @cond HIDDEN_FROM_DOCS
 	Connection(int32_t socket_fd, async::IOContext::io_context_ptr io_context = nullptr) :
     	socket_fd_{ socket_fd },
-     	io_context_{ io_context }, // TODO: should take in the io_context as an argument
+     	io_context_{ io_context },
       	event_(nullptr, bufferevent_free) {}
 	/// @endcond
 

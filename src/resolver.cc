@@ -4,6 +4,7 @@
 #include <netdb.h>
 #include <stdexcept>
 #include "../include/resolver.hpp"
+#include "../include/error.hpp"
 
 namespace conn_resolver {
 addrinfo craft_resolver_hints(ResolverHints &hints) {
@@ -31,7 +32,7 @@ Resolver::Resolver(std::string hostname, std::string service) {
 			&c_hints,
 			&res
 	))) {
-		// TODO: error handling here
+		netpp_error::throw_gai_error(getaddrinfo_status, "getaddrinfo() failed");
 	}
 
 	conn_resolver::Resolver::QueryResults results{};
@@ -96,8 +97,10 @@ tcp::Connection::connection_ptr Resolver::try_connect_tcp() {
 
 	// if this is the case, connect has failed for all nodes
 	if (socket_fd == networking::invalid_values::invalid_socket_fd) {
-		// TODO: need to define a new error category here with status codes for end-of-list
-		std::cerr << "Not connected\n";
+		netpp_error::throw_library_error(
+			netpp_error::LibraryError::ConnectFailed,
+			"System-level connect() failed for all nodes in query results"
+		)
 	}
 
 	std::cout << "Connected\n";
