@@ -100,7 +100,7 @@ tcp::Connection::connection_ptr Resolver::try_connect_tcp() {
 		netpp_error::throw_library_error(
 			netpp_error::LibraryError::ConnectFailed,
 			"System-level connect() failed for all nodes in query results"
-		)
+		);
 	}
 
 	std::cout << "Connected\n";
