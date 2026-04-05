@@ -25,8 +25,6 @@ Connection::Connection(Connection &&other) noexcept :
 Connection& Connection::operator=(Connection&& other) noexcept {
 	if (socket_fd_ != networking::invalid_values::invalid_socket_fd) { // same as equality
 		close(socket_fd_);
-		socket_fd_ = other.socket_fd_;
-		other.socket_fd_ = networking::invalid_values::invalid_socket_fd;
 	}
 
 
