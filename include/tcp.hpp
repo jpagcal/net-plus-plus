@@ -8,6 +8,7 @@
 #include <event2/bufferevent.h>
 
 namespace tcp {
+
 /**
  * @brief Represents a TCP connection
  *
@@ -16,10 +17,9 @@ namespace tcp {
  */
 class Connection : public std::enable_shared_from_this<Connection> {
 	using length_header = int32_t;
-	static constexpr size_t header_size{ sizeof(length_header )};
 public:
+	static constexpr size_t header_size{ sizeof(length_header) };
 	using connection_ptr = std::shared_ptr<Connection>;
-	using event_ptr = std::unique_ptr<bufferevent, decltype(&bufferevent_free)>;
 	/// @cond HIDDEN_FROM_DOCS
 	Connection(const Connection&) = delete;
 	Connection& operator=(const Connection&) = delete;
@@ -119,7 +119,7 @@ private:
 
 	int32_t socket_fd_; /**< A handle to the connected socket */
 	std::shared_ptr<async::IOContext> io_context_; /**< The event loop */
-	event_ptr event_; /**<The buffer event */
+	async::event_ptr event_; /**<The buffer event */
 };
 
 /**

@@ -55,7 +55,7 @@ void Connection::set_nonblocking() {
 		netpp_error::throw_system_error("System-level fcntl() failed");
 	}
 
-	event_ = Connection::event_ptr(
+	event_ = async::event_ptr(
 		bufferevent_socket_new(
 			io_context_->c_base(),
 			socket_fd_,

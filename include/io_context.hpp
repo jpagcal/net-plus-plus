@@ -1,9 +1,12 @@
 #pragma once
 
+#include <event2/bufferevent.h>
 #include <event2/event.h>
 #include <memory>
+#include <string>
 
 namespace async {
+using event_ptr = std::unique_ptr<bufferevent, decltype(&bufferevent_free)>;
 /**
  * @brief Handles the event loop
  *
@@ -67,4 +70,42 @@ class IOContext : public std::enable_shared_from_this<IOContext>{
 	private:
 		std::unique_ptr<event_base, decltype(&event_base_free)> base_; /**< An owning pointer to the event base handle */
 };
+
+
+namespace socket {
+	/**
+	 * @brief Context to pass into read_header
+	 */
+	struct ReadHeaderInfo {
+		std::string msg; /**< Dynamically allocated msg placeholder */
+	};
+
+	/**
+	 * @brief Context to pass into read_body
+	 */
+	struct ReadBodyInfo {
+		int num_bytes; /**< number of bytes contained in body */
+		std::string msg; /**< Dynamically allocated msg placeholder */
+	};
+
+	/**
+	 * @brief Triggered callback when there is at least 8 bytes in the bufferevent's input buffer
+		*
+		* @param bufferevent A raw non-owning ptr to the bufferevent
+		* @param ctx A non-owning pointer to a ReadHeaderInfo struct. Contains a ref to the message
+	 */
+	void read_msg(bufferevent *event, void *ctx);
+
+	/**
+	 * Triggered callback when there is at least *header* bytes in the bufferevent's input buffer
+		*
+		* @param bufferevent A raw non-owning ptr to the bufferevent
+		* @param ctx A non-owning ptr to a ReadBodyInfo struct. Contains the number of bytes in body
+	 */
+	void read_body(bufferevent *, void *ctx);
+}
+
+namespace acceptor {
+
+}
 } // namespace event
