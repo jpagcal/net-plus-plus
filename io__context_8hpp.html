@@ -92,12 +92,15 @@ $(document).ready(function(){initNavTree('io__context_8hpp.html',''); initResiza
 <div class="header">
   <div class="summary">
 <a href="#nested-classes">Classes</a> &#124;
-<a href="#namespaces">Namespaces</a>  </div>
+<a href="#namespaces">Namespaces</a> &#124;
+<a href="#typedef-members">Typedefs</a>  </div>
   <div class="headertitle"><div class="title">io_context.hpp File Reference</div></div>
 </div><!--header-->
 <div class="contents">
-<div class="textblock"><code>#include &lt;event2/event.h&gt;</code><br />
+<div class="textblock"><code>#include &lt;event2/bufferevent.h&gt;</code><br />
+<code>#include &lt;event2/event.h&gt;</code><br />
 <code>#include &lt;memory&gt;</code><br />
+<code>#include &lt;string&gt;</code><br />
 </div>
 <p><a href="io__context_8hpp_source.html">Go to the source code of this file.</a></p>
 <table class="memberdecls">
@@ -111,6 +114,15 @@ Classes</h2></td></tr>
 Namespaces</h2></td></tr>
 <tr class="memitem:namespaceasync" id="r_namespaceasync"><td class="memItemLeft" align="right" valign="top">namespace &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceasync.html">async</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:namespaceasync_1_1socket" id="r_namespaceasync_1_1socket"><td class="memItemLeft" align="right" valign="top">namespace &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceasync_1_1socket.html">async::socket</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:namespaceasync_1_1acceptor" id="r_namespaceasync_1_1acceptor"><td class="memItemLeft" align="right" valign="top">namespace &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceasync_1_1acceptor.html">async::acceptor</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="typedef-members" name="typedef-members"></a>
+Typedefs</h2></td></tr>
+<tr class="memitem:af8ef92fa721f891951b995aaca051e3a" id="r_af8ef92fa721f891951b995aaca051e3a"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceasync.html#af8ef92fa721f891951b995aaca051e3a">async::event_ptr</a> = std::unique_ptr&lt; bufferevent, decltype(&amp;bufferevent_free)&gt;</td></tr>
+<tr class="separator:af8ef92fa721f891951b995aaca051e3a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 </div><!-- contents -->
 </div><!-- doc-content -->

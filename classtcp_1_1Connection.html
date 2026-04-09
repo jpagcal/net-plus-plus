@@ -94,6 +94,7 @@ $(document).ready(function(){initNavTree('classtcp_1_1Connection.html',''); init
 <a href="#pub-types">Public Types</a> &#124;
 <a href="#pub-methods">Public Member Functions</a> &#124;
 <a href="#pub-static-methods">Static Public Member Functions</a> &#124;
+<a href="#pub-static-attribs">Static Public Attributes</a> &#124;
 <a href="classtcp_1_1Connection-members.html">List of all members</a>  </div>
   <div class="headertitle"><div class="title">tcp::Connection Class Reference</div></div>
 </div><!--header-->
@@ -114,8 +115,6 @@ Inheritance diagram for tcp::Connection:</div>
 Public Types</h2></td></tr>
 <tr class="memitem:acf0742f632b67b68bcb408203fad7cf3" id="r_acf0742f632b67b68bcb408203fad7cf3"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtcp_1_1Connection.html#acf0742f632b67b68bcb408203fad7cf3">connection_ptr</a> = std::shared_ptr&lt; <a class="el" href="classtcp_1_1Connection.html">Connection</a> &gt;</td></tr>
 <tr class="separator:acf0742f632b67b68bcb408203fad7cf3"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a59be52f1736b16847688b762ad44ba43" id="r_a59be52f1736b16847688b762ad44ba43"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtcp_1_1Connection.html#a59be52f1736b16847688b762ad44ba43">event_ptr</a> = std::unique_ptr&lt; bufferevent, decltype(&amp;bufferevent_free)&gt;</td></tr>
-<tr class="separator:a59be52f1736b16847688b762ad44ba43"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
@@ -149,6 +148,11 @@ Static Public Member Functions</h2></td></tr>
 <tr class="memitem:aaeaa7f0b700580347f2b8acbaec54b61" id="r_aaeaa7f0b700580347f2b8acbaec54b61"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="classtcp_1_1Connection.html#acf0742f632b67b68bcb408203fad7cf3">connection_ptr</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtcp_1_1Connection.html#aaeaa7f0b700580347f2b8acbaec54b61">create</a> (int32_t socket_fd, <a class="el" href="classasync_1_1IOContext.html#a575adb31752f0f7a75cefea762ae88c1">async::IOContext::io_context_ptr</a> io_context)</td></tr>
 <tr class="memdesc:aaeaa7f0b700580347f2b8acbaec54b61"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates a shared ptr to a new <a class="el" href="classtcp_1_1Connection.html" title="Represents a TCP connection.">Connection</a> instance.  <br /></td></tr>
 <tr class="separator:aaeaa7f0b700580347f2b8acbaec54b61"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-static-attribs" name="pub-static-attribs"></a>
+Static Public Attributes</h2></td></tr>
+<tr class="memitem:a079a2737319d1276908e5440ae4fc80d" id="r_a079a2737319d1276908e5440ae4fc80d"><td class="memItemLeft" align="right" valign="top">static constexpr size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtcp_1_1Connection.html#a079a2737319d1276908e5440ae4fc80d">header_size</a> { sizeof(length_header) }</td></tr>
+<tr class="separator:a079a2737319d1276908e5440ae4fc80d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Represents a TCP connection. </p>
@@ -162,20 +166,6 @@ Static Public Member Functions</h2></td></tr>
       <table class="memname">
         <tr>
           <td class="memname">using <a class="el" href="classtcp_1_1Connection.html#acf0742f632b67b68bcb408203fad7cf3">tcp::Connection::connection_ptr</a> =  std::shared_ptr&lt;<a class="el" href="classtcp_1_1Connection.html">Connection</a>&gt;</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="a59be52f1736b16847688b762ad44ba43" name="a59be52f1736b16847688b762ad44ba43"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a59be52f1736b16847688b762ad44ba43">&#9670;&#160;</a></span>event_ptr</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">using <a class="el" href="classtcp_1_1Connection.html#a59be52f1736b16847688b762ad44ba43">tcp::Connection::event_ptr</a> =  std::unique_ptr&lt;bufferevent, decltype(&amp;bufferevent_free)&gt;</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -466,6 +456,29 @@ Static Public Member Functions</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Sets the underlying socket handle as nonblocking and creates a bufferevent for the socket. </p>
+
+</div>
+</div>
+<h2 class="groupheader">Member Data Documentation</h2>
+<a id="a079a2737319d1276908e5440ae4fc80d" name="a079a2737319d1276908e5440ae4fc80d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a079a2737319d1276908e5440ae4fc80d">&#9670;&#160;</a></span>header_size</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">constexpr size_t tcp::Connection::header_size { sizeof(length_header) }</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span><span class="mlabel">constexpr</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
 
 </div>
 </div>

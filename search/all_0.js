@@ -9,5 +9,7 @@ var searchData=
   ['addressinfo_6',['addressinfo',['../classendpoint__info_1_1AddressInfo.html#aeb5984dc333bcb1439266962e384b55b',1,'endpoint_info::AddressInfo::AddressInfo()=delete'],['../classendpoint__info_1_1AddressInfo.html#a5d84063d7937b8b962557c7573ec356c',1,'endpoint_info::AddressInfo::AddressInfo(addrinfo *raw_node)'],['../classendpoint__info_1_1AddressInfo.html',1,'endpoint_info::AddressInfo'],['../classendpoint__info_1_1AddressInfo.html',1,'AddressInfo']]],
   ['and_20server_20implementation_7',['A synchronous single-threaded TCP echo client and server implementation',['../index.html#autotoc_md5',1,'']]],
   ['async_8',['async',['../namespaceasync.html',1,'']]],
-  ['asynchronous_20events_9',['Asynchronous Events',['../index.html#autotoc_md6',1,'']]]
+  ['async_3a_3aacceptor_9',['acceptor',['../namespaceasync_1_1acceptor.html',1,'async']]],
+  ['async_3a_3asocket_10',['socket',['../namespaceasync_1_1socket.html',1,'async']]],
+  ['asynchronous_20events_11',['Asynchronous Events',['../index.html#autotoc_md6',1,'']]]
 ];

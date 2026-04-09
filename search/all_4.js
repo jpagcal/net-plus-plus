@@ -6,6 +6,6 @@ var searchData=
   ['endpoint_5ftype_3',['endpoint_type',['../structconn__resolver_1_1ResolverHints.html#ae90288e52fa319b10ce50cb186f721ac',1,'conn_resolver::ResolverHints']]],
   ['error_20handling_4',['Error Handling',['../index.html#autotoc_md4',1,'']]],
   ['error_2ehpp_5',['error.hpp',['../error_8hpp.html',1,'']]],
-  ['event_5fptr_6',['event_ptr',['../classtcp_1_1Connection.html#a59be52f1736b16847688b762ad44ba43',1,'tcp::Connection']]],
+  ['event_5fptr_6',['event_ptr',['../namespaceasync.html#af8ef92fa721f891951b995aaca051e3a',1,'async']]],
   ['events_7',['Asynchronous Events',['../index.html#autotoc_md6',1,'']]]
 ];
