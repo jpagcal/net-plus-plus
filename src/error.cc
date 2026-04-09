@@ -46,7 +46,7 @@ namespace netpp_error {
 		throw std::system_error(ev, gai_error, std::move(what_arg));
 	}
 
-	void throw_results_exhaustion_error(LibraryError code, std::string what_arg) {
+	void throw_library_error(LibraryError code, std::string what_arg) {
 		throw std::system_error(code, library_error, std::move(what_arg));
 	}
 } // namespace netpp_error
