@@ -35,44 +35,53 @@ void IOContext::run() const {
 }
 
 namespace socket {
-	void read_msg(bufferevent *event, void *ctx) {
+	void drain_msg(bufferevent *event, void *ctx) {
 		bufferevent_disable(event, EV_READ);
-		auto context{ static_cast<ReadHeaderInfo *>(ctx) };
+		auto context{ static_cast<MessageInfo *>(ctx) };
 
-		ReadBodyInfo *info{ new ReadBodyInfo() };
+		MessageInfo *info{ new MessageInfo() };
 		info->msg = context->msg;
 
 		int32_t *data;
 		bufferevent_read(event, data, tcp::Connection::header_size);
 		info->num_bytes = ntohl(*data);
 
-		bufferevent_setcb(
-			event,
-			read_body,
-			nullptr,
-			nullptr,
-			static_cast<void*>(info)
-		);
-
-		bufferevent_setwatermark(
-			event,
-			EV_READ,
-			info->num_bytes,
-			0
-		);
+		bufferevent_setcb(event, drain_body, nullptr, nullptr, static_cast<void*>(info));
+		bufferevent_setwatermark(event, EV_READ, info->num_bytes, 0);
 
 		bufferevent_enable(event, EV_READ);
 	}
 
-	void read_body(bufferevent *event, void *ctx) {
+	void drain_body(bufferevent *event, void *ctx) {
 		bufferevent_disable(event, EV_READ);
 
-		auto context{ static_cast<ReadBodyInfo *>(ctx) };
+		auto context{ static_cast<MessageInfo *>(ctx) };
 		(context->msg).resize(context->num_bytes);
-
 		bufferevent_read(event, (context->msg).data(), context->num_bytes);
 
 		bufferevent_enable(event, EV_READ);
 	}
-}
+
+	void send_msg(bufferevent *event, void *ctx) {
+		bufferevent_disable(event, EV_WRITE);
+
+		MessageInfo *context{ static_cast<MessageInfo *>(ctx) };
+
+		bufferevent_setwatermark(event, EV_WRITE, 0, tcp::Connection::header_size);
+		bufferevent_setcb(event, nullptr, send_body, nullptr, ctx);
+		bufferevent_write(event, &(context->num_bytes), tcp::Connection::header_size);
+
+		bufferevent_enable(event, EV_WRITE);
+	}
+
+	void send_body(bufferevent *event, void *ctx) {
+		bufferevent_disable(event, EV_WRITE);
+
+		MessageInfo *context{ static_cast<MessageInfo *>(ctx) };
+
+		bufferevent_write(event, (context->msg).data(), context->num_bytes);
+
+		bufferevent_enable(event, EV_WRITE);
+	}
+} // namespace socket
 } // namespace async

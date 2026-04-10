@@ -74,16 +74,9 @@ class IOContext : public std::enable_shared_from_this<IOContext>{
 
 namespace socket {
 	/**
-	 * @brief Context to pass into read_header
+	 * @brief Context to pass into callback functions
 	 */
-	struct ReadHeaderInfo {
-		std::string msg; /**< Dynamically allocated msg placeholder */
-	};
-
-	/**
-	 * @brief Context to pass into read_body
-	 */
-	struct ReadBodyInfo {
+	struct MessageInfo {
 		int num_bytes; /**< number of bytes contained in body */
 		std::string msg; /**< Dynamically allocated msg placeholder */
 	};
@@ -94,7 +87,7 @@ namespace socket {
 		* @param bufferevent A raw non-owning ptr to the bufferevent
 		* @param ctx A non-owning pointer to a ReadHeaderInfo struct. Contains a ref to the message
 	 */
-	void read_msg(bufferevent *event, void *ctx);
+	void drain_msg(bufferevent *event, void *ctx);
 
 	/**
 	 * Triggered callback when there is at least *header* bytes in the bufferevent's input buffer
@@ -102,7 +95,10 @@ namespace socket {
 		* @param bufferevent A raw non-owning ptr to the bufferevent
 		* @param ctx A non-owning ptr to a ReadBodyInfo struct. Contains the number of bytes in body
 	 */
-	void read_body(bufferevent *, void *ctx);
+	void drain_body(bufferevent *, void *ctx);
+
+	void send_msg(bufferevent *event, void *ctx);
+	void send_body(bufferevent *event, void *ctx);
 }
 
 namespace acceptor {
