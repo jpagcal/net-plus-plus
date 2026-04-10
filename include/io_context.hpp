@@ -2,6 +2,7 @@
 
 #include <event2/bufferevent.h>
 #include <event2/event.h>
+#include <functional>
 #include <memory>
 #include <string>
 
@@ -79,6 +80,7 @@ namespace socket {
 	struct MessageInfo {
 		int num_bytes; /**< number of bytes contained in body */
 		std::string msg; /**< Dynamically allocated msg placeholder */
+		std::function<void()> callback;
 	};
 
 	/**
@@ -97,7 +99,10 @@ namespace socket {
 	 */
 	void drain_body(bufferevent *, void *ctx);
 
-	void send_msg(bufferevent *event, void *ctx);
+	/**
+	 *
+	 */
+	void send_header(bufferevent *event, void *ctx);
 	void send_body(bufferevent *event, void *ctx);
 }
 

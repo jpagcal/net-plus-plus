@@ -1,5 +1,6 @@
 #include "../include/tcp.hpp"
 #include <cerrno>
+#include <event2/event.h>
 #include <sys/_types/_ssize_t.h>
 #include <sys/fcntl.h>
 #include <sys/socket.h>
@@ -63,6 +64,8 @@ void Connection::set_nonblocking() {
 		),
 		bufferevent_free
 	);
+
+	bufferevent_enable(event_.get(), EV_READ);
 }
 
 bool Connection::is_nonblocking() {
@@ -73,9 +76,27 @@ bool Connection::is_nonblocking() {
 }
 
 void Connection::send_async(std::string_view msg, std::function<void()> callback) {
+	auto event = event_.get();
+
+	auto ctx = new async::socket::MessageInfo{};
+	ctx->msg = msg;
+	ctx->num_bytes = msg.length();
+	ctx->callback = callback;
+
+	send_header(event, ctx);
 }
 
-void recv_async(std::vector<std::byte> buf, std::function<void()> callback) {
+void Connection::recv_async(std::vector<std::byte> buf, std::function<void()> callback) {
+	auto event = event_.get();
+
+	bufferevent_disable(event, EV_READ);
+	auto ctx = new async::socket::MessageInfo{};
+	ctx->callback = callback;
+
+	bufferevent_setcb(event, async::socket::drain_msg, nullptr, nullptr, ctx);
+	bufferevent_setwatermark(event, EV_READ, tcp::Connection::header_size, 0);
+
+	bufferevent_enable(event, EV_READ);
 }
 
 void Connection::send_sync(std::string_view msg) {

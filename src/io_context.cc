@@ -39,15 +39,12 @@ namespace socket {
 		bufferevent_disable(event, EV_READ);
 		auto context{ static_cast<MessageInfo *>(ctx) };
 
-		MessageInfo *info{ new MessageInfo() };
-		info->msg = context->msg;
-
 		int32_t *data;
 		bufferevent_read(event, data, tcp::Connection::header_size);
-		info->num_bytes = ntohl(*data);
+		context->num_bytes = ntohl(*data);
 
-		bufferevent_setcb(event, drain_body, nullptr, nullptr, static_cast<void*>(info));
-		bufferevent_setwatermark(event, EV_READ, info->num_bytes, 0);
+		bufferevent_setcb(event, drain_body, nullptr, nullptr, static_cast<void*>(context));
+		bufferevent_setwatermark(event, EV_READ, context->num_bytes, 0);
 
 		bufferevent_enable(event, EV_READ);
 	}
@@ -58,11 +55,13 @@ namespace socket {
 		auto context{ static_cast<MessageInfo *>(ctx) };
 		(context->msg).resize(context->num_bytes);
 		bufferevent_read(event, (context->msg).data(), context->num_bytes);
+		context->callback();
 
+		delete context;
 		bufferevent_enable(event, EV_READ);
 	}
 
-	void send_msg(bufferevent *event, void *ctx) {
+	void send_header(bufferevent *event, void *ctx) {
 		bufferevent_disable(event, EV_WRITE);
 
 		MessageInfo *context{ static_cast<MessageInfo *>(ctx) };
@@ -78,9 +77,10 @@ namespace socket {
 		bufferevent_disable(event, EV_WRITE);
 
 		MessageInfo *context{ static_cast<MessageInfo *>(ctx) };
-
 		bufferevent_write(event, (context->msg).data(), context->num_bytes);
+		context->callback();
 
+		delete context;
 		bufferevent_enable(event, EV_WRITE);
 	}
 } // namespace socket
