@@ -72,7 +72,7 @@ public:
 	*
 	* @returns a UDP connection to the target host
 	*/
-	void try_connect_udp(); // TODO: create UDPConnection class
+	void try_connect_udp(); // TODO: create UDPSession class
 
 	/**
 	 * @brief prints query results to stdout
