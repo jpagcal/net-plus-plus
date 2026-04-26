@@ -100,74 +100,80 @@ $(document).ready(function(){initNavTree('io__context_8hpp_source.html',''); ini
 <div class="contents">
 <a href="io__context_8hpp.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="preprocessor">#pragma once</span></div>
 <div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span> </div>
-<div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span><span class="preprocessor">#include &lt;event2/bufferevent.h&gt;</span></div>
-<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span><span class="preprocessor">#include &lt;event2/event.h&gt;</span></div>
-<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span><span class="preprocessor">#include &lt;functional&gt;</span></div>
-<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span><span class="preprocessor">#include &lt;memory&gt;</span></div>
-<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span><span class="preprocessor">#include &lt;string&gt;</span></div>
-<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span> </div>
-<div class="foldopen" id="foldopen00009" data-start="{" data-end="}">
-<div class="line"><a id="l00009" name="l00009"></a><span class="lineno"><a class="line" href="namespaceasync.html">    9</a></span><span class="keyword">namespace </span><a class="code hl_namespace" href="namespaceasync.html">async</a> {</div>
-<div class="line"><a id="l00010" name="l00010"></a><span class="lineno"><a class="line" href="namespaceasync.html#af8ef92fa721f891951b995aaca051e3a">   10</a></span><span class="keyword">using </span><a class="code hl_typedef" href="namespaceasync.html#af8ef92fa721f891951b995aaca051e3a">event_ptr</a> = std::unique_ptr&lt;bufferevent, <span class="keyword">decltype</span>(&amp;bufferevent_free)&gt;;</div>
-<div class="foldopen" id="foldopen00016" data-start="{" data-end="};">
-<div class="line"><a id="l00016" name="l00016"></a><span class="lineno"><a class="line" href="classasync_1_1IOContext.html">   16</a></span><span class="keyword">class </span><a class="code hl_class" href="classasync_1_1IOContext.html">IOContext</a> : <span class="keyword">public</span> std::enable_shared_from_this&lt;IOContext&gt;{</div>
-<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span>    <span class="keyword">public</span>:</div>
-<div class="line"><a id="l00018" name="l00018"></a><span class="lineno"><a class="line" href="classasync_1_1IOContext.html#a575adb31752f0f7a75cefea762ae88c1">   18</a></span>    <span class="keyword">using </span><a class="code hl_typedef" href="classasync_1_1IOContext.html#a575adb31752f0f7a75cefea762ae88c1">io_context_ptr</a> = std::shared_ptr&lt;async::IOContext&gt;;</div>
-<div class="line"><a id="l00024" name="l00024"></a><span class="lineno"><a class="line" href="classasync_1_1IOContext.html#a6cf0e654f03314a24a04478b9898ddcc">   24</a></span>    <a class="code hl_function" href="classasync_1_1IOContext.html#a6cf0e654f03314a24a04478b9898ddcc">IOContext</a>();</div>
-<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span> </div>
-<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span>    <a class="code hl_function" href="classasync_1_1IOContext.html#a6cf0e654f03314a24a04478b9898ddcc">IOContext</a>(<span class="keyword">const</span> <a class="code hl_class" href="classasync_1_1IOContext.html">IOContext</a>&amp;) = <span class="keyword">delete</span>;</div>
-<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span>    <span class="keyword">const</span> <a class="code hl_class" href="classasync_1_1IOContext.html">IOContext</a>&amp; <a class="code hl_function" href="classasync_1_1IOContext.html#ad597497e0de97984fa027391017042f0">operator=</a>(<span class="keyword">const</span> <a class="code hl_class" href="classasync_1_1IOContext.html">IOContext</a>&amp;) = <span class="keyword">delete</span>;</div>
-<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span> </div>
-<div class="line"><a id="l00039" name="l00039"></a><span class="lineno"><a class="line" href="classasync_1_1IOContext.html#ae500dfcd3785e3f8508114dbd5404692">   39</a></span>    <a class="code hl_function" href="classasync_1_1IOContext.html#ae500dfcd3785e3f8508114dbd5404692">IOContext</a>(<a class="code hl_class" href="classasync_1_1IOContext.html">IOContext</a> &amp;&amp;other) <span class="keyword">noexcept</span>;</div>
-<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span> </div>
-<div class="line"><a id="l00050" name="l00050"></a><span class="lineno"><a class="line" href="classasync_1_1IOContext.html#ad597497e0de97984fa027391017042f0">   50</a></span>    <a class="code hl_class" href="classasync_1_1IOContext.html">IOContext</a>&amp; <a class="code hl_function" href="classasync_1_1IOContext.html#ad597497e0de97984fa027391017042f0">operator=</a>(<a class="code hl_class" href="classasync_1_1IOContext.html">IOContext</a> &amp;&amp;other) <span class="keyword">noexcept</span>;</div>
-<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span> </div>
-<div class="line"><a id="l00057" name="l00057"></a><span class="lineno"><a class="line" href="classasync_1_1IOContext.html#a330f785f2ba94d3ab41cb713db0e274c">   57</a></span>    <a class="code hl_typedef" href="classasync_1_1IOContext.html#a575adb31752f0f7a75cefea762ae88c1">io_context_ptr</a> <a class="code hl_function" href="classasync_1_1IOContext.html#a330f785f2ba94d3ab41cb713db0e274c">create</a>();</div>
-<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span> </div>
-<div class="line"><a id="l00064" name="l00064"></a><span class="lineno"><a class="line" href="classasync_1_1IOContext.html#ac7b843375fb42b44f5b9d3db5e5126f6">   64</a></span>    event_base *<a class="code hl_function" href="classasync_1_1IOContext.html#ac7b843375fb42b44f5b9d3db5e5126f6">c_base</a>() <span class="keyword">const</span>;</div>
-<div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span> </div>
-<div class="line"><a id="l00069" name="l00069"></a><span class="lineno"><a class="line" href="classasync_1_1IOContext.html#ae4955221c13851b81b0c37746a7138f8">   69</a></span>    <span class="keywordtype">void</span> <a class="code hl_function" href="classasync_1_1IOContext.html#ae4955221c13851b81b0c37746a7138f8">run</a>() <span class="keyword">const</span>;</div>
-<div class="line"><a id="l00070" name="l00070"></a><span class="lineno">   70</span> </div>
-<div class="line"><a id="l00071" name="l00071"></a><span class="lineno">   71</span>    <span class="keyword">private</span>:</div>
-<div class="line"><a id="l00072" name="l00072"></a><span class="lineno">   72</span>        std::unique_ptr&lt;event_base, <span class="keyword">decltype</span>(&amp;event_base_free)&gt; base_; </div>
-<div class="line"><a id="l00073" name="l00073"></a><span class="lineno">   73</span>};</div>
+<div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span><span class="preprocessor">#include &lt;deque&gt;</span></div>
+<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span><span class="preprocessor">#include &lt;event2/bufferevent.h&gt;</span></div>
+<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span><span class="preprocessor">#include &lt;event2/event.h&gt;</span></div>
+<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span><span class="preprocessor">#include &lt;functional&gt;</span></div>
+<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span><span class="preprocessor">#include &lt;memory&gt;</span></div>
+<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span><span class="preprocessor">#include &lt;string&gt;</span></div>
+<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span> </div>
+<div class="foldopen" id="foldopen00010" data-start="{" data-end="}">
+<div class="line"><a id="l00010" name="l00010"></a><span class="lineno"><a class="line" href="namespaceasync.html">   10</a></span><span class="keyword">namespace </span><a class="code hl_namespace" href="namespaceasync.html">async</a> {</div>
+<div class="line"><a id="l00011" name="l00011"></a><span class="lineno"><a class="line" href="namespaceasync.html#af8ef92fa721f891951b995aaca051e3a">   11</a></span><span class="keyword">using </span><a class="code hl_typedef" href="namespaceasync.html#af8ef92fa721f891951b995aaca051e3a">event_ptr</a> = std::unique_ptr&lt;bufferevent, <span class="keyword">decltype</span>(&amp;bufferevent_free)&gt;;</div>
+<div class="foldopen" id="foldopen00017" data-start="{" data-end="};">
+<div class="line"><a id="l00017" name="l00017"></a><span class="lineno"><a class="line" href="classasync_1_1IOContext.html">   17</a></span><span class="keyword">class </span><a class="code hl_class" href="classasync_1_1IOContext.html">IOContext</a> : <span class="keyword">public</span> std::enable_shared_from_this&lt;IOContext&gt;{</div>
+<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span>    <span class="keyword">public</span>:</div>
+<div class="line"><a id="l00019" name="l00019"></a><span class="lineno"><a class="line" href="classasync_1_1IOContext.html#a575adb31752f0f7a75cefea762ae88c1">   19</a></span>    <span class="keyword">using </span><a class="code hl_typedef" href="classasync_1_1IOContext.html#a575adb31752f0f7a75cefea762ae88c1">io_context_ptr</a> = std::shared_ptr&lt;async::IOContext&gt;;</div>
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno"><a class="line" href="classasync_1_1IOContext.html#a6cf0e654f03314a24a04478b9898ddcc">   25</a></span>    <a class="code hl_function" href="classasync_1_1IOContext.html#a6cf0e654f03314a24a04478b9898ddcc">IOContext</a>();</div>
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span> </div>
+<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span>    <a class="code hl_function" href="classasync_1_1IOContext.html#a6cf0e654f03314a24a04478b9898ddcc">IOContext</a>(<span class="keyword">const</span> <a class="code hl_class" href="classasync_1_1IOContext.html">IOContext</a>&amp;) = <span class="keyword">delete</span>;</div>
+<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span>    <span class="keyword">const</span> <a class="code hl_class" href="classasync_1_1IOContext.html">IOContext</a>&amp; <a class="code hl_function" href="classasync_1_1IOContext.html#ad597497e0de97984fa027391017042f0">operator=</a>(<span class="keyword">const</span> <a class="code hl_class" href="classasync_1_1IOContext.html">IOContext</a>&amp;) = <span class="keyword">delete</span>;</div>
+<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span> </div>
+<div class="line"><a id="l00040" name="l00040"></a><span class="lineno"><a class="line" href="classasync_1_1IOContext.html#ae500dfcd3785e3f8508114dbd5404692">   40</a></span>    <a class="code hl_function" href="classasync_1_1IOContext.html#ae500dfcd3785e3f8508114dbd5404692">IOContext</a>(<a class="code hl_class" href="classasync_1_1IOContext.html">IOContext</a> &amp;&amp;other) <span class="keyword">noexcept</span>;</div>
+<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span> </div>
+<div class="line"><a id="l00051" name="l00051"></a><span class="lineno"><a class="line" href="classasync_1_1IOContext.html#ad597497e0de97984fa027391017042f0">   51</a></span>    <a class="code hl_class" href="classasync_1_1IOContext.html">IOContext</a>&amp; <a class="code hl_function" href="classasync_1_1IOContext.html#ad597497e0de97984fa027391017042f0">operator=</a>(<a class="code hl_class" href="classasync_1_1IOContext.html">IOContext</a> &amp;&amp;other) <span class="keyword">noexcept</span>;</div>
+<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span> </div>
+<div class="line"><a id="l00058" name="l00058"></a><span class="lineno"><a class="line" href="classasync_1_1IOContext.html#a330f785f2ba94d3ab41cb713db0e274c">   58</a></span>    <a class="code hl_typedef" href="classasync_1_1IOContext.html#a575adb31752f0f7a75cefea762ae88c1">io_context_ptr</a> <a class="code hl_function" href="classasync_1_1IOContext.html#a330f785f2ba94d3ab41cb713db0e274c">create</a>();</div>
+<div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span> </div>
+<div class="line"><a id="l00065" name="l00065"></a><span class="lineno"><a class="line" href="classasync_1_1IOContext.html#ac7b843375fb42b44f5b9d3db5e5126f6">   65</a></span>    event_base *<a class="code hl_function" href="classasync_1_1IOContext.html#ac7b843375fb42b44f5b9d3db5e5126f6">c_base</a>() <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00066" name="l00066"></a><span class="lineno">   66</span> </div>
+<div class="line"><a id="l00070" name="l00070"></a><span class="lineno"><a class="line" href="classasync_1_1IOContext.html#ae4955221c13851b81b0c37746a7138f8">   70</a></span>    <span class="keywordtype">void</span> <a class="code hl_function" href="classasync_1_1IOContext.html#ae4955221c13851b81b0c37746a7138f8">run</a>() <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00071" name="l00071"></a><span class="lineno">   71</span> </div>
+<div class="line"><a id="l00072" name="l00072"></a><span class="lineno">   72</span>    <span class="keyword">private</span>:</div>
+<div class="line"><a id="l00073" name="l00073"></a><span class="lineno">   73</span>        std::unique_ptr&lt;event_base, <span class="keyword">decltype</span>(&amp;event_base_free)&gt; base_; </div>
+<div class="line"><a id="l00074" name="l00074"></a><span class="lineno">   74</span>};</div>
 </div>
-<div class="line"><a id="l00074" name="l00074"></a><span class="lineno">   74</span> </div>
 <div class="line"><a id="l00075" name="l00075"></a><span class="lineno">   75</span> </div>
-<div class="foldopen" id="foldopen00076" data-start="{" data-end="}">
-<div class="line"><a id="l00076" name="l00076"></a><span class="lineno"><a class="line" href="namespaceasync_1_1socket.html">   76</a></span><span class="keyword">namespace </span>socket {</div>
-<div class="line"><a id="l00080" name="l00080"></a><span class="lineno">   80</span>    <span class="keyword">struct </span>MessageInfo {</div>
-<div class="line"><a id="l00081" name="l00081"></a><span class="lineno">   81</span>        <span class="keywordtype">int</span> num_bytes; </div>
-<div class="line"><a id="l00082" name="l00082"></a><span class="lineno">   82</span>        std::string msg; </div>
-<div class="line"><a id="l00083" name="l00083"></a><span class="lineno">   83</span>        std::function&lt;void()&gt; callback;</div>
-<div class="line"><a id="l00084" name="l00084"></a><span class="lineno">   84</span>    };</div>
-<div class="line"><a id="l00085" name="l00085"></a><span class="lineno">   85</span> </div>
-<div class="line"><a id="l00092" name="l00092"></a><span class="lineno">   92</span>    <span class="keywordtype">void</span> drain_msg(bufferevent *event, <span class="keywordtype">void</span> *ctx);</div>
-<div class="line"><a id="l00093" name="l00093"></a><span class="lineno">   93</span> </div>
-<div class="line"><a id="l00100" name="l00100"></a><span class="lineno">  100</span>    <span class="keywordtype">void</span> drain_body(bufferevent *, <span class="keywordtype">void</span> *ctx);</div>
-<div class="line"><a id="l00101" name="l00101"></a><span class="lineno">  101</span> </div>
-<div class="line"><a id="l00105" name="l00105"></a><span class="lineno">  105</span>    <span class="keywordtype">void</span> send_header(bufferevent *event, <span class="keywordtype">void</span> *ctx);</div>
-<div class="line"><a id="l00106" name="l00106"></a><span class="lineno">  106</span>    <span class="keywordtype">void</span> send_body(bufferevent *event, <span class="keywordtype">void</span> *ctx);</div>
-<div class="line"><a id="l00107" name="l00107"></a><span class="lineno">  107</span>}</div>
+<div class="line"><a id="l00076" name="l00076"></a><span class="lineno">   76</span> </div>
+<div class="foldopen" id="foldopen00077" data-start="{" data-end="}">
+<div class="line"><a id="l00077" name="l00077"></a><span class="lineno"><a class="line" href="namespaceasync_1_1socket.html">   77</a></span><span class="keyword">namespace </span>socket {</div>
+<div class="line"><a id="l00078" name="l00078"></a><span class="lineno">   78</span>    <span class="keyword">using </span>RecvCallback = std::function&lt;void(std::string)&gt;;</div>
+<div class="line"><a id="l00079" name="l00079"></a><span class="lineno">   79</span>    <span class="keyword">using </span>SendCallback = std::function&lt;void()&gt;;</div>
+<div class="line"><a id="l00080" name="l00080"></a><span class="lineno">   80</span>    <span class="keyword">using </span>EventCallback = std::function&lt;void(<span class="keywordtype">short</span>)&gt;;</div>
+<div class="line"><a id="l00081" name="l00081"></a><span class="lineno">   81</span> </div>
+<div class="line"><a id="l00085" name="l00085"></a><span class="lineno">   85</span>    <span class="keyword">struct </span>AsyncContext {</div>
+<div class="line"><a id="l00086" name="l00086"></a><span class="lineno">   86</span>        std::deque&lt;std::function&lt;void()&gt;&gt; send_callbacks;</div>
+<div class="line"><a id="l00087" name="l00087"></a><span class="lineno">   87</span>        std::function&lt;void(std::string)&gt; recv_callback;</div>
+<div class="line"><a id="l00088" name="l00088"></a><span class="lineno">   88</span>        std::function&lt;void(<span class="keywordtype">short</span>)&gt; event_callback;</div>
+<div class="line"><a id="l00089" name="l00089"></a><span class="lineno">   89</span>    };</div>
+<div class="line"><a id="l00090" name="l00090"></a><span class="lineno">   90</span> </div>
+<div class="line"><a id="l00091" name="l00091"></a><span class="lineno">   91</span>    <span class="keyword">using </span>AsyncContextPtr = std::shared_ptr&lt;AsyncContext&gt;;</div>
+<div class="line"><a id="l00092" name="l00092"></a><span class="lineno">   92</span> </div>
+<div class="line"><a id="l00098" name="l00098"></a><span class="lineno">   98</span>    <span class="keywordtype">void</span> set_recv_callback(std::function&lt;<span class="keywordtype">void</span>(std::string)&gt; recv_callback);</div>
+<div class="line"><a id="l00099" name="l00099"></a><span class="lineno">   99</span> </div>
+<div class="line"><a id="l00105" name="l00105"></a><span class="lineno">  105</span>    <span class="keywordtype">void</span> on_read(bufferevent *event, <span class="keywordtype">void</span> *ctx);</div>
+<div class="line"><a id="l00106" name="l00106"></a><span class="lineno">  106</span>    <span class="keywordtype">void</span> on_write(bufferevent *event, <span class="keywordtype">void</span> *ctx);</div>
+<div class="line"><a id="l00107" name="l00107"></a><span class="lineno">  107</span>    <span class="keywordtype">void</span> on_event(bufferevent *event, <span class="keywordtype">short</span> events, <span class="keywordtype">void</span> *ctx);</div>
+<div class="line"><a id="l00108" name="l00108"></a><span class="lineno">  108</span>}</div>
 </div>
-<div class="line"><a id="l00108" name="l00108"></a><span class="lineno">  108</span> </div>
-<div class="foldopen" id="foldopen00109" data-start="{" data-end="}">
-<div class="line"><a id="l00109" name="l00109"></a><span class="lineno"><a class="line" href="namespaceasync_1_1acceptor.html">  109</a></span><span class="keyword">namespace </span>acceptor {</div>
-<div class="line"><a id="l00110" name="l00110"></a><span class="lineno">  110</span> </div>
-<div class="line"><a id="l00111" name="l00111"></a><span class="lineno">  111</span>}</div>
+<div class="line"><a id="l00109" name="l00109"></a><span class="lineno">  109</span> </div>
+<div class="foldopen" id="foldopen00110" data-start="{" data-end="}">
+<div class="line"><a id="l00110" name="l00110"></a><span class="lineno"><a class="line" href="namespaceasync_1_1acceptor.html">  110</a></span><span class="keyword">namespace </span>acceptor {</div>
+<div class="line"><a id="l00111" name="l00111"></a><span class="lineno">  111</span> </div>
+<div class="line"><a id="l00112" name="l00112"></a><span class="lineno">  112</span>}</div>
 </div>
-<div class="line"><a id="l00112" name="l00112"></a><span class="lineno">  112</span>} <span class="comment">// namespace event</span></div>
+<div class="line"><a id="l00113" name="l00113"></a><span class="lineno">  113</span>} <span class="comment">// namespace event</span></div>
 </div>
-<div class="ttc" id="aclassasync_1_1IOContext_html"><div class="ttname"><a href="classasync_1_1IOContext.html">async::IOContext</a></div><div class="ttdoc">Handles the event loop.</div><div class="ttdef"><b>Definition</b> io_context.hpp:16</div></div>
+<div class="ttc" id="aclassasync_1_1IOContext_html"><div class="ttname"><a href="classasync_1_1IOContext.html">async::IOContext</a></div><div class="ttdoc">Handles the event loop.</div><div class="ttdef"><b>Definition</b> io_context.hpp:17</div></div>
 <div class="ttc" id="aclassasync_1_1IOContext_html_a330f785f2ba94d3ab41cb713db0e274c"><div class="ttname"><a href="classasync_1_1IOContext.html#a330f785f2ba94d3ab41cb713db0e274c">async::IOContext::create</a></div><div class="ttdeci">io_context_ptr create()</div><div class="ttdoc">Creates an instance of IOContext wrapped in shared_ptr.</div></div>
-<div class="ttc" id="aclassasync_1_1IOContext_html_a575adb31752f0f7a75cefea762ae88c1"><div class="ttname"><a href="classasync_1_1IOContext.html#a575adb31752f0f7a75cefea762ae88c1">async::IOContext::io_context_ptr</a></div><div class="ttdeci">std::shared_ptr&lt; async::IOContext &gt; io_context_ptr</div><div class="ttdef"><b>Definition</b> io_context.hpp:18</div></div>
+<div class="ttc" id="aclassasync_1_1IOContext_html_a575adb31752f0f7a75cefea762ae88c1"><div class="ttname"><a href="classasync_1_1IOContext.html#a575adb31752f0f7a75cefea762ae88c1">async::IOContext::io_context_ptr</a></div><div class="ttdeci">std::shared_ptr&lt; async::IOContext &gt; io_context_ptr</div><div class="ttdef"><b>Definition</b> io_context.hpp:19</div></div>
 <div class="ttc" id="aclassasync_1_1IOContext_html_a6cf0e654f03314a24a04478b9898ddcc"><div class="ttname"><a href="classasync_1_1IOContext.html#a6cf0e654f03314a24a04478b9898ddcc">async::IOContext::IOContext</a></div><div class="ttdeci">IOContext()</div><div class="ttdoc">IOContext constructor.</div></div>
 <div class="ttc" id="aclassasync_1_1IOContext_html_ac7b843375fb42b44f5b9d3db5e5126f6"><div class="ttname"><a href="classasync_1_1IOContext.html#ac7b843375fb42b44f5b9d3db5e5126f6">async::IOContext::c_base</a></div><div class="ttdeci">event_base * c_base() const</div><div class="ttdoc">Gives a pointer to the event base struct for libevent calls.</div></div>
 <div class="ttc" id="aclassasync_1_1IOContext_html_ad597497e0de97984fa027391017042f0"><div class="ttname"><a href="classasync_1_1IOContext.html#ad597497e0de97984fa027391017042f0">async::IOContext::operator=</a></div><div class="ttdeci">IOContext &amp; operator=(IOContext &amp;&amp;other) noexcept</div><div class="ttdoc">IOContext move assignment operator.</div></div>
 <div class="ttc" id="aclassasync_1_1IOContext_html_ae4955221c13851b81b0c37746a7138f8"><div class="ttname"><a href="classasync_1_1IOContext.html#ae4955221c13851b81b0c37746a7138f8">async::IOContext::run</a></div><div class="ttdeci">void run() const</div><div class="ttdoc">Runs the event loop.</div></div>
 <div class="ttc" id="aclassasync_1_1IOContext_html_ae500dfcd3785e3f8508114dbd5404692"><div class="ttname"><a href="classasync_1_1IOContext.html#ae500dfcd3785e3f8508114dbd5404692">async::IOContext::IOContext</a></div><div class="ttdeci">IOContext(IOContext &amp;&amp;other) noexcept</div><div class="ttdoc">IOContext move constructor.</div></div>
-<div class="ttc" id="anamespaceasync_html"><div class="ttname"><a href="namespaceasync.html">async</a></div><div class="ttdef"><b>Definition</b> io_context.hpp:9</div></div>
-<div class="ttc" id="anamespaceasync_html_af8ef92fa721f891951b995aaca051e3a"><div class="ttname"><a href="namespaceasync.html#af8ef92fa721f891951b995aaca051e3a">async::event_ptr</a></div><div class="ttdeci">std::unique_ptr&lt; bufferevent, decltype(&amp;bufferevent_free)&gt; event_ptr</div><div class="ttdef"><b>Definition</b> io_context.hpp:10</div></div>
+<div class="ttc" id="anamespaceasync_html"><div class="ttname"><a href="namespaceasync.html">async</a></div><div class="ttdef"><b>Definition</b> io_context.hpp:10</div></div>
+<div class="ttc" id="anamespaceasync_html_af8ef92fa721f891951b995aaca051e3a"><div class="ttname"><a href="namespaceasync.html#af8ef92fa721f891951b995aaca051e3a">async::event_ptr</a></div><div class="ttdeci">std::unique_ptr&lt; bufferevent, decltype(&amp;bufferevent_free)&gt; event_ptr</div><div class="ttdef"><b>Definition</b> io_context.hpp:11</div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
