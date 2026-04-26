@@ -124,18 +124,15 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a3aff1f6c7ee36d2a0d9c52a3210e87fa" id="r_a3aff1f6c7ee36d2a0d9c52a3210e87fa"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classtcp_1_1Connection.html">Connection</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtcp_1_1Connection.html#a3aff1f6c7ee36d2a0d9c52a3210e87fa">operator=</a> (<a class="el" href="classtcp_1_1Connection.html">Connection</a> &amp;&amp;other) noexcept</td></tr>
 <tr class="memdesc:a3aff1f6c7ee36d2a0d9c52a3210e87fa"><td class="mdescLeft">&#160;</td><td class="mdescRight">The move constructor for the <a class="el" href="classtcp_1_1Connection.html" title="Represents a TCP connection.">Connection</a> class.  <br /></td></tr>
 <tr class="separator:a3aff1f6c7ee36d2a0d9c52a3210e87fa"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a058fab399bcbd7d008340b540533f49b" id="r_a058fab399bcbd7d008340b540533f49b"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtcp_1_1Connection.html#a058fab399bcbd7d008340b540533f49b">set_nonblocking</a> ()</td></tr>
-<tr class="memdesc:a058fab399bcbd7d008340b540533f49b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the underlying socket handle as nonblocking and creates a bufferevent for the socket.  <br /></td></tr>
-<tr class="separator:a058fab399bcbd7d008340b540533f49b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8c6ea0cf55266bd3cc6fa09fc8b659c5" id="r_a8c6ea0cf55266bd3cc6fa09fc8b659c5"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtcp_1_1Connection.html#a8c6ea0cf55266bd3cc6fa09fc8b659c5">set_nonblocking</a> (async::socket::RecvCallback recv_callback, async::socket::EventCallback event_callback)</td></tr>
+<tr class="memdesc:a8c6ea0cf55266bd3cc6fa09fc8b659c5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the underlying socket handle as nonblocking, creates a bufferevent for the socket, and attaches callbacks.  <br /></td></tr>
+<tr class="separator:a8c6ea0cf55266bd3cc6fa09fc8b659c5"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af28d56c4049469095f65981be78cacd4" id="r_af28d56c4049469095f65981be78cacd4"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtcp_1_1Connection.html#af28d56c4049469095f65981be78cacd4">is_nonblocking</a> ()</td></tr>
 <tr class="memdesc:af28d56c4049469095f65981be78cacd4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Checks if the underlying socket handle is nonblocking.  <br /></td></tr>
 <tr class="separator:af28d56c4049469095f65981be78cacd4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a64d6b6ef97e26823a134468ad31102ff" id="r_a64d6b6ef97e26823a134468ad31102ff"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtcp_1_1Connection.html#a64d6b6ef97e26823a134468ad31102ff">send_async</a> (std::string_view msg, std::function&lt; void()&gt; callback)</td></tr>
 <tr class="memdesc:a64d6b6ef97e26823a134468ad31102ff"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sends a message through the endpoint asynchronously.  <br /></td></tr>
 <tr class="separator:a64d6b6ef97e26823a134468ad31102ff"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a6552f9b7b0d23e9444eef0ed5e90e04b" id="r_a6552f9b7b0d23e9444eef0ed5e90e04b"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtcp_1_1Connection.html#a6552f9b7b0d23e9444eef0ed5e90e04b">recv_async</a> (std::vector&lt; std::byte &gt; buf, std::function&lt; void()&gt; callback)</td></tr>
-<tr class="memdesc:a6552f9b7b0d23e9444eef0ed5e90e04b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Receives a message from the endpoint asynchronously.  <br /></td></tr>
-<tr class="separator:a6552f9b7b0d23e9444eef0ed5e90e04b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:adee0182da2eee3319f309094e37fe542" id="r_adee0182da2eee3319f309094e37fe542"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtcp_1_1Connection.html#adee0182da2eee3319f309094e37fe542">send_sync</a> (std::string_view msg)</td></tr>
 <tr class="memdesc:adee0182da2eee3319f309094e37fe542"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sends a message through the endpoint synchronously.  <br /></td></tr>
 <tr class="separator:adee0182da2eee3319f309094e37fe542"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -310,44 +307,6 @@ Static Public Attributes</h2></td></tr>
 
 </div>
 </div>
-<a id="a6552f9b7b0d23e9444eef0ed5e90e04b" name="a6552f9b7b0d23e9444eef0ed5e90e04b"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a6552f9b7b0d23e9444eef0ed5e90e04b">&#9670;&#160;</a></span>recv_async()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void tcp::Connection::recv_async </td>
-          <td>(</td>
-          <td class="paramtype">std::vector&lt; std::byte &gt;&#160;</td>
-          <td class="paramname"><em>buf</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">std::function&lt; void()&gt;&#160;</td>
-          <td class="paramname"><em>callback</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Receives a message from the endpoint asynchronously. </p>
-<p>Only use when the socket is set to nonblocking. Asynchronously receives all bytes into buf and calls the callback function when the operation is completed</p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">buf</td><td>The buffer of bytes to receive data </td></tr>
-    <tr><td class="paramname">callback</td><td>The function to call once the receive operation completes </td></tr>
-  </table>
-  </dd>
-</dl>
-
-</div>
-</div>
 <a id="a33e78f8d4f02b665dfd903048a0838ba" name="a33e78f8d4f02b665dfd903048a0838ba"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a33e78f8d4f02b665dfd903048a0838ba">&#9670;&#160;</a></span>recv_sync()</h2>
 
@@ -440,8 +399,8 @@ Static Public Attributes</h2></td></tr>
 
 </div>
 </div>
-<a id="a058fab399bcbd7d008340b540533f49b" name="a058fab399bcbd7d008340b540533f49b"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a058fab399bcbd7d008340b540533f49b">&#9670;&#160;</a></span>set_nonblocking()</h2>
+<a id="a8c6ea0cf55266bd3cc6fa09fc8b659c5" name="a8c6ea0cf55266bd3cc6fa09fc8b659c5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8c6ea0cf55266bd3cc6fa09fc8b659c5">&#9670;&#160;</a></span>set_nonblocking()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -449,13 +408,31 @@ Static Public Attributes</h2></td></tr>
         <tr>
           <td class="memname">void tcp::Connection::set_nonblocking </td>
           <td>(</td>
-          <td class="paramname"></td><td>)</td>
+          <td class="paramtype">async::socket::RecvCallback&#160;</td>
+          <td class="paramname"><em>recv_callback</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
           <td></td>
+          <td class="paramtype">async::socket::EventCallback&#160;</td>
+          <td class="paramname"><em>event_callback</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p>Sets the underlying socket handle as nonblocking and creates a bufferevent for the socket. </p>
+<p>Sets the underlying socket handle as nonblocking, creates a bufferevent for the socket, and attaches callbacks. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">recv_callback</td><td>callback triggered when a message is received </td></tr>
+    <tr><td class="paramname">event_callback</td><td>callback triggered when an event fires </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>
