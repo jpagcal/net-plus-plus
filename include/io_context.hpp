@@ -1,5 +1,6 @@
 #pragma once
 
+#include <deque>
 #include <event2/bufferevent.h>
 #include <event2/event.h>
 #include <functional>
@@ -74,36 +75,36 @@ class IOContext : public std::enable_shared_from_this<IOContext>{
 
 
 namespace socket {
+	using RecvCallback = std::function<void(std::string)>;
+	using SendCallback = std::function<void()>;
+	using EventCallback = std::function<void(short)>;
+
 	/**
 	 * @brief Context to pass into callback functions
 	 */
-	struct MessageInfo {
-		int num_bytes; /**< number of bytes contained in body */
-		std::string msg; /**< Dynamically allocated msg placeholder */
-		std::function<void()> callback;
+	struct AsyncContext {
+		std::deque<std::function<void()>> send_callbacks;
+		std::function<void(std::string)> recv_callback;
+		std::function<void(short)> event_callback;
 	};
 
-	/**
-	 * @brief Triggered callback when there is at least 8 bytes in the bufferevent's input buffer
-		*
-		* @param bufferevent A raw non-owning ptr to the bufferevent
-		* @param ctx A non-owning pointer to a ReadHeaderInfo struct. Contains a ref to the message
-	 */
-	void drain_msg(bufferevent *event, void *ctx);
+	using AsyncContextPtr = std::shared_ptr<AsyncContext>;
 
 	/**
-	 * Triggered callback when there is at least *header* bytes in the bufferevent's input buffer
+	 * Sets the AsyncContext recv_callback
 		*
-		* @param bufferevent A raw non-owning ptr to the bufferevent
-		* @param ctx A non-owning ptr to a ReadBodyInfo struct. Contains the number of bytes in body
+		* @param recv_callback A function returning a string
 	 */
-	void drain_body(bufferevent *, void *ctx);
+	void set_recv_callback(std::function<void(std::string)> recv_callback);
 
 	/**
-	 *
+	 * Triggered callback for when data has arrived in the socket's input buffer
+		*
+		* Checks the length header,
 	 */
-	void send_header(bufferevent *event, void *ctx);
-	void send_body(bufferevent *event, void *ctx);
+	void on_read(bufferevent *event, void *ctx);
+	void on_write(bufferevent *event, void *ctx);
+	void on_event(bufferevent *event, short events, void *ctx);
 }
 
 namespace acceptor {
