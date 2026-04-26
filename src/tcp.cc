@@ -42,7 +42,10 @@ Connection::connection_ptr Connection::create(int32_t socket_fd, async::IOContex
 }
 
 
-void Connection::set_nonblocking() {
+void Connection::set_nonblocking(
+	async::socket::RecvCallback recv_callback,
+	async::socket::EventCallback event_callback
+) {
 	if (!io_context_) {
 		netpp_error::throw_library_error(
 			netpp_error::LibraryError::MissingAsyncContext,
@@ -65,7 +68,20 @@ void Connection::set_nonblocking() {
 		bufferevent_free
 	);
 
-	bufferevent_enable(event_.get(), EV_READ);
+	async::socket::AsyncContext async_context{};
+	async_context.recv_callback = recv_callback;
+	async_context.event_callback = event_callback;
+	async_context_ = async_context;
+
+	bufferevent_setcb(
+		event_.get(),
+		async::socket::on_read,
+		async::socket::on_write,
+		async::socket::on_event,
+		&async_context_
+	);
+
+	bufferevent_enable(event_.get(), EV_READ | EV_WRITE);
 }
 
 bool Connection::is_nonblocking() {
@@ -76,27 +92,6 @@ bool Connection::is_nonblocking() {
 }
 
 void Connection::send_async(std::string_view msg, std::function<void()> callback) {
-	auto event = event_.get();
-
-	auto ctx = new async::socket::MessageInfo{};
-	ctx->msg = msg;
-	ctx->num_bytes = msg.length();
-	ctx->callback = callback;
-
-	send_header(event, ctx);
-}
-
-void Connection::recv_async(std::vector<std::byte> buf, std::function<void()> callback) {
-	auto event = event_.get();
-
-	bufferevent_disable(event, EV_READ);
-	auto ctx = new async::socket::MessageInfo{};
-	ctx->callback = callback;
-
-	bufferevent_setcb(event, async::socket::drain_msg, nullptr, nullptr, ctx);
-	bufferevent_setwatermark(event, EV_READ, tcp::Connection::header_size, 0);
-
-	bufferevent_enable(event, EV_READ);
 }
 
 void Connection::send_sync(std::string_view msg) {

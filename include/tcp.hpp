@@ -56,10 +56,13 @@ public:
 	static connection_ptr create(int32_t socket_fd, async::IOContext::io_context_ptr io_context);
 
 	/**
-	 * @brief Sets the underlying socket handle as nonblocking
-		* and creates a bufferevent for the socket
+	 * @brief Sets the underlying socket handle as nonblocking,
+		* creates a bufferevent for the socket, and attaches callbacks
+		*
+		* @param recv_callback callback triggered when a message is received
+		* @param event_callback callback triggered when an event fires
 	 */
-	void set_nonblocking();
+	void set_nonblocking(async::socket::RecvCallback recv_callback, async::socket::EventCallback event_callback);
 
 	/**
 	 * @brief Checks if the underlying socket handle is nonblocking
@@ -78,17 +81,6 @@ public:
 		* @param callback The function to call once the send operation completes
 	 */
 	void send_async(std::string_view msg, std::function<void()> callback);
-
-	/**
-	 * @brief Receives a message from the endpoint asynchronously
-		*
-		* Only use when the socket is set to nonblocking. Asynchronously
-		* receives all bytes into buf and calls the callback function when the operation is completed
-		*
-		* @param buf The buffer of bytes to receive data
-		* @param callback The function to call once the receive operation completes
-	 */
-	void recv_async(std::vector<std::byte> buf, std::function<void()> callback);
 
 	/**
 	 * @brief Sends a message through the endpoint synchronously
@@ -114,12 +106,14 @@ private:
 	Connection(int32_t socket_fd, async::IOContext::io_context_ptr io_context = nullptr) :
     	socket_fd_{ socket_fd },
      	io_context_{ io_context },
-      	event_(nullptr, bufferevent_free) {}
+      	event_(nullptr, bufferevent_free),
+       	async_context_{} {}
 	/// @endcond
 
 	int32_t socket_fd_; /**< A handle to the connected socket */
 	std::shared_ptr<async::IOContext> io_context_; /**< The event loop */
 	async::event_ptr event_; /**<The buffer event */
+	async::socket::AsyncContext async_context_;
 };
 
 /**
