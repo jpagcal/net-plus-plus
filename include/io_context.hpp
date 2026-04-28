@@ -98,12 +98,28 @@ namespace socket {
 	void set_recv_callback(std::function<void(std::string)> recv_callback);
 
 	/**
-	 * Triggered callback for when data has arrived in the socket's input buffer
+	 * @brief Triggered callback for when data has arrived in the events input buffer
 		*
-		* Checks the length header,
+		* @param event The event handle for the socket
+		* @param ctx The async context
 	 */
 	void on_read(bufferevent *event, void *ctx);
+
+	/**
+	 * @brief Triggered callback for when data is drained from the events output buffer
+		*
+		* @param event The event handle for the socket
+		* @ctx The async context
+	 */
 	void on_write(bufferevent *event, void *ctx);
+
+	/**
+	 * @brief Triggered callback for when an event has occured that is not a read or a write
+		*
+		* @param event The event handle for the socket
+		* @param events The event that occured
+		* @param ctx The async context
+	 */
 	void on_event(bufferevent *event, short events, void *ctx);
 }
 

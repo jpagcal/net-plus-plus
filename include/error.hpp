@@ -11,6 +11,7 @@ namespace netpp_error {
 		ConnectFailed,
 		MissingAsyncContext
 	};
+
 	/**
 	 * @brief Throws an exception with std::generic category()
 		*
@@ -48,7 +49,6 @@ namespace netpp_error {
 			std::string message(int ev) const override;
 			/// @endcond
 		};
-
 	}
 
 	/**

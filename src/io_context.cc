@@ -1,6 +1,8 @@
 #include "../include/io_context.hpp"
-#include "../include/tcp.hpp"
 #include <event2/bufferevent.h>
+#include <event2/buffer.h>
+#include "../include/tcp.hpp"
+#include "../include/error.hpp"
 
 namespace async {
 IOContext::IOContext() : base_{
@@ -40,13 +42,32 @@ namespace socket {
 	}
 
 	void on_read(bufferevent *event, void *ctx) {
-		// get the context
-		AsyncContextPtr context{ static_cast<AsyncContext *>(ctx) };
-		//get the event buffer
+		AsyncContext* context{ static_cast<AsyncContext *>(ctx) };
+		evbuffer *in{ bufferevent_get_input(event) };
+
+		if (evbuffer_get_length(in) < tcp::Connection::header_size) return;
+
+		int32_t length;
+		if (evbuffer_copyout(in, &length, tcp::Connection::header_size) < tcp::Connection::header_size) return;
+		evbuffer_drain(in, tcp::Connection::header_size);
+
+		std::string msg{};
+		msg.resize(length);
+
+		if (evbuffer_get_length(in) < length) return;
+		if (evbuffer_remove(in, msg.data(), length) == -1) {
+			netpp_error::throw_system_error("evbuffer_remove failed:");
+		}
+
+		context->recv_callback(msg);
 	}
 
-	void on_write() {
-
+	void on_write(bufferevent *event, void *ctx) {
+		return;
 	}
+
+	void on_event(bufferevent *event, short events, void *ctx) {
+		return;
+	};
 } // namespace socket
 } // namespace async
