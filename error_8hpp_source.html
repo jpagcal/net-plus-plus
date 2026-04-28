@@ -111,21 +111,21 @@ $(document).ready(function(){initNavTree('error_8hpp_source.html',''); initResiz
 <div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span>        <a class="code hl_enumvalue" href="namespacenetpp__error.html#a4aacb137ac183ee447bfabc7b3df8303a722aeeb0bd348c0c3d790f8d1b3c0100">MissingAsyncContext</a></div>
 <div class="line"><a id="l00013" name="l00013"></a><span class="lineno"><a class="line" href="namespacenetpp__error.html#a4aacb137ac183ee447bfabc7b3df8303a722aeeb0bd348c0c3d790f8d1b3c0100">   13</a></span>    };</div>
 </div>
-<div class="line"><a id="l00021" name="l00021"></a><span class="lineno"><a class="line" href="namespacenetpp__error.html#a9b39cb5dc6d2d9fefb8a549373df4a01">   21</a></span>    <span class="keywordtype">void</span> <a class="code hl_function" href="namespacenetpp__error.html#a9b39cb5dc6d2d9fefb8a549373df4a01">throw_system_error</a>(std::string what_arg);</div>
-<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span> </div>
-<div class="line"><a id="l00028" name="l00028"></a><span class="lineno"><a class="line" href="namespacenetpp__error.html#a6748450097e3df8fece0c0f2371f2b98">   28</a></span>    <span class="keywordtype">void</span> <a class="code hl_function" href="namespacenetpp__error.html#a6748450097e3df8fece0c0f2371f2b98">log_error</a>(std::system_error &amp;e);</div>
-<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span> </div>
-<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span>    <span class="keyword">namespace </span>{</div>
-<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span>        <span class="keyword">class </span>GAIErrorCategory : <span class="keyword">public</span> std::error_category {</div>
-<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span>            <span class="keyword">const</span> <span class="keywordtype">char</span> *name() const noexcept override;</div>
-<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span>            std::<span class="keywordtype">string</span> message(<span class="keywordtype">int</span> ev) const override;</div>
-<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span>        };</div>
-<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span> </div>
-<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span>        class LibraryErrorCategory : public std::error_category {</div>
-<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span>            <span class="keyword">const</span> <span class="keywordtype">char</span> *name() const noexcept override;</div>
-<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span>            std::<span class="keywordtype">string</span> message(<span class="keywordtype">int</span> ev) const override;</div>
-<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span>        };</div>
-<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span> </div>
+<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span> </div>
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno"><a class="line" href="namespacenetpp__error.html#a9b39cb5dc6d2d9fefb8a549373df4a01">   22</a></span>    <span class="keywordtype">void</span> <a class="code hl_function" href="namespacenetpp__error.html#a9b39cb5dc6d2d9fefb8a549373df4a01">throw_system_error</a>(std::string what_arg);</div>
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span> </div>
+<div class="line"><a id="l00029" name="l00029"></a><span class="lineno"><a class="line" href="namespacenetpp__error.html#a6748450097e3df8fece0c0f2371f2b98">   29</a></span>    <span class="keywordtype">void</span> <a class="code hl_function" href="namespacenetpp__error.html#a6748450097e3df8fece0c0f2371f2b98">log_error</a>(std::system_error &amp;e);</div>
+<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span> </div>
+<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span>    <span class="keyword">namespace </span>{</div>
+<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span>        <span class="keyword">class </span>GAIErrorCategory : <span class="keyword">public</span> std::error_category {</div>
+<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span>            <span class="keyword">const</span> <span class="keywordtype">char</span> *name() const noexcept override;</div>
+<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span>            std::<span class="keywordtype">string</span> message(<span class="keywordtype">int</span> ev) const override;</div>
+<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span>        };</div>
+<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span> </div>
+<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span>        class LibraryErrorCategory : public std::error_category {</div>
+<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span>            <span class="keyword">const</span> <span class="keywordtype">char</span> *name() const noexcept override;</div>
+<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span>            std::<span class="keywordtype">string</span> message(<span class="keywordtype">int</span> ev) const override;</div>
+<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span>        };</div>
 <div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span>    }</div>
 <div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span> </div>
 <div class="line"><a id="l00060" name="l00060"></a><span class="lineno"><a class="line" href="namespacenetpp__error.html#a071af28ca3e4c2b80e3b8a57356a5eed">   60</a></span>    <span class="keywordtype">void</span> <a class="code hl_function" href="namespacenetpp__error.html#a071af28ca3e4c2b80e3b8a57356a5eed">throw_gai_error</a>(<span class="keywordtype">int</span> &amp;ev, std::<span class="keywordtype">string</span> what_arg);</div>
