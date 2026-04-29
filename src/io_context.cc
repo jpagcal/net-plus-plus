@@ -3,6 +3,7 @@
 #include <event2/buffer.h>
 #include "../include/tcp.hpp"
 #include "../include/error.hpp"
+#include <iostream>
 
 namespace async {
 IOContext::IOContext() : base_{
@@ -24,7 +25,7 @@ IOContext &IOContext::operator=(IOContext&& other) noexcept {
 	return *this;
 }
 
-IOContext::io_context_ptr create() {
+IOContext::io_context_ptr IOContext::create() {
 	return IOContext::io_context_ptr{ new IOContext() };
 }
 
@@ -45,21 +46,24 @@ namespace socket {
 		AsyncContext* context{ static_cast<AsyncContext *>(ctx) };
 		evbuffer *in{ bufferevent_get_input(event) };
 
-		if (evbuffer_get_length(in) < tcp::Connection::header_size) return;
+		while (true) {
+			if (evbuffer_get_length(in) < tcp::Connection::header_size) return;
 
-		int32_t length;
-		if (evbuffer_copyout(in, &length, tcp::Connection::header_size) < tcp::Connection::header_size) return;
-		evbuffer_drain(in, tcp::Connection::header_size);
+			int32_t length;
+			if (evbuffer_copyout(in, &length, tcp::Connection::header_size) < tcp::Connection::header_size) return;
+			length = ntohl(length);
 
-		std::string msg{};
-		msg.resize(length);
+			std::string msg{};
+			msg.resize(length);
 
-		if (evbuffer_get_length(in) < length) return;
-		if (evbuffer_remove(in, msg.data(), length) == -1) {
-			netpp_error::throw_system_error("evbuffer_remove failed:");
+			if (evbuffer_get_length(in) < length + tcp::Connection::header_size) return;
+			evbuffer_drain(in, tcp::Connection::header_size);
+			if (evbuffer_remove(in, msg.data(), length) == -1) {
+				netpp_error::throw_system_error("evbuffer_remove failed:");
+			}
+
+			context->recv_callback(msg);
 		}
-
-		context->recv_callback(msg);
 	}
 
 	void on_write(bufferevent *event, void *ctx) {

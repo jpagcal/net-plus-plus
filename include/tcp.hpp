@@ -101,6 +101,13 @@ public:
 		* @param buf The buffer of bytes to receive data
 	 */
 	void recv_sync(std::string &buf);
+
+	/**
+	 * @brief Sets the i/o context for the connection
+		*
+		* @param io The IOContext object
+	 */
+	void set_io(async::IOContext::io_context_ptr io);
 private:
 	/// @cond HIDDEN_FROM_DOCS
 	Connection(int32_t socket_fd, async::IOContext::io_context_ptr io_context = nullptr) :

@@ -55,7 +55,7 @@ class IOContext : public std::enable_shared_from_this<IOContext>{
 		*
 		* @returns The shared_ptr to the new IOContext instance
 	 */
-	io_context_ptr create();
+	static io_context_ptr create();
 
 	/**
 	 * @brief Gives a pointer to the event base struct for libevent calls

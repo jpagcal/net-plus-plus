@@ -186,6 +186,10 @@ void Connection::recv_sync(std::string &buf) {
 	}
 }
 
+void Connection::set_io(async::IOContext::io_context_ptr io) {
+	io_context_ = io;
+}
+
 Acceptor::Acceptor(std::string port, int32_t domain) :
 	listening_socket_fd_{
 		socket(domain, networking::socket_type::tcp, 0)
