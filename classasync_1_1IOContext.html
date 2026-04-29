@@ -93,6 +93,7 @@ $(document).ready(function(){initNavTree('classasync_1_1IOContext.html',''); ini
   <div class="summary">
 <a href="#pub-types">Public Types</a> &#124;
 <a href="#pub-methods">Public Member Functions</a> &#124;
+<a href="#pub-static-methods">Static Public Member Functions</a> &#124;
 <a href="classasync_1_1IOContext-members.html">List of all members</a>  </div>
   <div class="headertitle"><div class="title">async::IOContext Class Reference</div></div>
 </div><!--header-->
@@ -125,15 +126,18 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:ad597497e0de97984fa027391017042f0" id="r_ad597497e0de97984fa027391017042f0"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classasync_1_1IOContext.html">IOContext</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classasync_1_1IOContext.html#ad597497e0de97984fa027391017042f0">operator=</a> (<a class="el" href="classasync_1_1IOContext.html">IOContext</a> &amp;&amp;other) noexcept</td></tr>
 <tr class="memdesc:ad597497e0de97984fa027391017042f0"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="classasync_1_1IOContext.html" title="Handles the event loop.">IOContext</a> move assignment operator.  <br /></td></tr>
 <tr class="separator:ad597497e0de97984fa027391017042f0"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a330f785f2ba94d3ab41cb713db0e274c" id="r_a330f785f2ba94d3ab41cb713db0e274c"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classasync_1_1IOContext.html#a575adb31752f0f7a75cefea762ae88c1">io_context_ptr</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classasync_1_1IOContext.html#a330f785f2ba94d3ab41cb713db0e274c">create</a> ()</td></tr>
-<tr class="memdesc:a330f785f2ba94d3ab41cb713db0e274c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates an instance of <a class="el" href="classasync_1_1IOContext.html" title="Handles the event loop.">IOContext</a> wrapped in shared_ptr.  <br /></td></tr>
-<tr class="separator:a330f785f2ba94d3ab41cb713db0e274c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac7b843375fb42b44f5b9d3db5e5126f6" id="r_ac7b843375fb42b44f5b9d3db5e5126f6"><td class="memItemLeft" align="right" valign="top">event_base *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classasync_1_1IOContext.html#ac7b843375fb42b44f5b9d3db5e5126f6">c_base</a> () const</td></tr>
 <tr class="memdesc:ac7b843375fb42b44f5b9d3db5e5126f6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gives a pointer to the event base struct for libevent calls.  <br /></td></tr>
 <tr class="separator:ac7b843375fb42b44f5b9d3db5e5126f6"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae4955221c13851b81b0c37746a7138f8" id="r_ae4955221c13851b81b0c37746a7138f8"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classasync_1_1IOContext.html#ae4955221c13851b81b0c37746a7138f8">run</a> () const</td></tr>
 <tr class="memdesc:ae4955221c13851b81b0c37746a7138f8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Runs the event loop.  <br /></td></tr>
 <tr class="separator:ae4955221c13851b81b0c37746a7138f8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-static-methods" name="pub-static-methods"></a>
+Static Public Member Functions</h2></td></tr>
+<tr class="memitem:a596115e8f86f899517db2b46cb8c81c7" id="r_a596115e8f86f899517db2b46cb8c81c7"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="classasync_1_1IOContext.html#a575adb31752f0f7a75cefea762ae88c1">io_context_ptr</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classasync_1_1IOContext.html#a596115e8f86f899517db2b46cb8c81c7">create</a> ()</td></tr>
+<tr class="memdesc:a596115e8f86f899517db2b46cb8c81c7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates an instance of <a class="el" href="classasync_1_1IOContext.html" title="Handles the event loop.">IOContext</a> wrapped in shared_ptr.  <br /></td></tr>
+<tr class="separator:a596115e8f86f899517db2b46cb8c81c7"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Handles the event loop. </p>
@@ -230,19 +234,27 @@ Public Member Functions</h2></td></tr>
 
 </div>
 </div>
-<a id="a330f785f2ba94d3ab41cb713db0e274c" name="a330f785f2ba94d3ab41cb713db0e274c"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a330f785f2ba94d3ab41cb713db0e274c">&#9670;&#160;</a></span>create()</h2>
+<a id="a596115e8f86f899517db2b46cb8c81c7" name="a596115e8f86f899517db2b46cb8c81c7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a596115e8f86f899517db2b46cb8c81c7">&#9670;&#160;</a></span>create()</h2>
 
 <div class="memitem">
 <div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="classasync_1_1IOContext.html#a575adb31752f0f7a75cefea762ae88c1">io_context_ptr</a> async::IOContext::create </td>
+          <td class="memname">static <a class="el" href="classasync_1_1IOContext.html#a575adb31752f0f7a75cefea762ae88c1">io_context_ptr</a> async::IOContext::create </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td></td>
         </tr>
       </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
 </div><div class="memdoc">
 
 <p>Creates an instance of <a class="el" href="classasync_1_1IOContext.html" title="Handles the event loop.">IOContext</a> wrapped in shared_ptr. </p>

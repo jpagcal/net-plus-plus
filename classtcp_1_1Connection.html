@@ -139,6 +139,9 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a33e78f8d4f02b665dfd903048a0838ba" id="r_a33e78f8d4f02b665dfd903048a0838ba"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtcp_1_1Connection.html#a33e78f8d4f02b665dfd903048a0838ba">recv_sync</a> (std::string &amp;buf)</td></tr>
 <tr class="memdesc:a33e78f8d4f02b665dfd903048a0838ba"><td class="mdescLeft">&#160;</td><td class="mdescRight">Receives a message from the endpoint synchronously.  <br /></td></tr>
 <tr class="separator:a33e78f8d4f02b665dfd903048a0838ba"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a60cd866831847a490bc60fd563abdc2e" id="r_a60cd866831847a490bc60fd563abdc2e"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtcp_1_1Connection.html#a60cd866831847a490bc60fd563abdc2e">set_io</a> (<a class="el" href="classasync_1_1IOContext.html#a575adb31752f0f7a75cefea762ae88c1">async::IOContext::io_context_ptr</a> io)</td></tr>
+<tr class="memdesc:a60cd866831847a490bc60fd563abdc2e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the i/o context for the connection.  <br /></td></tr>
+<tr class="separator:a60cd866831847a490bc60fd563abdc2e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-static-methods" name="pub-static-methods"></a>
 Static Public Member Functions</h2></td></tr>
@@ -393,6 +396,32 @@ Static Public Attributes</h2></td></tr>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">msg</td><td>the buffer of bytes to send </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a60cd866831847a490bc60fd563abdc2e" name="a60cd866831847a490bc60fd563abdc2e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a60cd866831847a490bc60fd563abdc2e">&#9670;&#160;</a></span>set_io()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void tcp::Connection::set_io </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classasync_1_1IOContext.html#a575adb31752f0f7a75cefea762ae88c1">async::IOContext::io_context_ptr</a>&#160;</td>
+          <td class="paramname"><em>io</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Sets the i/o context for the connection. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">io</td><td>The IOContext object </td></tr>
   </table>
   </dd>
 </dl>
