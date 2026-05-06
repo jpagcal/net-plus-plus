@@ -142,9 +142,9 @@ $(document).ready(function(){initNavTree('io__context_8hpp_source.html',''); ini
 <div class="line"><a id="l00080" name="l00080"></a><span class="lineno">   80</span>    <span class="keyword">using </span>EventCallback = std::function&lt;void(<span class="keywordtype">short</span>)&gt;;</div>
 <div class="line"><a id="l00081" name="l00081"></a><span class="lineno">   81</span> </div>
 <div class="line"><a id="l00085" name="l00085"></a><span class="lineno">   85</span>    <span class="keyword">struct </span>AsyncContext {</div>
-<div class="line"><a id="l00086" name="l00086"></a><span class="lineno">   86</span>        std::deque&lt;std::function&lt;void()&gt;&gt; send_callbacks;</div>
-<div class="line"><a id="l00087" name="l00087"></a><span class="lineno">   87</span>        std::function&lt;void(std::string)&gt; recv_callback;</div>
-<div class="line"><a id="l00088" name="l00088"></a><span class="lineno">   88</span>        std::function&lt;void(<span class="keywordtype">short</span>)&gt; event_callback;</div>
+<div class="line"><a id="l00086" name="l00086"></a><span class="lineno">   86</span>        std::deque&lt;SendCallback&gt; send_callbacks;</div>
+<div class="line"><a id="l00087" name="l00087"></a><span class="lineno">   87</span>        RecvCallback recv_callback;</div>
+<div class="line"><a id="l00088" name="l00088"></a><span class="lineno">   88</span>        EventCallback event_callback;</div>
 <div class="line"><a id="l00089" name="l00089"></a><span class="lineno">   89</span>    };</div>
 <div class="line"><a id="l00090" name="l00090"></a><span class="lineno">   90</span> </div>
 <div class="line"><a id="l00091" name="l00091"></a><span class="lineno">   91</span>    <span class="keyword">using </span>AsyncContextPtr = std::shared_ptr&lt;AsyncContext&gt;;</div>

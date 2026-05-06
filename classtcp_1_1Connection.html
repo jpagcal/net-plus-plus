@@ -130,9 +130,9 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:af28d56c4049469095f65981be78cacd4" id="r_af28d56c4049469095f65981be78cacd4"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtcp_1_1Connection.html#af28d56c4049469095f65981be78cacd4">is_nonblocking</a> ()</td></tr>
 <tr class="memdesc:af28d56c4049469095f65981be78cacd4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Checks if the underlying socket handle is nonblocking.  <br /></td></tr>
 <tr class="separator:af28d56c4049469095f65981be78cacd4"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a64d6b6ef97e26823a134468ad31102ff" id="r_a64d6b6ef97e26823a134468ad31102ff"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtcp_1_1Connection.html#a64d6b6ef97e26823a134468ad31102ff">send_async</a> (std::string_view msg, std::function&lt; void()&gt; callback)</td></tr>
-<tr class="memdesc:a64d6b6ef97e26823a134468ad31102ff"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sends a message through the endpoint asynchronously.  <br /></td></tr>
-<tr class="separator:a64d6b6ef97e26823a134468ad31102ff"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1a203615c00a73c8d146e25a8b717a24" id="r_a1a203615c00a73c8d146e25a8b717a24"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtcp_1_1Connection.html#a1a203615c00a73c8d146e25a8b717a24">send_async</a> (std::string_view msg, async::socket::SendCallback callback)</td></tr>
+<tr class="memdesc:a1a203615c00a73c8d146e25a8b717a24"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sends a message through the endpoint asynchronously.  <br /></td></tr>
+<tr class="separator:a1a203615c00a73c8d146e25a8b717a24"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:adee0182da2eee3319f309094e37fe542" id="r_adee0182da2eee3319f309094e37fe542"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtcp_1_1Connection.html#adee0182da2eee3319f309094e37fe542">send_sync</a> (std::string_view msg)</td></tr>
 <tr class="memdesc:adee0182da2eee3319f309094e37fe542"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sends a message through the endpoint synchronously.  <br /></td></tr>
 <tr class="separator:adee0182da2eee3319f309094e37fe542"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -337,8 +337,8 @@ Static Public Attributes</h2></td></tr>
 
 </div>
 </div>
-<a id="a64d6b6ef97e26823a134468ad31102ff" name="a64d6b6ef97e26823a134468ad31102ff"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a64d6b6ef97e26823a134468ad31102ff">&#9670;&#160;</a></span>send_async()</h2>
+<a id="a1a203615c00a73c8d146e25a8b717a24" name="a1a203615c00a73c8d146e25a8b717a24"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1a203615c00a73c8d146e25a8b717a24">&#9670;&#160;</a></span>send_async()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -352,7 +352,7 @@ Static Public Attributes</h2></td></tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">std::function&lt; void()&gt;&#160;</td>
+          <td class="paramtype">async::socket::SendCallback&#160;</td>
           <td class="paramname"><em>callback</em>&#160;</td>
         </tr>
         <tr>
