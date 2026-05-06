@@ -83,9 +83,9 @@ namespace socket {
 	 * @brief Context to pass into callback functions
 	 */
 	struct AsyncContext {
-		std::deque<std::function<void()>> send_callbacks;
-		std::function<void(std::string)> recv_callback;
-		std::function<void(short)> event_callback;
+		std::deque<SendCallback> send_callbacks;
+		RecvCallback recv_callback;
+		EventCallback event_callback;
 	};
 
 	using AsyncContextPtr = std::shared_ptr<AsyncContext>;

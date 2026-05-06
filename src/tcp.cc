@@ -91,7 +91,9 @@ bool Connection::is_nonblocking() {
 	return false;
 }
 
-void Connection::send_async(std::string_view msg, std::function<void()> callback) {
+void Connection::send_async(std::string_view msg, async::socket::SendCallback callback) {
+	bufferevent_write(event_.get(), msg.data(), msg.length());
+	async_context_.send_callbacks.emplace_back(std::move(callback));
 }
 
 void Connection::send_sync(std::string_view msg) {

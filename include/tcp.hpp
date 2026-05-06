@@ -80,7 +80,7 @@ public:
 		* @param msg The buffer of bytes to send
 		* @param callback The function to call once the send operation completes
 	 */
-	void send_async(std::string_view msg, std::function<void()> callback);
+	void send_async(std::string_view msg, async::socket::SendCallback callback);
 
 	/**
 	 * @brief Sends a message through the endpoint synchronously

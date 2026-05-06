@@ -3,7 +3,6 @@
 #include <event2/buffer.h>
 #include "../include/tcp.hpp"
 #include "../include/error.hpp"
-#include <iostream>
 
 namespace async {
 IOContext::IOContext() : base_{
@@ -43,7 +42,7 @@ namespace socket {
 	}
 
 	void on_read(bufferevent *event, void *ctx) {
-		AsyncContext* context{ static_cast<AsyncContext *>(ctx) };
+		AsyncContext *context{ static_cast<AsyncContext *>(ctx) };
 		evbuffer *in{ bufferevent_get_input(event) };
 
 		while (true) {
@@ -67,7 +66,15 @@ namespace socket {
 	}
 
 	void on_write(bufferevent *event, void *ctx) {
-		return;
+		AsyncContext *context{ static_cast<AsyncContext *>(ctx) };
+		evbuffer *out{ bufferevent_get_output(event) };
+
+		// if the output buffer is empty and there are still callbacks to be executed, execute them
+		while (evbuffer_get_length(out) == 0 && !(context->send_callbacks.empty())) {
+			SendCallback front_callback{ context->send_callbacks.front() };
+			front_callback();
+			context->send_callbacks.pop_front();
+		}
 	}
 
 	void on_event(bufferevent *event, short events, void *ctx) {
